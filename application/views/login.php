@@ -26,6 +26,7 @@
 
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/User/css/flaticon.css">
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/User/css/icomoon.css">
+	<link rel="stylesheet" href="<?= base_url(); ?>assets/User/css/style.css">
 
 
 <body>
@@ -52,13 +53,13 @@
 
 	<div class="wrapper">
 		<div class="image-holder">
-			<img src="login/images/registration-form-8.jpg" alt="">
+			<img src="<?= base_url(); ?>assets/User/login/images/registration-form-8.jpg" alt="">
 		</div>
 		<div class="form-inner">
 			<form action="">
 				<div class="form-header">
 					<h3 style="color: white; font-size: 40px;font-family: ChelseaMarket-Regular;margin: 0;">Sign in</h3>
-					<img src="login/images/sign-up.png" alt="" class="sign-up-icon">
+					<img src="<?= base_url(); ?>assets/User/login/images/sign-up.png" alt="" class="sign-up-icon">
 				</div>
 				<div class="form-group">
 					<label style="color: white;" for="">Username:</label>
@@ -94,7 +95,7 @@
 	<script src="<?= base_url(); ?>assets/User/js/jquery.easing.1.3.js"></script>
 	<script src="<?= base_url(); ?>assets/User/js/jquery.waypoints.min.js"></script>
 	<script src="<?= base_url(); ?>assets/User/js/jquery.stellar.min.js"></script>
-	<script src="<?= base_url(); ?>assets/User//js/owl.carousel.min.js"></script>
+	<script src="<?= base_url(); ?>assets/User/js/owl.carousel.min.js"></script>
 	<script src="<?= base_url(); ?>assets/User/js/jquery.magnific-popup.min.js"></script>
 	<script src="<?= base_url(); ?>assets/User/js/aos.js"></script>
 	<script src="<?= base_url(); ?>assets/User/js/jquery.animateNumber.min.js"></script>
@@ -102,6 +103,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false">
 	</script>
 	<script src="<?= base_url(); ?>assets/User/js/google-map.js"></script>
+	<script src="<?= base_url(); ?>assets/User/js/main.js"></script>
 
 
 	<script src="<?= base_url(); ?>assets/User/login/js/jquery.form-validator.min.js"></script>
