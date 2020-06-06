@@ -6,7 +6,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a href="index.html" class="nav-link pl-0">Home</a></li>
+				<li class="nav-item active"><a href="index.html" class="nav-link pl-0">Home</a></li>
 				<li class="nav-item"><a href="about.html" class="nav-link">Tentang</a></li>
 				<li class="nav-item"><a href="#" class="nav-link">Kursus</a></li>
 				<li class="nav-item"><a href="pricing.html" class="nav-link">Harga</a></li>
