@@ -88,30 +88,22 @@ class Auth extends CI_Controller
 
 		if ($this->input->post('submit')) {
 			$this->form_validation->set_rules(
-				'nik',
-				'Nomor Induk Kepegawaian',
-				'trim|required|is_unique[xx_users.nik]|min_length[16]',
+				'username',
+				'username',
+				'trim|required|is_unique[xx_users.username]',
 				array(
-					'is_unique'	=> '%s  anda sudah terdaftar!',
-					'min_length' => '%s kurang dari 16 digit'
+					'is_unique'	=> '%s sudah terdaftar!',
 				)
 			);
 			$this->form_validation->set_rules(
-				'nama_depan',
-				'nama_depan',
+				'nama',
+				'nama',
 				'trim|required',
 				array(
 					'required'   => '%s Harap diisi!',
 				)
 			);
-			$this->form_validation->set_rules(
-				'nama_belakang',
-				'nama_belakang',
-				'trim|required',
-				array(
-					'required'   => '%s Harap diisi!',
-				)
-			);
+
 			$this->form_validation->set_rules(
 				'email',
 				'Email',
