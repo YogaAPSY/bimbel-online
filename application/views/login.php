@@ -56,27 +56,30 @@
 			<img src="<?= base_url(); ?>assets/User/login/images/registration-form-8.jpg" alt="">
 		</div>
 		<div class="form-inner">
-			<form action="">
-				<div class="form-header">
-					<h3 style="color: white; font-size: 40px;font-family: ChelseaMarket-Regular;margin: 0;">Sign in</h3>
-					<img src="<?= base_url(); ?>assets/User/login/images/sign-up.png" alt="" class="sign-up-icon">
-				</div>
-				<div class="form-group">
-					<label style="color: white;" for="">Username:</label>
-					<input type="text" class="form-controllogin" data-validation="length alphanumeric" data-validation-length="3-12">
-				</div>
+			<?php $attributes = array('id' => 'login_form', 'method' => 'post'); ?>
 
-				<div class="form-group">
-					<label style="color: white;" for="">Password:</label>
-					<input type="password" class="form-controllogin" data-validation="length" data-validation-length="min8">
-				</div>
+			<?php echo form_open('auth/login', $attributes); ?>
+			<div class="form-header">
+				<h3 style="color: white; font-size: 40px;font-family: ChelseaMarket-Regular;margin: 0;">Sign in</h3>
+				<img src="<?= base_url(); ?>assets/User/login/images/sign-up.png" alt="" class="sign-up-icon">
+			</div>
+			<div class="form-group">
+				<label style="color: white;" for="">Username:</label>
+				<input type="text" name="username" class="form-controllogin" data-validation="length alphanumeric" data-validation-length="3-12">
+			</div>
 
-				<button class="buttonlogin">Masuk</button>
-				<br>
-				<center> Belum Punya Akun ?
+			<div class="form-group">
+				<label style="color: white;" for="">Password:</label>
+				<input type="password" name="password" class="form-controllogin" data-validation="length" data-validation-length="min8">
+			</div>
+
+			<input type="submit" name="login" value="Masuk" class="buttonlogin">
+			<br>
+			<center> Belum Punya Akun ?
+				<a href="<?= base_url('auth/registration'); ?>">
 					<p>Daftar Sekarang</p>
-				</center>
-
+				</a>
+			</center>
 
 			</form>
 		</div>

@@ -13,7 +13,7 @@ class Auth_model extends CI_Model
 	// login function
 	public function login($data)
 	{
-		$query = $this->db->get_where('xx_users', array('email' => $data['email']));
+		$query = $this->db->get_where('xx_users', array('username' => $data['username']));
 		if ($query->num_rows() == 0) {
 			return false;
 		} else {
@@ -29,7 +29,7 @@ class Auth_model extends CI_Model
 	// login function
 	public function data_user($data)
 	{
-		$query = $this->db->get_where('xx_users', array('email' => $data));
+		$query = $this->db->get_where('xx_users', array('username' => $data));
 		if ($query->num_rows() == 0) {
 			return false;
 		} else {
@@ -40,28 +40,11 @@ class Auth_model extends CI_Model
 	//cek apakah sudah verifikasi email
 	public function is_verify($data)
 	{
-		$query = $this->db->get_where('xx_users', array('email' => $data['email'], 'is_active' => 1));
+		$query = $this->db->get_where('xx_users', array('username' => $data['username'], 'is_active' => 1));
 		if ($query->num_rows() == 0) {
 			return false;
 		} else {
 			return true;
-		}
-	}
-	//--------------------------------------------------------------------
-	public function email_verification($code)
-	{
-		$this->db->select('email');
-		$this->db->from('xx_users');
-		$this->db->where('token', $code);
-		$query = $this->db->get();
-		$result = $query->result_array();
-		$match = count($result);
-		if ($match > 0) {
-			$this->db->where('token', $code);
-			$this->db->update('xx_users', array('is_active' => 1, 'token' => ""));
-			return true;
-		} else {
-			return false;
 		}
 	}
 
@@ -73,26 +56,6 @@ class Auth_model extends CI_Model
 		if ($result->num_rows() > 0) {
 			$result = $result->row_array();
 			return $result;
-		} else {
-			return false;
-		}
-	}
-
-	//============ Update Reset Code Function ===================
-	public function update_reset_code($reset_code, $email)
-	{
-		$data = array('password_reset_code' => $reset_code);
-		$this->db->where('email', $email);
-		$this->db->update('xx_users', $data);
-	}
-
-	//============ Activation code for Password Reset Function ===================
-	public function check_password_reset_code($code)
-	{
-
-		$result = $this->db->get_where('xx_users',  array('password_reset_code' => $code));
-		if ($result->num_rows() > 0) {
-			return true;
 		} else {
 			return false;
 		}
