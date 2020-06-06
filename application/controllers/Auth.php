@@ -198,8 +198,8 @@ class Auth extends CI_Controller
 			}
 		} else {
 			$data['title'] = 'Registration';
-			$data['layout'] = 'auth/registration_page';
-			$this->load->view('layout', $data);
+
+			$this->load->view('register', $data);
 		}
 	}
 
