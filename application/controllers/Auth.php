@@ -72,8 +72,8 @@ class Auth extends CI_Controller
 			}
 		} else {
 			$data['title'] = 'Login';
-			$data['layout'] = 'auth/login_page';
-			$this->load->view('layout', $data);
+
+			$this->load->view('login', $data);
 		}
 	}
 
@@ -153,7 +153,7 @@ class Auth extends CI_Controller
 
 
 			if ($this->form_validation->run() == FALSE) {
-		
+
 				$data['title'] = 'Registration';
 				$data['layout'] = 'auth/registration_page';
 				$this->load->view('layout', $data);
@@ -173,7 +173,7 @@ class Auth extends CI_Controller
 
 
 
-				$result = $this->->auth_model->insert_into_users($data);
+				$result = $this->auth_model->insert_into_users($data);
 
 
 				$email = $this->input->post('email');
