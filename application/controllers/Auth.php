@@ -62,7 +62,7 @@ class Auth extends CI_Controller
 
 					$this->session->set_userdata($login_data);
 
-					$user_id = $this->session->userdata('user_id');
+					$user_id = $this->session->userdata('id_user');
 
 					redirect(base_url('profile'), 'refresh');
 				} else {
