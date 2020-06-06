@@ -175,9 +175,17 @@ class Auth extends CI_Controller
 					$subject = 'Verification your Email';
 					$message =  $body;
 					$email = sendEmail($to, $subject, $message, $file = '', $cc = '');
+
 					if ($email) {
+						var_dump($email);
+						exit();
 						$this->session->set_flashdata('registration_success', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
 						redirect(base_url('auth/login'), 'refresh');
+					} else {
+						var_dump($email);
+						exit();
+						$this->session->set_flashdata('registration_success', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+						redirect(base_url('auth/registration'), 'refresh');
 					}
 				}
 			}

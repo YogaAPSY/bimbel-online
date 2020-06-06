@@ -11,21 +11,21 @@ function sendEmail($to = '', $subject  = '', $body = '', $attachment = '', $cc =
 	$config['useragent']            = "CodeIgniter";
 	$config['mailpath']             = "/usr/bin/sendmail"; // or "/usr/sbin/sendmail"
 	$config['protocol']             = "smtp";
-	$config['smtp_host']            = "ssl://smtp.gmail.com";
+	$config['smtp_host']            = "smtp.googlemail.com";
 	$config['smtp_port']            = "465";
 	$config['smtp_timeout'] 		= '30';
 	$config['smtp_user']    		= "testera330@gmail.com";
 	$config['smtp_pass']    		= "bismillah456";
 	$config['mailtype'] 			= 'html';
 	$config['charset']  			= 'utf-8';
-	$config['newline']  			= "\r\n";
+
 	$config['wordwrap'] 			= TRUE;
 
 	$controller->load->library('email');
 
 	$controller->email->initialize($config);
-
-	$controller->email->from('no-reply@sinaga.com', 'Sinaga');
+	$controller->email->set_newline("\r\n");
+	$controller->email->from('no-reply@bimbel.com', 'Bimbel Bsmart');
 
 	$controller->email->to($to);
 
