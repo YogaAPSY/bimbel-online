@@ -173,7 +173,7 @@ class Auth extends CI_Controller
 
 
 
-				$result = $this->->auth_model->insert_user($data);
+				$result = $this->->auth_model->insert_into_users($data);
 
 
 				$email = $this->input->post('email');
