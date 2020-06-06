@@ -84,7 +84,7 @@
 			<div class="row">
 				<div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
 					<div class="text px-4 ftco-animate">
-						<h2 class="mb-4">Selamat datang di Bimble Online</h2>
+						<h2 class="mb-4">Selamat datang di B'Smart Palembang</h2>
 						<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it
 							would have been rewritten a thousand times and everything that was left from its origin
 							would be the word.</p>
@@ -188,27 +188,9 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 course d-lg-flex ftco-animate">
-					<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/course-1.jpg);"></div>
-					<div class="text bg-light p-4">
-						<h3><a href="#">Arts Lesson</a></h3>
-						<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
-							the necessary regelialia. It is a paradisematic country</p>
-					</div>
-				</div>
-				<div class="col-md-6 course d-lg-flex ftco-animate">
-					<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/course-2.jpg);"></div>
-					<div class="text bg-light p-4">
-						<h3><a href="#">Language Lesson</a></h3>
-						<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
-							the necessary regelialia. It is a paradisematic country</p>
-					</div>
-				</div>
-				<div class="col-md-6 course d-lg-flex ftco-animate">
 					<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/course-3.jpg);"></div>
 					<div class="text bg-light p-4">
-						<h3><a href="#">Music Lesson</a></h3>
+						<h3><a href="#">Cinta Baca</a></h3>
 						<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
 						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
 							the necessary regelialia. It is a paradisematic country</p>
@@ -217,7 +199,7 @@
 				<div class="col-md-6 course d-lg-flex ftco-animate">
 					<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/course-4.jpg);"></div>
 					<div class="text bg-light p-4">
-						<h3><a href="#">Sports Lesson</a></h3>
+						<h3><a href="#">Cinta Matematika</a></h3>
 						<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
 						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
 							the necessary regelialia. It is a paradisematic country</p>
