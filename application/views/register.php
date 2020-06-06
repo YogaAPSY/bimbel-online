@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Bimble Online</title>
+	<title>Bimble B'Smart Palembang</title>
 	<meta charset="utf-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +32,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 		<div class="container d-flex align-items-center">
-			<a class="navbar-brand" href="index.html">Bimble</a>
+			<a class="navbar-brand" href="index.html">B'Smart</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> Menu
 			</button>

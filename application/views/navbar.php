@@ -11,6 +11,7 @@
 				<li class="nav-item"><a href="http://localhost/bimbel-online/Home/kursus" class="nav-link">Kursus</a></li>
 				<li class="nav-item"><a href="http://localhost/bimbel-online/Home/harga" class="nav-link">Harga</a></li>
 				<li class="nav-item"><a href="http://localhost/bimbel-online/Home/kontak" class="nav-link">Kontak</a></li>
+				<li class="nav-item"><a href="http://localhost/bimbel-online/auth/login" class="nav-link">Login</a></li>
 			</ul>
 		</div>
 	</div>
