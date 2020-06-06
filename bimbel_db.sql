@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2020 at 02:24 AM
+-- Generation Time: Jun 06, 2020 at 11:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -32,10 +32,30 @@ CREATE TABLE `xx_admin` (
   `id_admin` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `status` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL COMMENT '1. admin, 2. owner',
+  `status` int(11) NOT NULL COMMENT '1. admin, 2. owner',
+  `nama` varchar(100) NOT NULL COMMENT '\r\n',
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `xx_jenis_kelas`
+--
+
+CREATE TABLE `xx_jenis_kelas` (
+  `id` int(11) NOT NULL,
+  `jenis_kelas` varchar(50) NOT NULL,
+  `kode` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `xx_jenis_kelas`
+--
+
+INSERT INTO `xx_jenis_kelas` (`id`, `jenis_kelas`, `kode`) VALUES
+(1, 'Cinta Baca', 'cba'),
+(2, 'Cinta Matika', 'cma');
 
 -- --------------------------------------------------------
 
@@ -52,7 +72,9 @@ CREATE TABLE `xx_kelas` (
   `expired_pendaftaran` varchar(50) NOT NULL,
   `kuota` int(11) NOT NULL,
   `jadwal_kelas` varchar(50) NOT NULL,
-  `created_at` datetime NOT NULL,
+  `judul_kelas` varchar(100) NOT NULL,
+  `deskripsi_kelas` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -93,19 +115,27 @@ CREATE TABLE `xx_profile` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `xx_user`
+-- Table structure for table `xx_users`
 --
 
-CREATE TABLE `xx_user` (
+CREATE TABLE `xx_users` (
   `id_user` int(11) NOT NULL,
-  `nik` varchar(16) NOT NULL,
+  `username` varchar(50) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `nama_depan` varchar(50) NOT NULL,
-  `nama_belakang` varchar(50) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `is_active` int(11) NOT NULL DEFAULT 2 COMMENT '1. active,2.inactive\r\n',
   `token` text NOT NULL,
+  `password_reset_code` varchar(128) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `xx_users`
+--
+
+INSERT INTO `xx_users` (`id_user`, `username`, `email`, `password`, `nama`, `is_active`, `token`, `password_reset_code`, `created_at`) VALUES
+(1, 'asdads', 'yogaanugrahpsy@gmail.com', '$2y$10$8JVUp5uAxdQn8bsuUvqmBewctpEDXvRMIih5r2BqniCQL6TpN2xWe', 'asdasd', 2, '0266e33d3f546cb5436a10798e657d97', '', '2020-06-06 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -116,6 +146,12 @@ CREATE TABLE `xx_user` (
 --
 ALTER TABLE `xx_admin`
   ADD PRIMARY KEY (`id_admin`);
+
+--
+-- Indexes for table `xx_jenis_kelas`
+--
+ALTER TABLE `xx_jenis_kelas`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `xx_kelas`
@@ -137,11 +173,11 @@ ALTER TABLE `xx_profile`
   ADD PRIMARY KEY (`id_profile`);
 
 --
--- Indexes for table `xx_user`
+-- Indexes for table `xx_users`
 --
-ALTER TABLE `xx_user`
+ALTER TABLE `xx_users`
   ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `nik` (`nik`),
+  ADD UNIQUE KEY `nik` (`username`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -153,6 +189,12 @@ ALTER TABLE `xx_user`
 --
 ALTER TABLE `xx_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `xx_jenis_kelas`
+--
+ALTER TABLE `xx_jenis_kelas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `xx_kelas`
@@ -173,10 +215,10 @@ ALTER TABLE `xx_profile`
   MODIFY `id_profile` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `xx_user`
+-- AUTO_INCREMENT for table `xx_users`
 --
-ALTER TABLE `xx_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `xx_users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
