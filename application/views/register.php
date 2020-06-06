@@ -82,7 +82,7 @@
 				<label style="color: white;" for="">Confirm Password:</label>
 				<input type="password" name="confirmpassword" class="form-controllogin" data-validation="length" data-validation-length="min8">
 			</div>
-			<button class="buttonlogin" type="submit" name="submit">create my account</button>
+			<input class="buttonlogin" type="submit" name="submit" value="create my account">
 			<br>
 			<center> Sudah Punya Akun ?
 				<a href="<?= base_url('auth/login'); ?>">

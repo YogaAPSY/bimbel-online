@@ -87,6 +87,7 @@ class Auth extends CI_Controller
 		}
 
 		if ($this->input->post('submit')) {
+
 			$this->form_validation->set_rules(
 				'username',
 				'username',
@@ -134,29 +135,21 @@ class Auth extends CI_Controller
 					'min_length' => '%s minimal 3 karakter!' //edited by wahid
 				)
 			);
-			// $this->form_validation->set_rules(
-			// 	'termsncondition',
-			// 	'Syarat & Ketentuan',
-			// 	'required',
-			// 	array(
-			// 		'required'   => '%s Harap dicentang!' //edited by wahid
-			// 	)
-			// );
 
 
 			if ($this->form_validation->run() == FALSE) {
 
 				$data['title'] = 'Registration';
-				$data['layout'] = 'auth/registration_page';
-				$this->load->view('layout', $data);
+
+				$this->load->view('register', $data);
 			} else {
 				$rand_no = rand(0, 1000);
 				$verify_code = md5($rand_no);
 
 				$data = array(
-					'nik' => $this->security->xss_clean($this->input->post('nik')),
-					'nama_depan' => $this->security->xss_clean($this->input->post('nama_depan')),
-					'nama_belakang' => $this->security->xss_clean($this->input->post('nama_belakang')),
+					'username' => $this->security->xss_clean($this->input->post('username')),
+					'nama' => $this->security->xss_clean($this->input->post('nama')),
+
 					'email' => $this->security->xss_clean($this->input->post('email')),
 					'token' => $verify_code,
 					'password' => $this->security->xss_clean(password_hash($this->input->post('password'), PASSWORD_BCRYPT)),
@@ -172,7 +165,7 @@ class Auth extends CI_Controller
 				$response = $this->auth_model->check_user_mail($email); // check if email exist
 				if ($response) {
 					// --- sending email
-					$name = $response['nama_depan'] . ' ' . $response['nama_belakang'];
+					$name = $response['nama'];
 					$email = $response['email'];
 					$verify_link = base_url('auth/verify/?email=' . $email . '&token=' . $verify_code);
 					$body = $this->mailer->registration_email($name, $verify_link);
