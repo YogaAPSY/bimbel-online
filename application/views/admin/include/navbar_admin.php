@@ -73,11 +73,20 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url(); ?>admin/siswa">
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">face</i>
                             <span>Siswa</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?= base_url(); ?>admin/siswa">List Siswa</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url(); ?>admin/laporan">Laporan Siswa</a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li>
                         <a href="#">
                             <i class="material-icons">view_list</i>
