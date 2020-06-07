@@ -20,7 +20,9 @@ class Kelas extends CI_Controller
 
 	public function add_kelas()
 	{
+
 		if ($this->input->post('add_kelas')) {
+
 			$this->form_validation->set_rules(
 				'kode_kelas',
 				'Kode Kelas',
@@ -49,8 +51,8 @@ class Kelas extends CI_Controller
 				)
 			);
 			$this->form_validation->set_rules(
-				'jenis_kelas',
-				'Jenis Kelas',
+				'harga_kelas',
+				'Harga Kelas',
 				'trim|required',
 				array(
 					'required'    => '%s harus diisi!' //edited by wahid
@@ -65,11 +67,12 @@ class Kelas extends CI_Controller
 
 				$data['title'] = 'Add Kelas';
 				$data['layout'] = 'admin/add_kelas';
+
 				$this->load->view('admin/layout_admin', $data);
 			} else {
 				$data = array(
-					'kode_kelas' => $this->security->xss_clean(get_kode_jenis_kelas($this->input->post('jenis_kelas'))),
-					'jenis_kelas' => $this->security->xss_clean($this->input->post('jenis_kelas')),
+					'kode_kelas' => $this->security->xss_clean($this->input->post('kode_kelas')),
+					'harga_kelas' => $this->security->xss_clean($this->input->post('harga_kelas')),
 					'jadwal_kelas' => $this->security->xss_clean($this->input->post('jadwal_kelas')),
 					'judul_kelas' => $this->security->xss_clean($this->input->post('judul_kelas')),
 					'deskripsi_kelas' => $this->security->xss_clean($this->input->post('deskripsi_kelas')),
@@ -77,12 +80,14 @@ class Kelas extends CI_Controller
 
 				);
 
+
+
 				$result = $this->kelas_model->insert_kelas($data);
 				if ($result) {
-					$this->session->set_flashdata('post_job_success', 'Congratulation! Job has been Posted successfully');
-					redirect(base_url('admin/kelas/list_kelas'));
+					$this->session->set_flashdata('message', 'Berhasil');
+					redirect(base_url('admin/kelas'));
 				} else {
-					$this->session->set_flashdata('post_job_error', 'Failed');
+					$this->session->set_flashdata('abort', 'Failed');
 					redirect(base_url('admin/kelas/add_kelas'));
 				}
 			}

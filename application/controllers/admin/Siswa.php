@@ -15,4 +15,11 @@ class Siswa extends CI_Controller
 		$data['layout'] = 'admin/siswa/list_siswa';
 		$this->load->view('admin/layout_admin', $data);
 	}
+
+	public function laporan()
+	{
+		$data['title'] = 'Laporan';
+		$data['layout'] = 'admin/siswa/laporan_siswa';
+		$this->load->view('admin/layout_admin', $data);
+	}
 }
