@@ -67,8 +67,11 @@
                           <td><?= $kelas['judul_kelas'] ?></td>
                           <td><?= $kelas['deskripsi_kelas'] ?></td>
                           <td style="text-align: center;vertical-align: middle;">
-                            <a href="" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;&nbsp;
-                            <a href="" data-toggle="tooltip" data-placement="top" title="Delete" onclick="javasciprt: return confirm('Yakin Ingin Menghapus ?')"><i style="color:red;" class="material-icons">delete</i></a>
+                            <center>
+                              <a href="" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;&nbsp;
+                              <a href="" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;&nbsp;
+                              <a href="" data-toggle="tooltip" data-placement="top" title="Delete" onclick="javasciprt: return confirm('Yakin Ingin Menghapus ?')"><i style="color:red;" class="material-icons">delete</i></a>
+                            </center>
                           </td>
                         </tr>
                       <?php endforeach; ?>
