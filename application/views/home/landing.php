@@ -191,7 +191,7 @@
 					<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/course-3.jpg);"></div>
 					<div class="text bg-light p-4">
 						<h3><a href="#">Cinta Baca</a></h3>
-						<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+						<!-- <p class="subheading"><span>Class time:</span> 9:00am - 10am</p> -->
 						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
 							the necessary regelialia. It is a paradisematic country</p>
 					</div>
@@ -213,7 +213,7 @@
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
-					<h2 class="mb-4"><span>Daftar</span> Harga</h2>
+					<h2 class="mb-4"><span>Daftar</span> Kelas</h2>
 					<p>Separated they live in. A small river named Duden flows by their place and supplies it with the
 						necessary regelialia. It is a paradisematic country</p>
 				</div>
@@ -222,8 +222,10 @@
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="pricing-entry bg-light pb-4 text-center">
 						<div>
-							<h3 class="mb-3">Basic</h3>
-							<p><span class="price">$24.50</span> <span class="per">/ 5mos</span></p>
+							<h3 class="mb-3">Cinta Matika Pagi</h3>
+							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
+							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
 						</div>
 						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_1.jpg);"></div>
 						<div class="px-4">
@@ -237,8 +239,10 @@
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="pricing-entry bg-light pb-4 text-center">
 						<div>
-							<h3 class="mb-3">Standard</h3>
-							<p><span class="price">$34.50</span> <span class="per">/ 5mos</span></p>
+							<h3 class="mb-3">Cinta Matika Siang</h3>
+							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
+							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
 						</div>
 						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_2.jpg);"></div>
 						<div class="px-4">
@@ -252,8 +256,10 @@
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="pricing-entry bg-light active pb-4 text-center">
 						<div>
-							<h3 class="mb-3">Premium</h3>
-							<p><span class="price">$54.50</span> <span class="per">/ 5mos</span></p>
+							<h3 class="mb-3">Cinta Baca Pagi</h3>
+							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
+							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
 						</div>
 						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_3.jpg);"></div>
 						<div class="px-4">
@@ -267,8 +273,10 @@
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="pricing-entry bg-light pb-4 text-center">
 						<div>
-							<h3 class="mb-3">Platinum</h3>
-							<p><span class="price">$89.50</span> <span class="per">/ 5mos</span></p>
+							<h3 class="mb-3">Cinta Baca Siang</h3>
+							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
+							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
 						</div>
 						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_5.jpg);"></div>
 						<div class="px-4">

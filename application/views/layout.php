@@ -28,13 +28,13 @@
 <body>
 
 	<!-- Navbar File-->
-	<?php include('navbar.php'); ?>
+	<?php include('include/navbar.php'); ?>
 	<!--main content start-->
 	<?php $this->load->view($layout); ?>
 	<!--main content end-->
 
 	<!-- Footer File-->
-	<?php include('footer.php'); ?>
+	<?php include('include/footer.php'); ?>
 
 </body>
 

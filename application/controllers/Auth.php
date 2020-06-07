@@ -64,7 +64,7 @@ class Auth extends CI_Controller
 
 						$user_id = $this->session->userdata('id_user');
 
-						redirect(base_url('profile'), 'refresh');
+						redirect(base_url('kelas'), 'refresh');
 					} else {
 						$this->session->set_flashdata('error_login', 'Email atau Password yang anda masukkan salah.');
 						redirect(base_url('auth/login'), 'refresh');
@@ -74,7 +74,7 @@ class Auth extends CI_Controller
 		} else {
 			$data['title'] = 'Login';
 
-			$this->load->view('login', $data);
+			$this->load->view('auth/login', $data);
 		}
 	}
 
@@ -169,7 +169,7 @@ class Auth extends CI_Controller
 		} else {
 			$data['title'] = 'Registration';
 
-			$this->load->view('register', $data);
+			$this->load->view('auth/register', $data);
 		}
 	}
 

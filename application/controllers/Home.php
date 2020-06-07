@@ -7,35 +7,35 @@ class Home extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Home';
-		$data['layout'] = 'landing';
+		$data['layout'] = 'home/landing';
 		$this->load->view('layout', $data);
 	}
 
 	public function tentang()
 	{
 		$data['title'] = 'tentang';
-		$data['layout'] = 'tentang';
+		$data['layout'] = 'home/tentang';
 		$this->load->view('layout', $data);
 	}
 
 	public function kursus()
 	{
 		$data['title'] = 'kursus';
-		$data['layout'] = 'kursus';
+		$data['layout'] = 'home/kursus';
 		$this->load->view('layout', $data);
 	}
 
 	public function harga()
 	{
 		$data['title'] = 'harga';
-		$data['layout'] = 'harga';
+		$data['layout'] = 'home/harga';
 		$this->load->view('layout', $data);
 	}
 
 	public function kontak()
 	{
 		$data['title'] = 'kontak';
-		$data['layout'] = 'kontak';
+		$data['layout'] = 'home/kontak';
 		$this->load->view('layout', $data);
 	}
 }
