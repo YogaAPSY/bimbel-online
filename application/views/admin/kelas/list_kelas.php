@@ -47,27 +47,31 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>A</th>
-                        <th>B</th>
-                        <th>C</th>
-                        <th>D</th>
+                        <th>Kode Kelas</th>
+                        <th>Jenis Kelas</th>
+                        <th>Jadwal Kelas</th>
+                        <th>Judul Kelas</th>
+                        <th>Deskripsi Kelas</th>
                         <th style="text-align: center;">ACTION</th>
                       </tr>
                     </thead>
 
                     <tbody>
 
-                      <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td style="text-align: center;vertical-align: middle;">
-                          <a href="" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;&nbsp;
-                          <a href="" data-toggle="tooltip" data-placement="top" title="Delete" onclick="javasciprt: return confirm('Yakin Ingin Menghapus ?')"><i style="color:red;" class="material-icons">delete</i></a>
-                        </td>
-                      </tr>
+                      <?php foreach ($list_kelas as $kelas) : ?>
+                        <tr>
+                          <td><?= $kelas['id_kelas'] ?></td>
+                          <td><?= $kelas['kode_kelas'] ?></td>
+                          <td><?= get_nama_jenis_kelas($kelas['jenis_kelas']) ?></td>
+                          <td><?= $kelas['jadwal_kelas'] ?></td>
+                          <td><?= $kelas['judul_kelas'] ?></td>
+                          <td><?= $kelas['deskripsi_kelas'] ?></td>
+                          <td style="text-align: center;vertical-align: middle;">
+                            <a href="" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;&nbsp;
+                            <a href="" data-toggle="tooltip" data-placement="top" title="Delete" onclick="javasciprt: return confirm('Yakin Ingin Menghapus ?')"><i style="color:red;" class="material-icons">delete</i></a>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
 
                     </tbody>
                   </table>

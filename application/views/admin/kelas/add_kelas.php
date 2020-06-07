@@ -41,7 +41,7 @@
                                                 <div class="form-group">
                                                     <div class="form-line">
                                                         <select style="font-size: 14px;" class="form-control show-tick" name="jenis_kelas" required autocomplete="off">
-                                                            <option value="" selected="" disabled="">-- Pilih Status User --</option>
+                                                            <option value="" selected="" disabled="">-- Pilih Jenis Kelas --</option>
                                                             <option value="Cinta Matika Pagi">Cinta Matika Pagi</option>
                                                             <option value="Cinta Matika Siang">Cinta Matika Siang</option>
                                                             <option value="Cinta Baca Pagi">Cinta Baca Pagi</option>
