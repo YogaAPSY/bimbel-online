@@ -87,7 +87,7 @@ class Kelas extends CI_Controller
 		} else {
 
 			$data['title'] = 'Add Kelas';
-			$data['layout'] = 'admin/add_kelas';
+			$data['layout'] = 'admin/kelas/add_kelas';
 			$this->load->view('admin/layout_admin', $data);
 		}
 	}
@@ -163,7 +163,7 @@ class Kelas extends CI_Controller
 		} else {
 
 			$data['title'] = 'Add Kelas';
-			$data['layout'] = 'admin/edit_kelas';
+			$data['layout'] = 'admin/kelas/edit_kelas';
 			$this->load->view('admin/layout_admin', $data);
 		}
 	}

@@ -18,4 +18,13 @@ class Kelas_model extends CI_Model
 		$this->db->update('xx_kelas', $data);
 		return true;
 	}
+
+	public function list_kelas()
+	{
+		$this->db->select('*');
+		$this->db->from('xx_kelas');
+		$this->db->order_by('id_kelas', 'asc');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
