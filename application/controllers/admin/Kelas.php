@@ -14,7 +14,7 @@ class Kelas extends CI_Controller
 		$data['title'] = 'Kelas';
 		$data['list_kelas'] = $this->kelas_model->list_kelas();
 
-		$data['layout'] = 'admin/kelas/list_kelas2';
+		$data['layout'] = 'admin/kelas/list_kelas';
 		$this->load->view('admin/layout_admin', $data);
 	}
 
