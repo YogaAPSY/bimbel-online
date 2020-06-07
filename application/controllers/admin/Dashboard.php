@@ -14,6 +14,8 @@ class Dashboard extends CI_Controller
 	// login functionality
 	public function index()
 	{
-		$this->load->view('admin/dashboard');
+		$data['title'] = 'Dashboard';
+		$data['layout'] = 'admin/dashboard';
+		$this->load->view('admin/layout_admin', $data);
 	}
 }
