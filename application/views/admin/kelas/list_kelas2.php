@@ -22,7 +22,7 @@
     <section class="content">
     	<div class="container-fluid">
     		<div class="block-header">
-    			<h2>Kelas B'Smart</h2>
+    			<h2>B'SMART RUANG KELAS</h2>
     		</div>
 
     		<!-- Basic Examples -->
@@ -31,9 +31,9 @@
     				<div class="card">
     					<div class="header">
     						<h2 style="font-size: 22px;color:#ad1455;font-weight: bold;">
-    							<center>List Kelas</center>
+    							<center>LIST RUANG KELAS</center>
     						</h2> <br><br>
-    						<a href="#">
+    						<a href="<?= base_url() ?>admin/kelas/add_kelas">
     							<button type="button" class="btn btn-info waves-effect">
     								<i class="material-icons">add</i>
     								<span>TAMBAH</span>
@@ -47,15 +47,17 @@
     								<thead>
     									<tr>
     										<th>No</th>
-    										<th>A</th>
-    										<th>B</th>
-    										<th>C</th>
-    										<th>D</th>
-    										<th>ACTION</th>
+    										<th>Kode Kelas</th>
+    										<th>Jenis Kelas</th>
+    										<th>Jadwal Kelas</th>
+    										<th>Judul Kelas</th>
+    										<th>Deskripsi Kelas</th>
+    										<th style="text-align: center;">ACTION</th>
     									</tr>
     								</thead>
 
     								<tbody>
+
     									<?php foreach ($list_kelas as $kelas) : ?>
     										<tr>
     											<td><?= $kelas['id_kelas'] ?></td>
@@ -70,6 +72,7 @@
     											</td>
     										</tr>
     									<?php endforeach; ?>
+
     								</tbody>
     							</table>
     						</div>

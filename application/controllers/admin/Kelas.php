@@ -14,7 +14,7 @@ class Kelas extends CI_Controller
 		$data['title'] = 'Kelas';
 		$data['list_kelas'] = $this->kelas_model->list_kelas();
 
-		$data['layout'] = 'admin/kelas/list_kelas';
+		$data['layout'] = 'admin/kelas/list_kelas2';
 		$this->load->view('admin/layout_admin', $data);
 	}
 
@@ -87,6 +87,7 @@ class Kelas extends CI_Controller
 				}
 			}
 		} else {
+			$data['jenis_kelas'] = get_jenis_kelas();
 
 			$data['title'] = 'Add Kelas';
 			$data['layout'] = 'admin/kelas/add_kelas';

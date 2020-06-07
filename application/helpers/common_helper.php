@@ -16,6 +16,14 @@ function get_nama_jenis_kelas($id)
 	return $CI->db->get_where('xx_jenis_kelas', array('id' => $id))->row_array()['jenis_kelas'];
 }
 
+// -----------------------------------------------------------------------------
+// Get category name by id
+function get_jenis_kelas()
+{
+	$CI = &get_instance();
+	return $CI->db->get('xx_jenis_kelas')->result_array();
+}
+
 function get_category_user_id($user_id)
 {
 	$CI = &get_instance();
