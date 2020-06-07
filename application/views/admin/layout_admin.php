@@ -30,6 +30,8 @@
 
 	<!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
 	<link href="<?= base_url(); ?>assets/AdminBsb/css/themes/all-themes.css" rel="stylesheet" />
+	<!-- JQuery DataTable Css -->
+	<link href="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
 </head>
 
 <body class="theme-red">

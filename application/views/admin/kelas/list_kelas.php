@@ -33,7 +33,7 @@
                 <h2 style="font-size: 22px;color:#ad1455;font-weight: bold;">
                   <center>LIST RUANG KELAS</center>
                 </h2> <br><br>
-                <a href="http://localhost/bimbel-online/admin/kelas/add_kelas">
+                <a href="<?= base_url(); ?>admin/kelas/add_kelas">
                   <button type="button" class="btn btn-info waves-effect">
                     <i class="material-icons">add</i>
                     <span>TAMBAH</span>

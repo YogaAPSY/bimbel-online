@@ -67,13 +67,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://localhost/bimbel-online/admin/kelas">
+                        <a href="<?= base_url(); ?>admin/kelas">
                             <i class="material-icons">local_library</i>
                             <span>Kelas</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="<?= base_url(); ?>admin/siswa">
                             <i class="material-icons">face</i>
                             <span>Siswa</span>
                         </a>

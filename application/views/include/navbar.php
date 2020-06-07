@@ -6,12 +6,12 @@
 		</button>
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a href="http://localhost/bimbel-online" class="nav-link pl-0">Home</a></li>
-				<li class="nav-item"><a href="http://localhost/bimbel-online/Home/tentang" class="nav-link">Tentang</a></li>
-				<li class="nav-item"><a href="http://localhost/bimbel-online/Home/kursus" class="nav-link">Kursus</a></li>
-				<li class="nav-item"><a href="http://localhost/bimbel-online/Home/harga" class="nav-link">Harga</a></li>
-				<li class="nav-item"><a href="http://localhost/bimbel-online/Home/kontak" class="nav-link">Kontak</a></li>
-				<li class="nav-item"><a href="http://localhost/bimbel-online/auth/login" class="nav-link">Login</a></li>
+				<li class="nav-item"><a href="<?= base_url(); ?>" class="nav-link pl-0">Home</a></li>
+				<li class="nav-item"><a href="<?= base_url(); ?>Home/tentang" class="nav-link">Tentang</a></li>
+				<li class="nav-item"><a href="<?= base_url(); ?>Home/kursus" class="nav-link">Kursus</a></li>
+				<li class="nav-item"><a href="<?= base_url(); ?>Home/harga" class="nav-link">Harga</a></li>
+				<li class="nav-item"><a href="<?= base_url(); ?>Home/kontak" class="nav-link">Kontak</a></li>
+				<li class="nav-item"><a href="<?= base_url(); ?>auth/login" class="nav-link">Login</a></li>
 			</ul>
 		</div>
 	</div>

@@ -5,7 +5,7 @@
 				<div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
 					<div class="col-md-8 text-center ftco-animate">
 						<h1 class="mb-4">Anak-anak adalah yang terbaik <span> penjelajah di dunia</span></h1>
-						<p><a href="http://localhost/bimbel-online/auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<p><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
 					</div>
 				</div>
 			</div>
@@ -17,7 +17,7 @@
 				<div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
 					<div class="col-md-8 text-center ftco-animate">
 						<h1 class="mb-4">Belajar Semupurna <span> Untuk Anak Anda</span></h1>
-						<p><a href="http://localhost/bimbel-online/auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<p><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
 					</div>
 				</div>
 			</div>
@@ -91,7 +91,7 @@
 						<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
 							ocean. A small river named Duden flows by their place and supplies it with the necessary
 							regelialia. And if she hasn’t been rewritten, then they are still using her.</p>
-						<p><a href="http://localhost/bimbel-online/Home/tentang" class="btn btn-secondary px-4 py-3">Read More</a></p>
+						<p><a href="<?= base_url(); ?>Home/tentang" class="btn btn-secondary px-4 py-3">Read More</a></p>
 					</div>
 				</div>
 				<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
@@ -171,7 +171,7 @@
 						mouth.</p>
 				</div>
 				<div class="col-md-3 d-flex align-items-center">
-					<p class="mb-0"><a href="http://localhost/bimbel-online/auth/login" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
+					<p class="mb-0"><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
 				</div>
 			</div>
 		</div>
