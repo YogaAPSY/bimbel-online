@@ -12,7 +12,7 @@ class Kelas extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Kelas';
-		$data['layout'] = 'admin/kelas';
+		$data['layout'] = 'admin/kelas/list_kelas';
 		$this->load->view('admin/layout_admin', $data);
 	}
 

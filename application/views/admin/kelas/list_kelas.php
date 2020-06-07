@@ -56,7 +56,7 @@
                                     </thead>
 
                                     <tbody>
-                                        <
+                                 
                                         <tr>
                                             <td></td>
                                             <td></td>
@@ -68,7 +68,7 @@
                                                 <a href="" data-toggle="tooltip" data-placement="top" title="Delete" onclick="javasciprt: return confirm('Yakin Ingin Menghapus ?')"><i style="color:red;" class="material-icons">delete</i></a>
                                             </td>
                                         </tr>
-                                     <?php } ?>
+                                     
                                     </tbody>
                                 </table>
                             </div>
