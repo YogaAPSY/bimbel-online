@@ -47,4 +47,11 @@ class Home extends CI_Controller
 		$data['layout'] = 'home/kontak';
 		$this->load->view('layout', $data);
 	}
+
+	public function form()
+	{
+		$data['title'] = 'form';
+		$data['layout'] = 'home/form';
+		$this->load->view('layout', $data);
+	}
 }

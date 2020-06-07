@@ -87,12 +87,12 @@
     					</ul>
     				</li>
 
-    				<li>
+    				<!-- <li>
     					<a href="#">
     						<i class="material-icons">view_list</i>
     						<span>Kategori</span>
     					</a>
-    				</li>
+    				</li> -->
     			</ul>
     		</div>
     		<!-- #Menu -->
