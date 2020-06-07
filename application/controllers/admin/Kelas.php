@@ -11,8 +11,8 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Dashboard';
-		$data['layout'] = 'admin/dashboard';
+		$data['title'] = 'Kelas';
+		$data['layout'] = 'admin/kelas';
 		$this->load->view('admin/layout_admin', $data);
 	}
 
