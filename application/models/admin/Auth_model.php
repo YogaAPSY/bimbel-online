@@ -23,7 +23,7 @@ class Auth_model extends CI_Model
 	// login function
 	public function data_user($data)
 	{
-		$query = $this->db->get_where('xx_admin', array('email' => $data));
+		$query = $this->db->get_where('xx_admin', array('username' => $data));
 		if ($query->num_rows() == 0) {
 			return false;
 		} else {

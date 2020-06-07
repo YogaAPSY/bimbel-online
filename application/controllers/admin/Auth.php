@@ -6,7 +6,7 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('auth_model', 'auth_model');
+		$this->load->model('admin/auth_model', 'auth_model');
 		$this->load->library('mailer'); // load custom mailer library
 	}
 
@@ -32,7 +32,7 @@ class Auth extends CI_Controller
 				);
 
 				$this->session->set_flashdata('error_login', $data['errors']);
-				redirect(base_url('auth/login'), 'refresh');
+				redirect(base_url('admin/auth/login'), 'refresh');
 			} else {
 				$data = array(
 					'username' => $this->security->xss_clean($this->input->post('username')),
@@ -44,31 +44,24 @@ class Auth extends CI_Controller
 				//over data user ke session
 				$data_user = $this->auth_model->data_user($data['username']);
 
-				//echo json_encode($result);
-				$verification = $this->auth_model->is_verify($data);
 
-				if ($verification == false) {
-					$this->session->set_flashdata('error_login', $data['username'] . ' sudah tidak aktif, hubungi admin untuk mengaktifkan kembali.');
-					redirect(base_url('auth/login', 'refresh'));
+				if ($result) {
+					$login_data = array(
+						'id_admin' => $data_user['id_admin'],
+						'username' => $data_user['username'],
+						'nama' => $data_user['nama'],
+						'status' => $data_user['status'],
+						'is_admin_login' => TRUE
+					);
+
+					$this->session->set_userdata($login_data);
+
+					$user_id = $this->session->userdata('id_admin');
+
+					redirect(base_url('admin/dashboard'), 'refresh');
 				} else {
-					if ($result) {
-						$login_data = array(
-							'id_user' => $data_user['id_user'],
-							'email' => $data_user['email'],
-							'username' => $data_user['username'],
-							'nama' => $data_user['nama'],
-							'is_user_login' => TRUE
-						);
-
-						$this->session->set_userdata($login_data);
-
-						$user_id = $this->session->userdata('id_user');
-
-						redirect(base_url('profile'), 'refresh');
-					} else {
-						$this->session->set_flashdata('error_login', 'Email atau Password yang anda masukkan salah.');
-						redirect(base_url('admin/auth/login'), 'refresh');
-					}
+					$this->session->set_flashdata('error_login', 'Email atau Password yang anda masukkan salah.');
+					redirect(base_url('admin/auth/login'), 'refresh');
 				}
 			}
 		} else {
