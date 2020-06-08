@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2020 at 02:22 PM
+-- Generation Time: Jun 08, 2020 at 03:16 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -47,23 +47,22 @@ INSERT INTO `xx_admin` (`id_admin`, `username`, `password`, `status`, `nama`, `c
 -- --------------------------------------------------------
 
 --
--- Table structure for table `xx_jenis_kelas`
+-- Table structure for table `xx_jenis_kelamin`
 --
 
-CREATE TABLE `xx_jenis_kelas` (
+CREATE TABLE `xx_jenis_kelamin` (
   `id` int(11) NOT NULL,
-  `jenis_kelas` varchar(50) NOT NULL
+  `nama` varchar(50) NOT NULL,
+  `value` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `xx_jenis_kelas`
+-- Dumping data for table `xx_jenis_kelamin`
 --
 
-INSERT INTO `xx_jenis_kelas` (`id`, `jenis_kelas`) VALUES
-(1, 'Cinta Baca Pagi'),
-(2, 'Cinta Baca Siang'),
-(3, 'Cinta Matika Pagi'),
-(4, 'Cinta Matika Siang');
+INSERT INTO `xx_jenis_kelamin` (`id`, `nama`, `value`) VALUES
+(1, 'Laki - Laki', 'L'),
+(2, 'Perempuan', 'P');
 
 -- --------------------------------------------------------
 
@@ -76,6 +75,7 @@ CREATE TABLE `xx_kelas` (
   `kode_kelas` varchar(50) NOT NULL,
   `judul_kelas` varchar(100) NOT NULL,
   `jadwal_kelas` varchar(50) NOT NULL,
+  `waktu_kelas` varchar(50) NOT NULL,
   `deskripsi_kelas` text NOT NULL,
   `harga_kelas` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
@@ -86,11 +86,12 @@ CREATE TABLE `xx_kelas` (
 -- Dumping data for table `xx_kelas`
 --
 
-INSERT INTO `xx_kelas` (`id_kelas`, `kode_kelas`, `judul_kelas`, `jadwal_kelas`, `deskripsi_kelas`, `harga_kelas`, `created_at`, `updated_at`) VALUES
-(1, 'bcapg2020', 'Cinta Matika Pagi', 'senin , rabu , jumat', 'lorem ipsum', '', '2020-06-06 21:56:47', NULL),
-(2, 'bcasg2020', 'Cinta Matika Siang', 'senin , rabu , jumat', 'lorem ipsum', '', '2020-06-06 21:57:49', NULL),
-(3, 'mtkpg2020', 'Cinta Baca Pagi', 'senin , rabu , jumat', 'lorem ipsum', '', '2020-06-06 21:59:28', NULL),
-(4, 'mtksg2020', 'Cinta Baca Siang', 'senin , rabu , jumat', 'Lorem ipsum dolor sit amet\r\n', '', '2020-06-06 22:01:05', NULL);
+INSERT INTO `xx_kelas` (`id_kelas`, `kode_kelas`, `judul_kelas`, `jadwal_kelas`, `waktu_kelas`, `deskripsi_kelas`, `harga_kelas`, `created_at`, `updated_at`) VALUES
+(1, 'bcapg2020', 'Cinta Matika Pagi', 'senin , rabu , jumat', '09:00 - 11:30', 'lorem ipsum', '250.000', '2020-06-06 21:56:47', NULL),
+(2, 'bcasg2020', 'Cinta Matika Siang', 'senin , rabu , jumat', '13:00 - 15:30', 'lorem ipsum', '250.000', '2020-06-06 21:57:49', NULL),
+(3, 'mtkpg2020', 'Cinta Baca Pagi', 'senin , rabu , jumat', '09:00 - 11:30', 'lorem ipsum', '250.000', '2020-06-06 21:59:28', NULL),
+(4, 'mtksg2020', 'Cinta Baca Siang', 'senin , rabu , jumat', '13:00 - 15:30', 'Lorem ipsum dolor sit amet\r\n', '250.000', '2020-06-06 22:01:05', NULL),
+(10, 'Tes123', 'Cinta Mati', 'Senin - Jumat', '08:00 - 17:59', 'Lorem ipsum dolor sit amet', '100.000', '2020-06-08 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -104,9 +105,19 @@ CREATE TABLE `xx_pendaftaran` (
   `id_kelas` int(11) NOT NULL,
   `nomor_pendaftaran` varchar(50) NOT NULL,
   `status_pembayaran` int(11) NOT NULL DEFAULT 2 COMMENT '1. selesai bayar, 2. pending',
-  `status` int(11) NOT NULL COMMENT '1. active, 2. inactive',
+  `status` int(11) NOT NULL DEFAULT 2 COMMENT '1. active, 2. inactive',
+  `bukti_pembayaran` varchar(250) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `xx_pendaftaran`
+--
+
+INSERT INTO `xx_pendaftaran` (`id_pendaftaran`, `id_user`, `id_kelas`, `nomor_pendaftaran`, `status_pembayaran`, `status`, `bukti_pembayaran`, `created_at`) VALUES
+(1, 1, 1, 'bcapg20201', 2, 2, '', '2020-06-08 00:00:00'),
+(2, 1, 2, 'bcasg20201', 2, 2, '', '2020-06-08 00:00:00'),
+(3, 1, 1, 'bcapg202011591567200', 2, 2, '', '2020-06-08 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -117,6 +128,7 @@ CREATE TABLE `xx_pendaftaran` (
 CREATE TABLE `xx_profile` (
   `id_profile` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
   `no_hp` varchar(50) NOT NULL,
   `tempat_lahir` varchar(100) NOT NULL,
   `tanggal_lahir` varchar(30) NOT NULL,
@@ -126,6 +138,13 @@ CREATE TABLE `xx_profile` (
   `alamat` text NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `xx_profile`
+--
+
+INSERT INTO `xx_profile` (`id_profile`, `id_user`, `nama`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `umur`, `pendidikan`, `jenis_kelamin`, `alamat`, `created_at`) VALUES
+(1, 1, 'asdasd', '2121', 'asdasd', 'asdasd', 0, 'asdasd', 'asdasd', 'asdasd', '2020-06-08 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -161,9 +180,9 @@ ALTER TABLE `xx_admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `xx_jenis_kelas`
+-- Indexes for table `xx_jenis_kelamin`
 --
-ALTER TABLE `xx_jenis_kelas`
+ALTER TABLE `xx_jenis_kelamin`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -204,28 +223,28 @@ ALTER TABLE `xx_admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `xx_jenis_kelas`
+-- AUTO_INCREMENT for table `xx_jenis_kelamin`
 --
-ALTER TABLE `xx_jenis_kelas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `xx_jenis_kelamin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `xx_kelas`
 --
 ALTER TABLE `xx_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `xx_pendaftaran`
 --
 ALTER TABLE `xx_pendaftaran`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `xx_profile`
 --
 ALTER TABLE `xx_profile`
-  MODIFY `id_profile` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_profile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `xx_users`
