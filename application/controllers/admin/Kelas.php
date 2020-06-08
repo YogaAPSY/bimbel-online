@@ -60,7 +60,7 @@ class Kelas extends CI_Controller
 			);
 
 			$this->form_validation->set_rules('jadwal_kelas', 'Jadwal Kelas', 'trim|required');
-
+			$this->form_validation->set_rules('waktu_kelas', 'Waktu Kelas', 'required');
 
 			if ($this->form_validation->run() == FALSE) {
 
@@ -76,6 +76,7 @@ class Kelas extends CI_Controller
 					'jadwal_kelas' => $this->security->xss_clean($this->input->post('jadwal_kelas')),
 					'judul_kelas' => $this->security->xss_clean($this->input->post('judul_kelas')),
 					'deskripsi_kelas' => $this->security->xss_clean($this->input->post('deskripsi_kelas')),
+					'waktu_kelas' => $this->security->xss_clean($this->input->post('waktu_kelas')),
 					'created_at' => date('Y-m-d : h:m:s'),
 
 				);
@@ -92,7 +93,7 @@ class Kelas extends CI_Controller
 				}
 			}
 		} else {
-			$data['jenis_kelas'] = get_jenis_kelas();
+			$data['jenis_kelas'] = get_kelas();
 
 			$data['title'] = 'Add Kelas';
 			$data['layout'] = 'admin/kelas/add_kelas';

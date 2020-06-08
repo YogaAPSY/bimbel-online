@@ -219,7 +219,32 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 col-lg-3 ftco-animate">
+
+				<?php $i = 1;
+				foreach ($kelas as $kel) : ?>
+					<div class="col-md-6 col-lg-3 ftco-animate">
+						<div class="pricing-entry bg-light pb-4 text-center">
+							<div>
+								<h3 class="mb-3"><?= $kel['judul_kelas'] ?></h3>
+								<p class="subheading"><span>Class day:</span> <?= $kel['jadwal_kelas'] ?></p>
+								<p class="subheading"><span>Class time:</span> <?= $kel['waktu_kelas'] ?></p>
+								<p><span class="price">Rp. <?= $kel['harga_kelas'] ?></span> <span class="per">/ Bulan</span></p>
+							</div>
+							<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_<?= $i++; ?>.jpg);"></div>
+							<div class="px-4">
+								<p><?= $kel['deskripsi_kelas'] ?></p>
+							</div>
+							<?php if ($this->session->userdata('is_user_login') == true) : ?>
+								<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+							<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+								<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+							<?php else : ?>
+								<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+							<?php endif; ?>
+						</div>
+					</div>
+				<?php endforeach; ?>
+				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="pricing-entry bg-light pb-4 text-center">
 						<div>
 							<h3 class="mb-3">Cinta Matika Pagi</h3>
@@ -306,7 +331,7 @@
 							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
 						<?php endif; ?>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
