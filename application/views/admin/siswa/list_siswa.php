@@ -19,6 +19,7 @@
     		});
     	</script>
     <?php endif; ?>
+
     <section class="content">
     	<div class="container-fluid">
     		<div class="block-header">
@@ -51,17 +52,20 @@
     								</thead>
 
     								<tbody>
-
-    									<td>Tiger Nixon</td>
-    									<td>System Architect</td>
-    									<td>Edinburgh</td>
-    									<td>61</td>
-    									<td>2011/04/25</td>
-    									<td>$320,800</td>
+									<?php $i= 1; foreach($list_siswa as $siswa) : ?>
+									<tr>
+    									<td><?= $i; ?></td>
+    									<td><?= $siswa['nama']; ?></td>
+    									<td><?= $siswa['no_hp']; ?></td>
+    									<td><?= get_nama_kelas($siswa['id_kelas']); ?></td>
+										<td><?php
+										 echo ($siswa['status'] == 1) ? 'active' : 'inactive'; ?></td>
+    									<td><?= $siswa['created_at']; ?></td>
     									<td style="text-align: center;vertical-align: middle;">
     										<a href="" data-toggle="tooltip" data-placement="top" title="Detail"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;&nbsp;
     									</td>
-
+									</tr>
+									<?php $i++; endforeach; ?>
     								</tbody>
     							</table>
     						</div>

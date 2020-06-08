@@ -2,10 +2,10 @@
 
 // -----------------------------------------------------------------------------
 // Get industry name by id
-function get_kode_jenis_kelas($id)
+function get_nama_kelas($id)
 {
 	$CI = &get_instance();
-	return $CI->db->get_where('xx_jenis_kelas', array('id' => $id))->row_array()['kode'];
+	return $CI->db->get_where('xx_kelas', array('id_kelas' => $id))->row_array()['judul_kelas'];
 }
 
 // Get industry name by id
@@ -29,12 +29,6 @@ function get_kelas()
 {
 	$CI = &get_instance();
 	return $CI->db->get('xx_kelas')->result_array();
-}
-
-function get_category_user_id($user_id)
-{
-	$CI = &get_instance();
-	return $CI->db->get_where('xx_seeker_information', array('user_id' => $user_id))->row_array()['category'];
 }
 
 function get_job_title($user_id)
