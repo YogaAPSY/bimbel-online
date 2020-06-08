@@ -18,10 +18,10 @@ function get_nama_jenis_kelas($id)
 
 // -----------------------------------------------------------------------------
 // Get category name by id
-function get_jenis_kelas()
+function get_kelas()
 {
 	$CI = &get_instance();
-	return $CI->db->get('xx_jenis_kelas')->result_array();
+	return $CI->db->get('xx_kelas')->result_array();
 }
 
 function get_category_user_id($user_id)

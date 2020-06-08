@@ -52,6 +52,8 @@ class Home extends CI_Controller
 	{
 		$data['title'] = 'form';
 		$data['layout'] = 'home/form';
+		$data['kelas'] = get_kelas();
+
 		$this->load->view('layout', $data);
 	}
 }

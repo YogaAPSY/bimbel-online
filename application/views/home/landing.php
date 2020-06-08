@@ -232,8 +232,13 @@
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
 								there live the blind texts.</p>
 						</div>
-						<p class="button text-center"><a href="#" class="btn btn-primary px-4 py-3">Take A Course</a>
-						</p>
+						<?php if ($this->session->userdata('is_user_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php else : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
@@ -249,8 +254,13 @@
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
 								there live the blind texts.</p>
 						</div>
-						<p class="button text-center"><a href="#" class="btn btn-secondary px-4 py-3">Take A Course</a>
-						</p>
+						<?php if ($this->session->userdata('is_user_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php else : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
@@ -266,8 +276,13 @@
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
 								there live the blind texts.</p>
 						</div>
-						<p class="button text-center"><a href="#" class="btn btn-tertiary px-4 py-3">Take A Course</a>
-						</p>
+						<?php if ($this->session->userdata('is_user_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php else : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php endif; ?>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 ftco-animate">
@@ -283,8 +298,13 @@
 							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
 								there live the blind texts.</p>
 						</div>
-						<p class="button text-center"><a href="#" class="btn btn-quarternary px-4 py-3">Take A
-								Course</a></p>
+						<?php if ($this->session->userdata('is_user_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php else : ?>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

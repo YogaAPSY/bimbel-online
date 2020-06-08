@@ -64,7 +64,7 @@ class Auth extends CI_Controller
 
 						$user_id = $this->session->userdata('id_user');
 
-						redirect(base_url('kelas'), 'refresh');
+						redirect(base_url('siswa'), 'refresh');
 					} else {
 						$this->session->set_flashdata('error_login', 'Email atau Password yang anda masukkan salah.');
 						redirect(base_url('auth/login'), 'refresh');
