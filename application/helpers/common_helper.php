@@ -17,10 +17,10 @@ function get_kode_kelas($id)
 
 // -----------------------------------------------------------------------------
 // Get category name by id
-function get_nama_jenis_kelas($id)
+function get_total_siswa($id)
 {
 	$CI = &get_instance();
-	return $CI->db->get_where('xx_jenis_kelas', array('id' => $id))->row_array()['jenis_kelas'];
+	return $CI->db->get_where('xx_pendaftaran', array('id_kelas' => $id))->num_rows();
 }
 
 // -----------------------------------------------------------------------------

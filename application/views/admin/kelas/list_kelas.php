@@ -67,8 +67,8 @@
     											<td><?= $kelas['judul_kelas'] ?></td>
     											<td><?= $kelas['jadwal_kelas'] ?></td>
 
-    											<td>250.000</td>
-    											<td>40</td>
+    											<td><?= $kelas['harga_kelas'] ?></td>
+    											<td><?= get_total_siswa($kelas['id_kelas']) ?></td>
     											<td><?= $kelas['deskripsi_kelas'] ?></td>
     											<td style="text-align: center;vertical-align: middle;">
     												<center>
