@@ -28,14 +28,20 @@
  				</div>
  			</div>
  			<div class="col-md-8 d-flex">
+
  				<div class="bg-light align-self-stretch box p-4 " style="border-radius: 1%;">
+ 					<?php $attributes = array('method' => 'post'); ?>
+
+ 					<?php echo form_open('home/form', $attributes); ?>
  					<div class="col-md-12 text-center heading-section ftco-animate">
  						<h2 class="mb-4" class="hp"><span>FORM </span>PENDAFTARAN</h2><br>
  					</div>
  					<div class="row clearfix">
+
  						<!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                              <h5>Judul Kelas</h5>
-                         </div> -->
+						 </div> -->
+
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
@@ -51,7 +57,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="No HP" name="no_hp" required autocomplete="off" />
+ 									<input type="number" class="form-control" placeholder="No HP" name="no_hp" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -121,7 +127,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<select name="dasasd" id="asd" class="form-control">
+ 									<select name="kelas" id="asd" class="form-control">
  										<option value="" selected="" disabled="">-- Pilih Kelas --</option>
  										<?php foreach ($kelas as $kel) : ?>
 
@@ -149,9 +155,11 @@
  					<br>
  					<div class="row clearfix">
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
- 							<center><button class="btn btn-warning" style="color: white;font-size:24px;width:300px;height:60px;">SIMPAN</button></center>
+ 							<center><input type="submit" name="submit" value="DAFTAR" class="btn btn-warning" style="color: white;font-size:24px;width:300px;height:60px;"></center>
+ 							<!-- <center><button class="btn btn-warning" style="color: white;font-size:24px;width:300px;height:60px;">SIMPAN</button></center> -->
  						</div>
  					</div>
+ 					</form>
  					<br>
  				</div>
  			</div>

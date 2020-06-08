@@ -9,9 +9,16 @@
 				<li class="nav-item"><a href="<?= base_url(); ?>" class="nav-link pl-0">Home</a></li>
 				<li class="nav-item"><a href="<?= base_url(); ?>Home/tentang" class="nav-link">Tentang</a></li>
 				<li class="nav-item"><a href="<?= base_url(); ?>Home/kursus" class="nav-link">Kursus</a></li>
-				<li class="nav-item"><a href="<?= base_url(); ?>Home/harga" class="nav-link">Harga</a></li>
+				<li class="nav-item"><a href="<?= base_url(); ?>Home/kelas" class="nav-link">Kelas</a></li>
 				<li class="nav-item"><a href="<?= base_url(); ?>Home/kontak" class="nav-link">Kontak</a></li>
-				<li class="nav-item"><a href="<?= base_url(); ?>auth/login" class="nav-link">Login</a></li>
+				<?php if ($this->session->userdata('is_user_login') == true) : ?>
+					<li class="nav-item"><a href="#" class="nav-link">Hi, <?= $this->session->userdata('username')  ?></a></li>
+				<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+					<li class="nav-item"><a href="<?= base_url(); ?>auth/login" class="nav-link">Login</a></li>
+				<?php else : ?>
+					<li class="nav-item"><a href="<?= base_url(); ?>auth/login" class="nav-link">Login</a></li>
+				<?php endif; ?>
+
 			</ul>
 		</div>
 	</div>

@@ -14,12 +14,12 @@ class Auth extends CI_Controller
 	// login functionality
 	public function login()
 	{
-		// // redirected to last request page
-		// if ($this->session->userdata('is_user_login') == TRUE) {
-		// 	// redirect('profile', 'refresh');
-		// } elseif ($this->session->userdata('is_admin_login') == TRUE) {
-		// 	// redirect('employers/profile', 'refresh');
-		// }
+		// redirected to last request page
+		if ($this->session->userdata('is_user_login') == TRUE) {
+			redirect('home', 'refresh');
+		} elseif ($this->session->userdata('is_admin_login') == TRUE) {
+			redirect('admin/kelas', 'refresh');
+		}
 
 		if ($this->input->post('login')) {
 

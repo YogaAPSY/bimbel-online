@@ -8,6 +8,13 @@ function get_kode_jenis_kelas($id)
 	return $CI->db->get_where('xx_jenis_kelas', array('id' => $id))->row_array()['kode'];
 }
 
+// Get industry name by id
+function get_kode_kelas($id)
+{
+	$CI = &get_instance();
+	return $CI->db->get_where('xx_kelas', array('id_kelas' => $id))->row_array()['kode_kelas'];
+}
+
 // -----------------------------------------------------------------------------
 // Get category name by id
 function get_nama_jenis_kelas($id)

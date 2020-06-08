@@ -10,4 +10,11 @@ class Siswa extends CI_Controller
 		$data['layout'] = 'siswa';
 		$this->load->view('layout', $data);
 	}
+
+	public function pembayaran()
+	{
+		$data['title'] = 'Pembayaran';
+		$data['layout'] = 'pembayaran';
+		$this->load->view('layout', $data);
+	}
 }

@@ -171,7 +171,14 @@
 						mouth.</p>
 				</div>
 				<div class="col-md-3 d-flex align-items-center">
-					<p class="mb-0"><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
+					<?php if ($this->session->userdata('is_user_login') == true) : ?>
+						<p class="mb-0"><a href="<?= base_url(); ?>home/form" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
+					<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+						<p class="mb-0"><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
+					<?php else : ?>
+						<p class="mb-0"><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
+					<?php endif; ?>
+
 				</div>
 			</div>
 		</div>

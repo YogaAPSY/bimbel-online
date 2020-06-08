@@ -14,12 +14,11 @@ class Auth extends CI_Controller
 	// login functionality
 	public function login()
 	{
-		// // redirected to last request page
-		// if ($this->session->userdata('is_user_login') == TRUE) {
-		// 	// redirect('profile', 'refresh');
-		// } elseif ($this->session->userdata('is_admin_login') == TRUE) {
-		// 	// redirect('employers/profile', 'refresh');
-		// }
+		if ($this->session->userdata('is_user_login') == TRUE) {
+			redirect('/', 'refresh');
+		} elseif ($this->session->userdata('is_admin_login') == TRUE) {
+			redirect('admin/kelas', 'refresh');
+		}
 
 		if ($this->input->post('login')) {
 
@@ -64,7 +63,7 @@ class Auth extends CI_Controller
 
 						$user_id = $this->session->userdata('id_user');
 
-						redirect(base_url('siswa'), 'refresh');
+						redirect(base_url('home'), 'refresh');
 					} else {
 						$this->session->set_flashdata('error_login', 'Email atau Password yang anda masukkan salah.');
 						redirect(base_url('auth/login'), 'refresh');
@@ -80,11 +79,10 @@ class Auth extends CI_Controller
 
 	public function registration()
 	{
-		// redirected to last request page
 		if ($this->session->userdata('is_user_login') == TRUE) {
-			// redirect('profile', 'refresh');
+			redirect('home', 'refresh');
 		} elseif ($this->session->userdata('is_admin_login') == TRUE) {
-			// redirect('employers/profile', 'refresh');
+			redirect('admin/kelas', 'refresh');
 		}
 
 		if ($this->input->post('submit')) {
