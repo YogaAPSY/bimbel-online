@@ -117,7 +117,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<select name="kelas" id="asd" class="form-control">
+ 									<select name="jenis_kelamin" id="asd" class="form-control">
  										<option value="" selected="" disabled="">-- Pilih Jenis Kelamin --</option>
  										<?php foreach ($jenis_kelamin as $jenis) : ?>
 

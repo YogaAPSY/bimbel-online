@@ -49,6 +49,13 @@ class Home extends CI_Controller
 		$this->load->view('layout', $data);
 	}
 
+	public function riwayat()
+	{
+		$data['title'] = 'riwayat';
+		$data['layout'] = 'home/riwayat';
+		$this->load->view('layout', $data);
+	}
+
 	public function form()
 	{
 
@@ -103,7 +110,7 @@ class Home extends CI_Controller
 					$result2 = $this->home_model->insert_pendaftaran($data2);
 					if ($result && $result2) {
 						$this->session->set_flashdata('message', 'sukses daftar lanjutkan pembayaran');
-						redirect(base_url('siswa/pembayaran'), 'refresh');
+						redirect(base_url('siswa/riwayat'), 'refresh');
 					}
 				}
 			}
