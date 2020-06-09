@@ -20,14 +20,14 @@
  <section class="ftco-section contact-section">
  	<div class="container">
  		<div class="row d-flex mb-5 contact-info">
- 			<div class="col-md-4">
+ 			<!-- <div class="col-md-4">
  				<div class="bg-light align-self-stretch box p-4 text-center">
  					<h3 class="mb-4">FOTO PROFIL</h3>
  					<img src="<?= base_url(); ?>assets/User/images/image_1.jpg" class="img-thumbnail" alt="Responsive image">
  					<input type="file">
  				</div>
- 			</div>
- 			<div class="col-md-8 d-flex">
+ 			</div> -->
+ 			<div class="col-md-12 d-flex">
 
  				<div class="bg-light align-self-stretch box p-4 " style="border-radius: 1%;">
  					<?php $attributes = array('method' => 'post'); ?>
