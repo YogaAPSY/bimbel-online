@@ -14,7 +14,7 @@ class Kelas_model extends CI_Model
 	// login function
 	public function update_kelas($data, $id)
 	{
-		$this->db->where($id, 'xx_kelas.id_kelas');
+		$this->db->where('id_kelas', $id);
 		$this->db->update('xx_kelas', $data);
 		return true;
 	}
@@ -26,6 +26,15 @@ class Kelas_model extends CI_Model
 		$this->db->order_by('id_kelas', 'asc');
 		$query = $this->db->get();
 		return $query->result_array();
+	}
+
+	public function detail_kelas($id)
+	{
+		$this->db->select('*');
+		$this->db->from('xx_kelas');
+		$this->db->where('id_kelas', $id);
+		$query = $this->db->get();
+		return $query->row_array();
 	}
 
 	public function list_siswa($id)
