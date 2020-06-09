@@ -62,10 +62,10 @@ class Auth extends CI_Controller
 						$this->session->set_userdata($login_data);
 
 						$user_id = $this->session->userdata('id_user');
-
+						$this->session->set_flashdata('message', 'Email atau Password yang anda masukkan salah.');
 						redirect(base_url('home'), 'refresh');
 					} else {
-						$this->session->set_flashdata('error_login', 'Email atau Password yang anda masukkan salah.');
+						$this->session->set_flashdata('abort', 'Email atau Password yang anda masukkan salah.');
 						redirect(base_url('auth/login'), 'refresh');
 					}
 				}
@@ -157,10 +157,10 @@ class Auth extends CI_Controller
 				$result = $this->auth_model->insert_into_users($data);
 
 				if ($result) {
-					$this->session->set_flashdata('registration_success', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('message', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
 					redirect(base_url('auth/login'), 'refresh');
 				} else {
-					$this->session->set_flashdata('registration_failed', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('abort', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
 					redirect(base_url('auth/register'), 'refresh');
 				}
 			}

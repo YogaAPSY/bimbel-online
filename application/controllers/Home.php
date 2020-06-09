@@ -112,6 +112,8 @@ class Home extends CI_Controller
 			$data['title'] = 'form';
 			$data['layout'] = 'home/form';
 			$data['kelas'] = get_kelas();
+			$data['jenis_kelamin'] = get_jenis_kelamin();
+
 			$data['profile'] = $this->home_model->get_profile($id_user);
 
 			$this->load->view('layout', $data);

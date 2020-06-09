@@ -45,7 +45,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="Nama Lengkap" name="nama" value="<?= $profile['nama']; ?>" required autocomplete="off" />
+ 									<input type="text" class="form-control" placeholder="Nama Lengkap" name="nama" value="<?= (isset($profile['nama']))  ? $profile['nama'] : ""; ?>" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -57,7 +57,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="number" class="form-control" placeholder="No HP" name="no_hp" value="<?= $profile['no_hp']; ?>" required autocomplete="off" />
+ 									<input type="number" class="form-control" placeholder="No HP" name="no_hp" value="<?= (isset($profile['no_hp']))  ? $profile['no_hp'] : ""; ?>" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -69,7 +69,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="Tempat Lahir" value="<?= $profile['tempat_lahir']; ?>" name="tempat_lahir" required autocomplete="off" />
+ 									<input type="text" class="form-control" placeholder="Tempat Lahir" value="<?= (isset($profile['tempat_lahir']))  ? $profile['tempat_lahir'] : ""; ?>" name="tempat_lahir" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -81,7 +81,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="Tanggal Lahir" value="<?= $profile['tanggal_lahir']; ?>" name="tanggal_lahir" required autocomplete="off" />
+ 									<input type="text" class="form-control" placeholder="Tanggal Lahir" value="<?= (isset($profile['tanggal_lahir']))  ? $profile['tanggal_lahir'] : ""; ?>" name="tanggal_lahir" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -93,7 +93,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="Umur" value="<?= $profile['umur']; ?>" name="umur" required autocomplete="off" />
+ 									<input type="number" class="form-control" placeholder="Umur" value="<?= (isset($profile['umur']))  ? $profile['umur'] : ""; ?>" name="umur" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -105,7 +105,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="Pendidikan" value="<?= $profile['pendidikan']; ?>" name="pendidikan" required autocomplete="off" />
+ 									<input type="text" class="form-control" placeholder="Pendidikan" value="<?= (isset($profile['pendidikan']))  ? $profile['pendidikan'] : ""; ?>" name="pendidikan" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -117,13 +117,20 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="Jenis Kelamin" value="<?= $profile['jenis_kelamin']; ?>" name="jenis_kelamin" required autocomplete="off" />
- 								</div>
- 							</div>
- 						</div>
- 					</div>
- 					<div class="row clearfix">
+ 									<select name="kelas" id="asd" class="form-control">
+ 										<option value="" selected="" disabled="">-- Pilih Jenis Kelamin --</option>
+ 										<?php foreach ($jenis_kelamin as $jenis) : ?>
 
+ 											<option value="<?= $jenis['value'] ?>"><?= $jenis['nama'] ?></option>
+ 										<?php endforeach; ?>
+
+ 									</select>
+
+ 								</div>
+ 							</div>
+ 						</div>
+ 					</div>
+ 					<div class="row clearfix">
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
@@ -147,7 +154,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" value="<?= $profile['alamat']; ?>" placeholder="Alamat" name="alamat" required autocomplete="off" />
+ 									<input type="text" class="form-control" value="<?= (isset($profile['alamat']))  ? $profile['alamat'] : ""; ?>" placeholder="Alamat" name="alamat" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
