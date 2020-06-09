@@ -23,7 +23,7 @@
     <section class="content">
     	<div class="container-fluid">
     		<div class="block-header">
-    			<h2>B'SMART RUANG KELAS</h2>
+    			<h2>B'SMART SISWA</h2>
     		</div>
 
     		<!-- Basic Examples -->
