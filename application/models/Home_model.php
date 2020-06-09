@@ -37,4 +37,14 @@ class Home_model extends CI_Model
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
+
+	public function get_profile($id)
+	{
+		$this->db->select('*');
+		$this->db->from('xx_profile');
+		$this->db->where('id_user', $id);
+
+		$query = $this->db->get();
+		return $query->row_array();
+	}
 }

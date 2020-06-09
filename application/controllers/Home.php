@@ -108,9 +108,11 @@ class Home extends CI_Controller
 				}
 			}
 		} else {
+			$id_user = $this->session->userdata('id_user');
 			$data['title'] = 'form';
 			$data['layout'] = 'home/form';
 			$data['kelas'] = get_kelas();
+			$data['profile'] = $this->home_model->get_profile($id_user);
 
 			$this->load->view('layout', $data);
 		}
