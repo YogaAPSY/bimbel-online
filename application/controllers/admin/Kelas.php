@@ -196,10 +196,11 @@ class Kelas extends CI_Controller
 		}
 	}
 
-	public function delete_kelas($id)
+	public function delete_kelas($id = 0)
 	{
 		$this->kelas_model->delete_kelas($id);
-		$this->session->set_flashdata('post_job_success', 'Congratulation! Job has been Posted successfully');
-		redirect(base_url('admin/kelas/list_kelas'));
+		$this->kelas_model->delete_pendaftaran($id);
+		$this->session->set_flashdata('message', 'Kelas berhasil dihapus!');
+		redirect(base_url('admin/kelas/'));
 	}
 }

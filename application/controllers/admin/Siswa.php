@@ -45,4 +45,12 @@ class Siswa extends CI_Controller
 			$this->load->view('admin/layout_admin', $data);
 		}
 	}
+
+	public function delete_pendaftar($id = 0)
+	{
+
+		$this->siswa_model->delete_pendaftaran($id);
+		$this->session->set_flashdata('message', 'Kelas berhasil dihapus!');
+		redirect(base_url('admin/siswa/'));
+	}
 }

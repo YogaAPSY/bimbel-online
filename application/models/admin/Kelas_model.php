@@ -49,4 +49,19 @@ class Kelas_model extends CI_Model
 		//echo $this->db->last_query();
 		return $query->result_array();
 	}
+
+	// login function
+	public function delete_kelas($id)
+	{
+		$this->db->where('id_kelas', $id);
+		$this->db->delete('xx_kelas');
+		return true;
+	}
+
+	public function delete_pendaftaran($id)
+	{
+		$this->db->where('id_kelas', $id);
+		$this->db->delete('xx_pendaftaran');
+		return true;
+	}
 }

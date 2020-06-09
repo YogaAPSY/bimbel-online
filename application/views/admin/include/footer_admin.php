@@ -51,3 +51,23 @@
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+
+<script type="text/javascript">
+	$(document).on("click", "#btn_posisi", function() {
+		var id = $(this).data('id');
+		var url = '<?= site_url('admin/kelas/delete_kelas/') ?>';
+		$("#hapus_nyo").attr('href', url + id);
+
+	})
+</script>
+
+
+<script type="text/javascript">
+	$(document).on("click", "#btn_posisi2", function() {
+		var id = $(this).data('id');
+		var url = '<?= site_url('admin/siswa/delete_pendaftar/') ?>';
+		$("#hapus_nyo").attr('href', url + id);
+
+	})
+</script>

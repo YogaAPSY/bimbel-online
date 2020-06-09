@@ -75,7 +75,7 @@
     												<center>
     													<a href="<?= base_url(); ?>admin/kelas/kelas_siswa/<?= $kelas['id_kelas']; ?>" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
     													<a href="<?= base_url(); ?>admin/kelas/edit_kelas/<?= $kelas['id_kelas']; ?>" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;
-    													<a href="#" data-toggle="tooltip" data-placement="top" title="Delete" onclick="javasciprt: return confirm('Yakin Ingin Menghapus ?')"><i style="color:red;" class="material-icons">delete</i></a>
+    													<a href="#" id="btn_posisi" title="Delete" data-id="<?= $kelas['id_kelas'] ?>" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a>
     												</center>
     											</td>
     										</tr>
@@ -93,3 +93,22 @@
     	</div>
     	</div>
     </section>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    	<div class="modal-dialog" role="document">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<h5 class="modal-title" id="exampleModalLabel">Delete Data</h5>
+    				<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+    					<span aria-hidden="true">×</span>
+    				</button>
+    			</div>
+    			<div class="modal-body">Apakah anda yakin ingin menghapus kelas ini ?</div>
+    			<div class="modal-footer">
+    				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+    				<a id="hapus_nyo" class="btn btn-primary" href="#">Delete</a>
+    			</div>
+    		</div>
+    	</div>
+    </div>
