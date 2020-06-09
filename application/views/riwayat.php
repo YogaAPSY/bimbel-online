@@ -24,7 +24,7 @@
 							<thead>
 								<tr>
 									<th>No</th>
-									<th>Nama</th>
+
 									<th>Kelas</th>
 									<th>Jadwal</th>
 									<th>Jam</th>
@@ -39,8 +39,8 @@
 								foreach ($riwayat as $riw) : ?>
 									<tr>
 										<td><?= $i++; ?></td>
-										<td><?= $riw['nama'] ?></td>
-										<td><?= $riw['id_kelas'] ?></td>
+
+										<td><?= get_nama_kelas($riw['id_kelas']) ?></td>
 										<td><?= $riw['jadwal_kelas'] ?></td>
 										<td><?= $riw['waktu_kelas'] ?></td>
 										<td><?= $riw['status'] ?></td>

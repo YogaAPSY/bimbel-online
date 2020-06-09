@@ -24,12 +24,11 @@ class Siswa extends CI_Controller
 				// file failed the XSS test
 
 				$this->session->set_flashdata('abort', 'Upload Error');
-				$this->set_active_step(1);
+
 				redirect(base_url('siswa/riwayat'));
 			} else {
-				foreach ($_FILES as $key => $value) {
-					$this->uploadFile($key, $_FILES);
-				}
+
+				$this->uploadFoto('./assets/bukti_pembayaran/', $_FILES);
 			}
 		} else {
 			$id = $this->session->userdata('id_user');
@@ -41,11 +40,11 @@ class Siswa extends CI_Controller
 		}
 	}
 
-	private function uploadFoto($directory, $files, $name)
+	private function uploadFoto($directory, $files)
 	{
 		$user_id = $this->session->userdata('user_id');
-		$data['user_info'] = $this->profile_model->get_user_by_id($user_id);
-		$old_image = $data['user_info']['image'];
+
+		// $old_image = $data['user_info']['image'];
 		if (!empty($files['name'])) {
 
 			$config = array(
@@ -59,18 +58,18 @@ class Siswa extends CI_Controller
 			$config['file_name'] = $new_name;
 
 
-			$this->load->library('upload', $config, 'image');
+			$this->load->library('upload', $config);
 			$this->image->initialize($config);
 
-			if ($this->image->do_upload('userimage')) {
+			if ($this->image->do_upload('upload')) {
 
 				$file_data = array('upload_data' => $this->image->data());
 				$dataImage =  'uploads/profile/user/' . $file_data['upload_data']['file_name'];
 
-				if ($old_image != 'uploads/profile/user/user.png' && $dataImage != $old_image) {
+				// if ($old_image != 'uploads/profile/user/user.png' && $dataImage != $old_image) {
 
-					unlink(FCPATH . $old_image);
-				}
+				// 	unlink(FCPATH . $old_image);
+				// }
 
 				$this->db->where('id', $user_id);
 				$this->db->update('xx_users', ['image' => $dataImage]);
