@@ -52,6 +52,22 @@
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
+<!-- Bootstrap Datepicker Plugin Js -->
+<script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$(".datepicker").datepicker({
+			format: 'yyyy-mm-dd',
+			todayHighlight: true,
+			autoclose: true,
+			orientation: 'bottom auto',
+
+		});
+	});
+</script>
+
 
 <script type="text/javascript">
 	$(document).on("click", "#btn_posisi", function() {

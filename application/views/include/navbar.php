@@ -1,3 +1,9 @@
+<style>
+	.dropdown-item:hover {
+		background-color: #6c757d !important;
+		color: white !important;
+	}
+</style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 	<div class="container d-flex align-items-center">
 		<a class="navbar-brand" href="#">B'Smart</a>
@@ -12,7 +18,12 @@
 				<li class="nav-item"><a href="<?= base_url(); ?>Home/kelas" class="nav-link">Kelas</a></li>
 				<li class="nav-item"><a href="<?= base_url(); ?>Home/kontak" class="nav-link">Kontak</a></li>
 				<?php if ($this->session->userdata('is_user_login') == true) : ?>
-					<li class="nav-item"><a href="#" class="nav-link">Hi, <?= $this->session->userdata('username')  ?></a></li>
+					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Hi, <?= $this->session->userdata('username')  ?></a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#" class="nav-link tot">Profil</a>
+							<a class="dropdown-item" href="#" class="nav-link tot">Logout</a>
+						</div>
+					</li>
 				<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
 					<li class="nav-item"><a href="<?= base_url(); ?>auth/login" class="nav-link">Login</a></li>
 				<?php else : ?>
