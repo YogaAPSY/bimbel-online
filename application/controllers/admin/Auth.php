@@ -60,7 +60,7 @@ class Auth extends CI_Controller
 
 					redirect(base_url('admin/dashboard'), 'refresh');
 				} else {
-					$this->session->set_flashdata('error_login', 'Email atau Password yang anda masukkan salah.');
+					$this->session->set_flashdata('abort', 'Email atau Password yang anda masukkan salah.');
 					redirect(base_url('admin/auth/login'), 'refresh');
 				}
 			}

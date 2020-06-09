@@ -11,6 +11,7 @@ class Kelas extends CI_Controller
 
 	public function index()
 	{
+
 		$data['title'] = 'Kelas';
 		$data['list_kelas'] = $this->kelas_model->list_kelas();
 

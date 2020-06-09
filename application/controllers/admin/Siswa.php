@@ -21,6 +21,7 @@ class Siswa extends CI_Controller
 
 	public function laporan()
 	{
+
 		$data['title'] = 'Laporan';
 		$data['list_laporan'] = $this->siswa_model->list_laporan();
 
@@ -28,11 +29,20 @@ class Siswa extends CI_Controller
 		$this->load->view('admin/layout_admin', $data);
 	}
 
-	public function filter_laporan($data)
+	public function filter_laporan()
 	{
-		$data['title'] = 'Laporan';
 
-		$data['layout'] = 'admin/siswa/laporan_siswa';
-		$this->load->view('admin/layout_admin', $data);
+		if ($this->input->post('submit')) {
+
+			$start = $this->input->post('start');
+			$to = $this->input->post('end');
+
+			$data['list_laporan'] = $this->siswa_model->list_laporan_filter($start, $to);
+
+			$data['title'] = 'Laporan';
+
+			$data['layout'] = 'admin/siswa/laporan_siswa';
+			$this->load->view('admin/layout_admin', $data);
+		}
 	}
 }

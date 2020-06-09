@@ -1,5 +1,37 @@
 <section class="content">
 	<div class="container-fluid">
+
+		<!-- Exportable Table -->
+		<div class="row clearfix">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="card">
+					<div class="header">
+						<h2 style="font-size: 22px;color:#ad1455;font-weight: bold;">
+							<center>FILTER SISWA BY DATE</center>
+						</h2> <br><br>
+
+					</div>
+					<div class="body">
+
+
+						<?php $attributes = array('id' => 'login_form', 'class' => 'login100-form validate-form', 'method' => 'post'); ?>
+
+						<?php echo form_open('admin/siswa/filter_laporan', $attributes); ?>
+						<input type="text" name="start">
+						<input type="text" name="end">
+						<input type="submit" name="submit">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- #END# Exportable Table -->
+	</div>
+</section>
+
+
+<section class="content">
+	<div class="container-fluid">
 		<div class="block-header">
 			<h2>B'SMART SISWA</h2>
 		</div>
