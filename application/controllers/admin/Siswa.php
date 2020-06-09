@@ -22,6 +22,8 @@ class Siswa extends CI_Controller
 	public function laporan()
 	{
 		$data['title'] = 'Laporan';
+		$data['list_laporan'] = $this->siswa_model->list_laporan();
+
 		$data['layout'] = 'admin/siswa/laporan_siswa';
 		$this->load->view('admin/layout_admin', $data);
 	}
@@ -29,6 +31,7 @@ class Siswa extends CI_Controller
 	public function filter_laporan($data)
 	{
 		$data['title'] = 'Laporan';
+
 		$data['layout'] = 'admin/siswa/laporan_siswa';
 		$this->load->view('admin/layout_admin', $data);
 	}

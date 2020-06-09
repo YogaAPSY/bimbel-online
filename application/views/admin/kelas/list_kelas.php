@@ -60,9 +60,10 @@
 
     								<tbody>
 
-    									<?php foreach ($list_kelas as $kelas) : ?>
+    									<?php $i = 1;
+										foreach ($list_kelas as $kelas) : ?>
     										<tr>
-    											<td><?= $kelas['id_kelas'] ?></td>
+    											<td><?= $i++; ?></td>
     											<td><?= $kelas['kode_kelas'] ?></td>
     											<td><?= $kelas['judul_kelas'] ?></td>
     											<td><?= $kelas['jadwal_kelas'] ?></td>
@@ -72,7 +73,7 @@
     											<td><?= $kelas['deskripsi_kelas'] ?></td>
     											<td style="text-align: center;vertical-align: middle;">
     												<center>
-    													<a href="#" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
+    													<a href="<?= base_url(); ?>admin/kelas/kelas_siswa/<?= $kelas['id_kelas']; ?>" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
     													<a href="<?= base_url(); ?>admin/kelas/edit_kelas" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;
     													<a href="#" data-toggle="tooltip" data-placement="top" title="Delete" onclick="javasciprt: return confirm('Yakin Ingin Menghapus ?')"><i style="color:red;" class="material-icons">delete</i></a>
     												</center>

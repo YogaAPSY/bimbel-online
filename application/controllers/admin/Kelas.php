@@ -18,6 +18,15 @@ class Kelas extends CI_Controller
 		$this->load->view('admin/layout_admin', $data);
 	}
 
+	public function kelas_siswa($id)
+	{
+		$data['title'] = 'Kelas';
+		$data['list_siswa'] = $this->kelas_model->list_siswa($id);
+		$data['nama_kelas'] = get_nama_kelas($id);
+		$data['layout'] = 'admin/siswa/list_siswa';
+		$this->load->view('admin/layout_admin', $data);
+	}
+
 	public function add_kelas()
 	{
 
