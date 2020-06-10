@@ -19,7 +19,17 @@
 		});
 	</script>
 <?php endif; ?>
-<section class="hero-wrap hero-wrap-2" style="background-image: url('images/image_5.jpg');">
+
+<style>
+	@media screen and (max-width: 576px) {
+		.hp {
+			height: 250px !important;
+			width: 310px !important;
+		}
+	}
+</style>
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('<?= base_url(); ?>assets/User/images/image_5.jpg');">
 	<div class="overlay"></div>
 	<div class="container">
 		<div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -69,10 +79,10 @@
 											echo ($riw['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
 										<td><?php
 											echo ($riw['status_pembayaran'] == 1) ? 'Berhasil' : (($riw['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
-										<td><img src="<?= base_url('assets/upload/bukti_pembayaran/') . $riw['bukti_pembayaran'] ?>" alt="" height="50px" width="50px"></td>
+										<td><a href="#" data-toggle="modal" data-target="#myModalfoto<?= $riw['id_pendaftaran'] ?>"><img src="<?= base_url('assets/upload/bukti_pembayaran/') . $riw['bukti_pembayaran'] ?>" alt="" height="50px" width="50px"></a></td>
 										<td>
 											<?php if ($riw['status_pembayaran'] == '1') : ?>
-												<a href="<?= base_url('siswa/invoice/' . $riw['id_pendaftaran']) ?>" target="_blank">Lihat Invoice</a></td>
+												<a href=" <?= base_url('siswa/invoice/' . $riw['id_pendaftaran']) ?>" target="_blank">Lihat Invoice</a></td>
 									<?php elseif ($riw['status_pembayaran'] == '2') : ?>
 										<a href="#">Menunggu Konfirmasi Admin</a></td>
 									<?php else : ?>
@@ -80,7 +90,7 @@
 									<?php endif; ?>
 									<td>
 										<?php if ($riw['status_pembayaran'] == '1') : ?>
-											<button type="button" class="btn btn-info" style="color: #555c61;" disabled><i class="fas fa-file"></i> Berhasil Upload</button></td>
+											<button type="button" class="btn btn-info" style="color: #555c61;cursor:not-allowed;color:white" disabled><i class="fas fa-file"></i> Selesai</button></td>
 								<?php else : ?>
 									<button type="button" class="btn btn-warning" style="color: #555c61;" data-toggle="modal" data-target="#myModal<?= $riw['id_pendaftaran'] ?>"><i class="fas fa-file"></i> Upload</button></td>
 								<?php endif; ?>
@@ -115,6 +125,21 @@
 													<!-- <button type="button" class="btn btn-secondary">Simpan</button> -->
 
 												</div>
+												</form>
+											</div>
+										</div>
+									</div>
+									<!-- The Modal Foto-->
+									<div class="modal fade" id="myModalfoto<?= $riw['id_pendaftaran'] ?>">
+										<div class="modal-dialog modal-dialog-centered">
+											<div class="modal-content" style="border: 0px solid rgba(0, 0, 0, 0.2);">
+
+												<!-- Modal Header -->
+												<div class="modal-header" style="background-color: #4f575f;">
+													<img src="<?= base_url('assets/upload/bukti_pembayaran/') . $riw['bukti_pembayaran'] ?>" alt="" class="hp" style="width:500px;height:400px">
+													<!-- <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button> -->
+												</div>
+
 												</form>
 											</div>
 										</div>
