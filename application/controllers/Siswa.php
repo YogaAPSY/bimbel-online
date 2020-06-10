@@ -19,6 +19,12 @@ class Siswa extends CI_Controller
 	public function riwayat()
 	{
 
+		if ($this->session->userdata('is_user_login') == TRUE) {
+			redirect('/', 'refresh');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('auth/login');
+		}
+
 		$upload = "";
 		if ($this->input->post('submit')) {
 

@@ -51,6 +51,11 @@ class Home extends CI_Controller
 
 	public function riwayat()
 	{
+		if ($this->session->userdata('is_user_login') == TRUE) {
+			redirect('/', 'refresh');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('auth/login');
+		}
 		$data['title'] = 'riwayat';
 		$data['layout'] = 'home/riwayat';
 		$this->load->view('layout', $data);
@@ -58,6 +63,7 @@ class Home extends CI_Controller
 
 	public function form()
 	{
+
 
 		if ($this->input->post('submit')) {
 

@@ -48,7 +48,7 @@
     										<th>Kelas</th>
     										<th>Status</th>
     										<th>Pembayaran</th>
-    										<th>Bukti Pembayaran</th>
+    										<!-- <th>Bukti Pembayaran</th> -->
     										<th style="text-align: center;">Action</th>
     									</tr>
     								</thead>
@@ -65,12 +65,12 @@
 													echo ($siswa['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
     											<td><?php
 													echo ($siswa['status_pembayaran'] == 1) ? 'Berhasil' : (($siswa['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
-    											<td>
+    											<!-- <td>
     												image/image.jpg
-    											</td>
+    											</td> -->
     											<td style="text-align: center;vertical-align: middle;">
     												<center>
-    													<a href="#" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
+    													<a href="<?= base_url('admin/siswa/detail/') . $siswa['id_pendaftaran'] ?>" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
 
     													<a href="#" id="btn_posisi2" title="Delete" data-id="<?= $siswa['id_pendaftaran'] ?>" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a>
     												</center>

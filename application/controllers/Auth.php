@@ -17,7 +17,7 @@ class Auth extends CI_Controller
 		if ($this->session->userdata('is_user_login') == TRUE) {
 			redirect('/', 'refresh');
 		} elseif ($this->session->userdata('is_admin_login') == TRUE) {
-			redirect('admin/kelas', 'refresh');
+			redirect('admin/dashboard', 'refresh');
 		}
 
 		if ($this->input->post('login')) {
@@ -80,9 +80,9 @@ class Auth extends CI_Controller
 	public function registration()
 	{
 		if ($this->session->userdata('is_user_login') == TRUE) {
-			redirect('home', 'refresh');
+			redirect('/', 'refresh');
 		} elseif ($this->session->userdata('is_admin_login') == TRUE) {
-			redirect('admin/kelas', 'refresh');
+			redirect('admin/dashboard', 'refresh');
 		}
 
 		if ($this->input->post('submit')) {

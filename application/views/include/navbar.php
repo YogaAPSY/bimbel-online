@@ -20,10 +20,10 @@
 				<?php if ($this->session->userdata('is_user_login') == true) : ?>
 					<li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Hi, <?= $this->session->userdata('username')  ?></a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="#" class="nav-link tot">Profil</a>
-							<a class="dropdown-item" href="#" class="nav-link tot">Kelas</a>
+							<a class="dropdown-item" href="<?= base_url('siswa/profile') ?>" class="nav-link tot">Profil</a>
+							<a class="dropdown-item" href="<?= base_url('siswa/riwayat') ?>" class="nav-link tot">Kelas</a>
 							<!-- <a class="dropdown-item" href="#" class="nav-link tot">Profil</a> -->
-							<a class="dropdown-item" href="#" class="nav-link tot">Logout</a>
+							<a class="dropdown-item" href="<?= base_url('auth/logout') ?>" class="nav-link tot">Logout</a>
 						</div>
 					</li>
 				<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>

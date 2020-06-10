@@ -7,6 +7,12 @@ class Siswa extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('admin/siswa_model', 'siswa_model');
+		// redirected to last request page
+		if ($this->session->userdata('is_user_login') == TRUE) {
+			redirect('home');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('admin/auth/login');
+		}
 	}
 
 	public function index()
@@ -18,6 +24,18 @@ class Siswa extends CI_Controller
 		$data['layout'] = 'admin/siswa/list_siswa';
 		$this->load->view('admin/layout_admin', $data);
 	}
+
+
+	public function detail($id)
+	{
+		$data['title'] = 'Siswa';
+		// $data['list_siswa'] = $this->siswa_model->list_siswa();
+		$data['detail'] = $this->siswa_model->detail($id);
+
+		$data['layout'] = 'admin/siswa/detail_siswa';
+		$this->load->view('admin/layout_admin', $data);
+	}
+
 
 	public function laporan()
 	{

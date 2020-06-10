@@ -8,6 +8,11 @@ class Dashboard extends CI_Controller
 		parent::__construct();
 		// $this->load->model('admin/auth_model', 'auth_model');
 		// $this->load->library('mailer'); // load custom mailer library
+		if ($this->session->userdata('is_user_login') == TRUE) {
+			redirect('home');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('admin/auth/login');
+		}
 	}
 
 

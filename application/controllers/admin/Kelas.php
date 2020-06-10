@@ -7,6 +7,12 @@ class Kelas extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('admin/kelas_model', 'kelas_model');
+
+		if ($this->session->userdata('is_user_login') == TRUE) {
+			redirect('home');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('admin/auth/login');
+		}
 	}
 
 	public function index()
