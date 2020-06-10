@@ -131,7 +131,7 @@
 		<div class="pernyataan" style="margin-top:30px; margin-bottom:30px;">
 			<div class="row">
 				<div class="col-12" style="font-size:13px;">
-					Catatan : <br>
+					Catatan :  <br>
 					- Print bukti pembayaran ini lalu bawa ke bimbel B'Smart <br>
 					- Uang yang sudah di bayarkan tidak dapat diminta kembali
 				</div>
