@@ -62,7 +62,7 @@
     											<td><?= $siswa['no_hp']; ?></td>
     											<td><?= get_nama_kelas($siswa['id_kelas']); ?></td>
     											<td><?php
-													echo ($siswa['status'] == 1) ? 'active' : 'inactive'; ?></td>
+													echo ($siswa['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
     											<td><?php
 													echo ($siswa['status_pembayaran'] == 1) ? 'Berhasil' : (($siswa['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
     											<td>

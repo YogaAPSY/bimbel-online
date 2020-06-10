@@ -43,42 +43,50 @@
 										<td><?= get_nama_kelas($riw['id_kelas']) ?></td>
 										<td><?= $riw['jadwal_kelas'] ?></td>
 										<td><?= $riw['waktu_kelas'] ?></td>
-										<td><?= $riw['status'] ?></td>
-										<td><?= $riw['status_pembayaran'] ?></td>
-										<td>image/image.jpg</td>
-										<td><button type="button" class="btn btn-warning" style="color: #555c61;" data-toggle="modal" data-target="#myModal"><i class="fas fa-file"></i> Upload</button></td>
+										<td><?php
+											echo ($riw['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
+										<td><?php
+											echo ($riw['status_pembayaran'] == 1) ? 'Berhasil' : (($riw['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
+										<td><img src="<?= base_url('assets/upload/bukti_pembayaran/') . $riw['bukti_pembayaran'] ?>" alt="" height="50px" width="50px"></td>
+										<td><button type="button" class="btn btn-warning" style="color: #555c61;" data-toggle="modal" data-target="#myModal<?= $riw['id_pendaftaran'] ?>"><i class="fas fa-file"></i> Upload</button></td>
 									</tr>
+
+									<!-- The Modal -->
+									<div class="modal fade" id="myModal<?= $riw['id_pendaftaran'] ?>">
+										<div class="modal-dialog modal-dialog-centered">
+											<div class="modal-content" style="border: 0px solid rgba(0, 0, 0, 0.2);">
+
+												<!-- Modal Header -->
+												<div class="modal-header" style="background-color: #fda638;">
+													<b>
+														<h4 class="modal-title" style="color: white;">Upload Bukti Bayar</h4>
+													</b>
+													<button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+												</div>
+												<?php $attributes = array('method' => 'post'); ?>
+
+												<?php echo form_open_multipart('siswa/riwayat/' . $riw['id_pendaftaran'], $attributes); ?>
+												<!-- Modal body -->
+												<div class="modal-body" style="padding-top: 20px;">
+													<input type="hidden" name="id_pendaftaran" value="<?= $riw['id_pendaftaran'] ?>">
+													<input type="file" name="file" class="form-control">
+												</div>
+
+												<!-- Modal footer -->
+												<div class="modal-footer">
+													<input type="submit" name="submit" class="btn btn-secondary" value="Simpan">
+													<!-- <button type="button" class="btn btn-secondary">Simpan</button> -->
+
+												</div>
+												</form>
+											</div>
+										</div>
+									</div>
 								<?php endforeach; ?>
 
 							</tbody>
 						</table>
-						<!-- The Modal -->
-						<div class="modal fade" id="myModal">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content" style="border: 0px solid rgba(0, 0, 0, 0.2);">
 
-									<!-- Modal Header -->
-									<div class="modal-header" style="background-color: #fda638;">
-										<b>
-											<h4 class="modal-title" style="color: white;">Upload Bukti Bayar</h4>
-										</b>
-										<button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
-									</div>
-
-									<!-- Modal body -->
-									<div class="modal-body" style="padding-top: 20px;">
-										<input type="file" class="form-control">
-									</div>
-
-									<!-- Modal footer -->
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary">Simpan</button>
-
-									</div>
-
-								</div>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>

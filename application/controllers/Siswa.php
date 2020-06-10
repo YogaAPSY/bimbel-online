@@ -19,16 +19,28 @@ class Siswa extends CI_Controller
 	public function riwayat()
 	{
 
-		if (isset($_FILES) && !empty($_FILES)) {
-			if ($this->security->xss_clean($_FILES, TRUE) === FALSE) {
-				// file failed the XSS test
+		$upload = "";
+		if ($this->input->post('submit')) {
 
-				$this->session->set_flashdata('abort', 'Upload Error');
+			if (isset($_FILES) && !empty($_FILES)) {
+				if ($this->security->xss_clean($_FILES, TRUE) === FALSE) {
+					// file failed the XSS test
 
+					$this->session->set_flashdata('abort', 'Upload Error');
+
+					redirect(base_url('siswa/riwayat'));
+				} else {
+
+					$upload = $this->uploadFoto('./assets/upload/bukti_pembayaran/', $_FILES, $this->input->post('id_pendaftaran'));
+				}
+			}
+
+			if ($upload) {
+				$this->session->set_flashdata('mesasge', 'Upload Berhasil');
 				redirect(base_url('siswa/riwayat'));
 			} else {
-
-				$this->uploadFoto('./assets/bukti_pembayaran/', $_FILES);
+				$this->session->set_flashdata('abort', 'Upload Gagal');
+				redirect(base_url('siswa/riwayat'));
 			}
 		} else {
 			$id = $this->session->userdata('id_user');
@@ -40,67 +52,49 @@ class Siswa extends CI_Controller
 		}
 	}
 
-	private function uploadFoto($directory, $files)
+	private function uploadFoto($directory, $files, $id)
 	{
-		$user_id = $this->session->userdata('user_id');
+
+
+		$user_id = $this->session->userdata('id_user');
 
 		// $old_image = $data['user_info']['image'];
-		if (!empty($files['name'])) {
-
+		if (!empty($files['file']['name'])) {
+			$kode = get_kode_kelas($id);
 			$config = array(
 				'upload_path' => $directory,
 				'allowed_types' => "jpg|png|gif|JPG|Jpeg|PNG|GIF|JPEG",
 				'overwrite' => TRUE,
-				'max_size' => "548000" // Can be set to particular file size , here it is 0.5 MB(548 Kb)
+				'max_size' => "848000" // Can be set to particular file size , here it is 0.5 MB(548 Kb)
 			);
 
-			$new_name = time() . $files['name'];
+			$new_name =  $user_id . $kode . $files['file']['name'];
 			$config['file_name'] = $new_name;
 
-
 			$this->load->library('upload', $config);
-			$this->image->initialize($config);
+			$this->upload->initialize($config);
 
-			if ($this->image->do_upload('upload')) {
+			if ($this->upload->do_upload('file')) {
 
-				$file_data = array('upload_data' => $this->image->data());
-				$dataImage =  'uploads/profile/user/' . $file_data['upload_data']['file_name'];
+				$file_data = array('upload_data' => $this->upload->data());
+				$dataImage =  $file_data['upload_data']['file_name'];
 
 				// if ($old_image != 'uploads/profile/user/user.png' && $dataImage != $old_image) {
 
 				// 	unlink(FCPATH . $old_image);
 				// }
 
-				$this->db->where('id', $user_id);
-				$this->db->update('xx_users', ['image' => $dataImage]);
+				$this->db->where('id_pendaftaran', $id);
+				$this->db->update('xx_pendaftaran', ['bukti_pembayaran' => $dataImage, 'status_pembayaran' => 2]);
 			} else {
 				$data['file_error'] = array('error' => $this->upload->display_errors());
-				$this->session->set_flashdata('file_error', 'Error! Please select a valid file formate');
-				redirect(base_url('profile'));
+
+				var_dump($data['file_error']);
+				exit();
+				$this->session->set_flashdata('abort', 'Error! Please select a valid file formate');
+				redirect(base_url('siswa/riwayat'));
 			}
 		}
 		// end upload user image code		
-	}
-
-	private function uploadFile($name, $files)
-	{
-
-
-		//upload user image
-
-
-		if ($name == 'userfile') {
-			$this->uploadResume("./uploads/resume/", $files['userfile'], $name);
-		} elseif ($name == 'userfilesupport') {
-			$this->uploadAttachment("./uploads/attachment/", $files['userfilesupport'], $name);
-		} elseif ($name == 'userimage') {
-			$this->uploadFoto("./uploads/profile/user/", $files['userimage'], $name);
-		} elseif ($name == 'usercertificate') {
-			$this->uploadCertificate("./uploads/certificate/", $files['usercertificate'], $name);
-		} else {
-			// $data['file_error'] = array('error' => $this->upload->display_errors());
-			$this->session->set_flashdata('file_error', 'Error! Please select a valid file formate');
-			redirect(base_url('profile/my_profile/finish'));
-		}
 	}
 }
