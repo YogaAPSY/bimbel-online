@@ -70,8 +70,22 @@
 										<td><?php
 											echo ($riw['status_pembayaran'] == 1) ? 'Berhasil' : (($riw['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
 										<td><img src="<?= base_url('assets/upload/bukti_pembayaran/') . $riw['bukti_pembayaran'] ?>" alt="" height="50px" width="50px"></td>
-										<td><a href="<?= base_url('siswa/invoice/' . $riw['id_pendaftaran']) ?>">Invoice</a></td>
-										<td><button type="button" class="btn btn-warning" style="color: #555c61;" data-toggle="modal" data-target="#myModal<?= $riw['id_pendaftaran'] ?>"><i class="fas fa-file"></i> Upload</button></td>
+										<td>
+											<?php if ($riw['status_pembayaran'] == '1') : ?>
+												<a href="<?= base_url('siswa/invoice/' . $riw['id_pendaftaran']) ?>" target="_blank">Lihat Invoice</a></td>
+									<?php elseif ($riw['status_pembayaran'] == '2') : ?>
+										<a href="#">Menunggu Konfirmasi Admin</a></td>
+									<?php else : ?>
+										<a href="#">Upload bukti pembayaran</a>
+									<?php endif; ?>
+									<td>
+										<?php if ($riw['status_pembayaran'] == '1') : ?>
+											<button type="button" class="btn btn-info" style="color: #555c61;" disabled><i class="fas fa-file"></i> Berhasil Upload</button></td>
+								<?php else : ?>
+									<button type="button" class="btn btn-warning" style="color: #555c61;" data-toggle="modal" data-target="#myModal<?= $riw['id_pendaftaran'] ?>"><i class="fas fa-file"></i> Upload</button></td>
+								<?php endif; ?>
+
+
 									</tr>
 
 									<!-- The Modal -->
