@@ -36,6 +36,24 @@ class Siswa extends CI_Controller
 		$this->load->view('admin/layout_admin', $data);
 	}
 
+	public function konfirmasi($id)
+	{
+
+		$result = $this->siswa_model->do_confirm($id);
+
+		if ($result) {
+			$this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
+			redirect(base_url('admin/siswa/detail/' . $id), 'refresh');
+		}
+	}
+
+	public function make_active($id)
+	{
+	}
+
+	public function make_inactive($id)
+	{
+	}
 
 	public function laporan()
 	{

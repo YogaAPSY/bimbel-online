@@ -174,8 +174,12 @@
     							</div>
     						</div>
     						<div class="row clearfix">
-    							<input type="submit" name="tambah" class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 200px;" value="Konfirmasi Pembayaran">
-    							<!-- <a href=""><button type="submit" name="tambah" class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 200px;">Konfirmasi Pembayaran</button></a> -->
+    							<?php if ($detail['status_pembayaran'] == '2') : ?>
+    								<a class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 200px;" href="<?= base_url('admin/siswa/konfirmasi/' . $detail['id_pendaftaran']); ?>">Konfirmasi Pembayaran</a>
+    							<?php else : ?>
+    								<!-- <input type="submit" name="tambah" class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 200px;" value="Konfirmasi Pembayaran"> -->
+    								<button type="submit" name="tambah" class="btn btn-danger pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 300px;" disabled>Pembayaran Sudah di Konfirmasi</button>
+    							<?php endif; ?>
     						</div>
     						</form>
     					</div>

@@ -67,4 +67,11 @@ class Siswa_model extends CI_Model
 		//echo $this->db->last_query();
 		return $query->row_array();
 	}
+
+	public function do_confirm($id)
+	{
+		$this->db->where('id_pendaftaran', $id);
+		$this->db->update('xx_pendaftaran', array('status_pembayaran' => 1, 'status' => 1));
+		return true;
+	}
 }
