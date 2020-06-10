@@ -150,8 +150,13 @@
  									<select name="jenis_kelamin" id="asd" class="form-control">
  										<option value="" selected="" disabled="">-- Pilih Jenis Kelamin --</option>
  										<?php foreach ($jenis_kelamin as $jenis) : ?>
+ 											<?php if ($profile['jenis_kelamin'] == $jenis['value']) : ?>
+ 												<option value="<?= $jenis['value']; ?>" selected> <?= $jenis['nama']; ?> </option>
 
- 											<option value="<?= $jenis['value'] ?>"><?= $jenis['nama'] ?></option>
+ 											<?php else : ?>
+ 												<option value="<?= $jenis['value']; ?>"> <?= $jenis['nama']; ?> </option>
+ 											<?php endif; ?>
+ 											<!-- <option value="<?= $jenis['value'] ?>"><?= $jenis['nama'] ?></option> -->
  										<?php endforeach; ?>
 
  									</select>
@@ -167,6 +172,8 @@
  									<select name="kelas" id="asd" class="form-control">
  										<option value="" selected="" disabled="">-- Pilih Kelas --</option>
  										<?php foreach ($kelas as $kel) : ?>
+
+
 
  											<option value="<?= $kel['id_kelas'] ?>"><?= $kel['judul_kelas'] ?></option>
  										<?php endforeach; ?>

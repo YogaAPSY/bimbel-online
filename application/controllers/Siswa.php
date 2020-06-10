@@ -20,13 +20,13 @@ class Siswa extends CI_Controller
 	{
 		try {
 			$user_id = $this->session->userdata('id_user');
-			// $data['user_info'] = $this->profile_model->get_ak1_by_id($user_id);
+			$data['invoice'] = $this->siswa_model->data_invoice($id);
 			// $data['ak1_status'] = $this->profile_model->get_ak1_status_by_id($user_id);
 			require_once $_SERVER['DOCUMENT_ROOT'] . '/bimbel-online/vendor/autoload.php';
 
 			$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
 
-			$data1 = $this->load->view('invoice', $user_id,  true);
+			$data1 = $this->load->view('invoice', $data,  true);
 
 			$mpdf->WriteHTML($data1);
 			// Other code
