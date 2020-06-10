@@ -70,13 +70,10 @@
 			</div>
 			<div class="col-8">
 				<div style="text-align:center; float:right;display: inline-block; position:relative;">
-					<h3 style="margin:0; font-size:17px;">BUKTI PEMBAYARAN SISWA B'SMART KOTA PALEMBANG<br>
+					<h3 style="margin:0; font-size:20px;">BUKTI PEMBAYARAN SISWA B'SMART KOTA PALEMBANG<br>
 
 					</h3>
-					<p style="font-size:11px;">
-						<div class="col-60" style="text-align:center">Daftar Penyaluran Barang Tanggal</div>
-						<div class="col-40" style="text-align:center"><?= Tanggal(date('Y-m-d')) ?></div>
-					</p>
+					<br>
 				</div>
 			</div>
 			<div class="col-2">
@@ -86,59 +83,57 @@
 	</div>
 
 	<div class="isi" style="margin-top:20px;">
+		<p style="font-size:11px;">
+			<div class="col-6" style="text-align:left">Tanggal : 13-05-2020</div>
+			<div class="col-6" style="text-align:right">No. Pendaftaran : 23013012040124</div>
+		</p>
 		<div class="border">
 			<table class="border" style="margin-top:15px; width:100%">
 
 				<tr>
-					<th scope="col" style="border:1px solid; text-align:center;font-size:11px;">Nomor<br>urut</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Timestamp</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Hari</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Tanggal</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Nama<br>Barang</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Deskripsi Barang</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Jumlah<br>Barang</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Satuan</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">NILAI (x Rp1000)</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Nama Orang/Organisasi<br>Penerima</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Alamat</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Diserahkan Oleh</th>
-					<th scope="col" style="border:1px solid;text-align:center;font-size:11px;">Tempat</th>
+					<th scope="col" style="border:1px solid; text-align:center;font-size:14px;">No.<br></th>
+					<th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Kode Kelas</th>
+					<th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Nama Kelas</th>
+					<th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Keterangan</th>
+					<th scope="col" style="border:1px solid;text-align:center;font-size:14px;">Biaya</th>
 				</tr>
-				
-					<tr>
-						<th style="border:1px solid;text-align:center;font-size:11px;"></th>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;">/td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;">Palembang</td>
-						<td style="border:1px solid;font-size:11px;"></td>
-						<td style="border:1px solid;font-size:11px;"></td>
-					</tr>
-				
+
+				<tr>
+					<td style="border:1px solid;text-align:center;font-size:12px;width:20px;">1</td>
+					<td style="border:1px solid;font-size:12px;">tes</td>
+					<td style="border:1px solid;font-size:12px;">tes1</td>
+					<td style="border:1px solid;font-size:12px;">Administrasi</td>
+					<td style="border:1px solid;font-size:12px;text-align:right">Rp. 150.000</td>
+				</tr>
+				<tr>
+					<td style="border:1px solid;text-align:center;font-size:11px;width:20px;">2</td>
+					<td style="border:1px solid;font-size:12px;">tes</td>
+					<td style="border:1px solid;font-size:12px;">tes1</td>
+					<td style="border:1px solid;font-size:12px;">Bulan Pertama</td>
+					<td style="border:1px solid;font-size:12px;text-align:right">Rp. 250.000</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th style="border:1px solid;font-size:12px;text-align:center;" colspan="4">Jumlah</th>
+
+					<td style="border:1px solid;font-size:12px;text-align:right">Rp. 400.000</d>
+				</tr>
+
 			</table>
 		</div>
 
-		<div class="pernyataan" style="margin-left:50px;margin-top:15px; margin-bottom:30px;">
+		<div class="pernyataan" style="margin-top:30px; margin-bottom:30px;">
 			<div class="row">
-				<div class="col-6" style="font-size:13px;">
-					Mengetahui <br>
-					Gugus Tugas Percepatan Penanganan COVID 19 <br>
-					Sekretaris,<br><br><br><br><br>
-					Ir. Agus Kelana, MT <br>
-					Pembina Utama Muda <br>
-					NIP. 196308151993081001
-				</div>
-				<div class="col-6" style="margin-left:200px;font-size:13px;">
-					Palembang, 26 April 2020<br>
-					Pengurus Barang,<br><br><br><br><br><br>
-					A. Surakhman, S.Kom <br>
-					NIP. 197803252000031002
+				<div class="col-12" style="font-size:13px;">
+					Catatan : <br>
+					- Print bukti pembayaran ini lalu bawa ke bimbel B'Smart <br>
+					- Uang yang sudah di bayarkan tidak dapat diminta kembali
 				</div>
 			</div>
 		</div>
