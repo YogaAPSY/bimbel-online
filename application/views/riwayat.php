@@ -31,6 +31,7 @@
 									<th>Status</th>
 									<th>Bayaran</th>
 									<th>Bukti Pembayaran</th>
+									<th>Invoice</th>
 									<th>Action</th>
 								</tr>
 							</thead>
@@ -48,6 +49,7 @@
 										<td><?php
 											echo ($riw['status_pembayaran'] == 1) ? 'Berhasil' : (($riw['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
 										<td><img src="<?= base_url('assets/upload/bukti_pembayaran/') . $riw['bukti_pembayaran'] ?>" alt="" height="50px" width="50px"></td>
+										<td><a href="<?= base_url('siswa/invoice/' . $riw['id_pendaftaran']) ?>">Invoice</a></td>
 										<td><button type="button" class="btn btn-warning" style="color: #555c61;" data-toggle="modal" data-target="#myModal<?= $riw['id_pendaftaran'] ?>"><i class="fas fa-file"></i> Upload</button></td>
 									</tr>
 

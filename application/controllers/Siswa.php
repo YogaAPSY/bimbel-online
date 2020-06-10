@@ -16,11 +16,35 @@ class Siswa extends CI_Controller
 		$this->load->view('layout', $data);
 	}
 
+	public function invoice($id)
+	{
+		try {
+			$user_id = $this->session->userdata('id_user');
+			// $data['user_info'] = $this->profile_model->get_ak1_by_id($user_id);
+			// $data['ak1_status'] = $this->profile_model->get_ak1_status_by_id($user_id);
+			require_once $_SERVER['DOCUMENT_ROOT'] . '/bimbel-online/vendor/autoload.php';
+
+			$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
+
+			$data1 = $this->load->view('invoice', $user_id,  true);
+
+			$mpdf->WriteHTML($data1);
+			// Other code
+
+			$mpdf->Output("Kartu-Invoice.pdf", 'I');
+		} catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception name used for catch
+			// Process the exception, log, print etc.
+			// var_dump($mpdf);
+
+			echo $e->getMessage();
+		}
+	}
+
 	public function riwayat()
 	{
 
-		if ($this->session->userdata('is_user_login') == TRUE) {
-			redirect('/', 'refresh');
+		if ($this->session->userdata('is_admin_login') == TRUE) {
+			redirect('admin/dashboard', 'refresh');
 		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
 			redirect('auth/login');
 		}
