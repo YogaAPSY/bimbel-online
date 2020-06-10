@@ -1,3 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
+<?php if ($this->session->flashdata('message')) : ?>
+	<script type="text/javascript">
+		swal({
+			title: "BERHASIL !!!",
+			text: "<?php echo $this->session->flashdata('message'); ?>",
+			showConfirmButton: true,
+			type: 'success'
+		});
+	</script>
+<?php endif; ?>
+<?php if ($this->session->flashdata('abort')) : ?>
+	<script type="text/javascript">
+		swal({
+			title: "ERROR !!!",
+			text: "<?php echo $this->session->flashdata('abort'); ?>",
+			showConfirmButton: true,
+			type: 'error'
+		});
+	</script>
+<?php endif; ?>
 <section class="hero-wrap hero-wrap-2" style="background-image: url('images/image_5.jpg');">
 	<div class="overlay"></div>
 	<div class="container">

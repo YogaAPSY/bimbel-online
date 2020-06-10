@@ -1,3 +1,29 @@
+ <!-- Bootstrap DatePicker Css -->
+ <link href="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+ <link href="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
+ <?php if ($this->session->flashdata('message')) : ?>
+ 	<script type="text/javascript">
+ 		swal({
+ 			title: "BERHASIL !!!",
+ 			text: "<?php echo $this->session->flashdata('message'); ?>",
+ 			showConfirmButton: true,
+ 			type: 'success'
+ 		});
+ 	</script>
+ <?php endif; ?>
+ <?php if ($this->session->flashdata('abort')) : ?>
+ 	<script type="text/javascript">
+ 		swal({
+ 			title: "ERROR !!!",
+ 			text: "<?php echo $this->session->flashdata('abort'); ?>",
+ 			showConfirmButton: true,
+ 			type: 'error'
+ 		});
+ 	</script>
+ <?php endif; ?>
+
  <style>
  	@media screen and (max-width: 576px) {
  		.hp {
@@ -5,6 +31,7 @@
  		}
  	}
  </style>
+
  <section class="hero-wrap hero-wrap-2" style="background-image: url('<?= base_url(); ?>assets/User/images/bg_2.jpg');">
  	<div class="overlay"></div>
  	<div class="container">
@@ -20,14 +47,17 @@
  <section class="ftco-section contact-section">
  	<div class="container">
  		<div class="row d-flex mb-5 contact-info">
- 			<!-- <div class="col-md-4">
+ 			<div class="col-md-4">
  				<div class="bg-light align-self-stretch box p-4 text-center">
- 					<h3 class="mb-4">FOTO PROFIL</h3>
- 					<img src="<?= base_url(); ?>assets/User/images/image_1.jpg" class="img-thumbnail" alt="Responsive image">
- 					<input type="file">
+ 					<h3 class="mb-4">PERHATIAN</h3>
+ 					<p style="color: red;">Pembayaran sebesar 400 ribu. <br>
+
+ 						Rincian : Administrasi 150, pembayaran bulan pertama 250. <br>
+
+ 						Nomor rekening : 123xxxxx</p>
  				</div>
- 			</div> -->
- 			<div class="col-md-12 d-flex">
+ 			</div>
+ 			<div class="col-md-8 d-flex">
 
  				<div class="bg-light align-self-stretch box p-4 " style="border-radius: 1%;">
  					<?php $attributes = array('method' => 'post'); ?>
@@ -81,7 +111,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="text" class="form-control" placeholder="Tanggal Lahir" value="<?= (isset($profile['tanggal_lahir']))  ? $profile['tanggal_lahir'] : ""; ?>" name="tanggal_lahir" required autocomplete="off" />
+ 									<input type="text" class="form-control datepicker" placeholder="Tanggal Lahir" value="<?= (isset($profile['tanggal_lahir']))  ? $profile['tanggal_lahir'] : ""; ?>" name="tanggal_lahir" required autocomplete="off" />
  								</div>
  							</div>
  						</div>
@@ -93,7 +123,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="number" class="form-control" placeholder="Umur" value="<?= (isset($profile['umur']))  ? $profile['umur'] : ""; ?>" name="umur" required autocomplete="off" />
+ 									<input type="number" id="umur" class="form-control" placeholder="Umur" value="<?= (isset($profile['umur']))  ? $profile['umur'] : ""; ?>" name="umur" required autocomplete="off" />
  								</div>
  							</div>
  						</div>

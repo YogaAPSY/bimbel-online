@@ -1,6 +1,6 @@
 <footer class="ftco-footer ftco-bg-dark ftco-section">
 	<div class="container">
-		
+
 		<div class="row">
 			<div class="col-md-12 text-center">
 
@@ -38,3 +38,37 @@
 </script>
 <script src="<?= base_url(); ?>assets/User/js/google-map.js"></script>
 <script src="<?= base_url(); ?>assets/User/js/main.js"></script>
+
+<!-- Bootstrap Datepicker Plugin Js -->
+<script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+<script type="text/javascript">
+	$(function() {
+		$(".datepicker").datepicker({
+			format: 'yyyy-mm-dd',
+			todayHighlight: true,
+			autoclose: true,
+			orientation: 'bottom auto',
+
+		});
+	});
+
+	$('.datepicker').on('change', function() {
+		var dob = new Date(this.value);
+		var today = new Date();
+		var age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+		if (age < 2 || age > 17) {
+			swal({
+				title: "Opps !!!",
+				text: "Tanggal Lahir Tidak Memenuhi Ketentuan",
+				showConfirmButton: false,
+				type: 'error',
+			});
+			$('#umur').val('');
+			$('.datepicker').val('');
+		} else {
+			$('#umur').val(age);
+		}
+	});
+</script>
