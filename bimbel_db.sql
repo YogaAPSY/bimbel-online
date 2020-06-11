@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 02:18 PM
+-- Generation Time: Jun 11, 2020 at 02:43 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -42,7 +42,10 @@ CREATE TABLE `xx_admin` (
 --
 
 INSERT INTO `xx_admin` (`id_admin`, `username`, `password`, `status`, `nama`, `created_at`) VALUES
-(1, 'admin1', '$2y$10$eNRfC6zip0E03dI6rWI10.uTmvYnlM2hApMbcqJpSSkEXgW03bEbW', 1, 'Fran Handika', '2020-06-07 10:57:03');
+(1, 'admin1', '$2y$10$eNRfC6zip0E03dI6rWI10.uTmvYnlM2hApMbcqJpSSkEXgW03bEbW', 1, 'Fran Handika', '2020-06-07 10:57:03'),
+(2, 'owner1', '$2y$10$MchkEJpIjZpfPZOgoyd8juDnvvfD7ybnFw1HvbEfZXXl0V34uulOq', 2, 'Owner Ganteng Sekali', '2020-06-11 00:00:00'),
+(3, 'admin69', '$2y$10$KfllA9C36AGsSWwIff7u2.8ldvJTxK5OFcVBM5FkuV0Ny.WxPRr7W', 1, 'Yoga Anugrah Pratama', '2020-06-11 00:00:00'),
+(4, 'kucing', '$2y$10$uFKWTDXrg5vI6qJmJ2/j3.LKEwGqU9O2pqdcx4mB5QZlzz92x3eta', 1, 'Kucing', '2020-06-11 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -77,7 +80,8 @@ CREATE TABLE `xx_kelas` (
   `jadwal_kelas` varchar(50) NOT NULL,
   `waktu_kelas` varchar(50) NOT NULL,
   `deskripsi_kelas` text NOT NULL,
-  `harga_kelas` varchar(50) NOT NULL,
+  `harga_kelas` bigint(20) NOT NULL,
+  `biaya_pendaftaran` bigint(20) NOT NULL,
   `created_at` date NOT NULL DEFAULT current_timestamp(),
   `updated_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -86,11 +90,11 @@ CREATE TABLE `xx_kelas` (
 -- Dumping data for table `xx_kelas`
 --
 
-INSERT INTO `xx_kelas` (`id_kelas`, `kode_kelas`, `judul_kelas`, `jadwal_kelas`, `waktu_kelas`, `deskripsi_kelas`, `harga_kelas`, `created_at`, `updated_at`) VALUES
-(1, 'bcapg2020', 'Cinta Matika Pagi', 'senin , rabu , jumat', '09:00 - 11:30', 'lorem ipsum', '250.000', '2020-05-01', NULL),
-(2, 'bcasg2020', 'Cinta Matika Siang', 'senin , rabu , jumat', '13:00 - 15:30', 'lorem ipsum', '250.000', '2020-01-01', '2020-06-09'),
-(3, 'mtkpg2020', 'Cinta Baca Pagi', 'senin , rabu , jumat', '09:00 - 11:30', 'lorem ipsum', '250.000', '2020-07-06', NULL),
-(4, 'mtksg2020', 'Cinta Baca Siang', 'senin , rabu , jumat', '13:00 - 15:30', 'Lorem ipsum dolor sit amet\r\n', '250.000', '2020-08-06', NULL);
+INSERT INTO `xx_kelas` (`id_kelas`, `kode_kelas`, `judul_kelas`, `jadwal_kelas`, `waktu_kelas`, `deskripsi_kelas`, `harga_kelas`, `biaya_pendaftaran`, `created_at`, `updated_at`) VALUES
+(1, 'bcapg2020', 'Cinta Matika Pagi', 'senin , rabu , jumat', '09:00 - 11:30', 'lorem ipsum', 250000, 150000, '2020-05-01', NULL),
+(2, 'bcasg2020', 'Cinta Matika Siang', 'senin , rabu , jumat', '13:00 - 15:30', 'lorem ipsum', 250000, 150000, '2020-01-01', '2020-06-09'),
+(3, 'mtkpg2020', 'Cinta Baca Pagi', 'senin , rabu , jumat', '09:00 - 11:30', 'lorem ipsum', 250000, 150000, '2020-07-06', NULL),
+(4, 'mtksg2020', 'Cinta Baca Siang', 'senin , rabu , jumat', '13:00 - 15:30', 'Lorem ipsum dolor sit amet\r\n', 250000, 150000, '2020-08-06', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,6 +109,7 @@ CREATE TABLE `xx_pendaftaran` (
   `nomor_pendaftaran` varchar(50) NOT NULL,
   `status_pembayaran` int(11) NOT NULL DEFAULT 3 COMMENT '1. selesai bayar, 2. pending',
   `status` int(11) NOT NULL DEFAULT 2 COMMENT '1. active, 2. inactive',
+  `admin_acc` varchar(50) NOT NULL,
   `bukti_pembayaran` varchar(250) NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -113,11 +118,12 @@ CREATE TABLE `xx_pendaftaran` (
 -- Dumping data for table `xx_pendaftaran`
 --
 
-INSERT INTO `xx_pendaftaran` (`id_pendaftaran`, `id_user`, `id_kelas`, `nomor_pendaftaran`, `status_pembayaran`, `status`, `bukti_pembayaran`, `created_at`) VALUES
-(2, 1, 2, 'bcasg20201', 1, 1, '12Screenshot_1.png', '2020-06-08'),
-(5, 1, 4, 'mtksg202011591653600', 1, 1, '15Screenshot_1.png', '2020-06-09'),
-(7, 3, 3, 'mtkpg202031591740000', 1, 1, '3Screenshot_1.png', '2020-06-10'),
-(8, 1, 1, 'bcapg202011591740000', 1, 1, '1Screenshot_1.png', '2020-06-10');
+INSERT INTO `xx_pendaftaran` (`id_pendaftaran`, `id_user`, `id_kelas`, `nomor_pendaftaran`, `status_pembayaran`, `status`, `admin_acc`, `bukti_pembayaran`, `created_at`) VALUES
+(2, 1, 2, 'bcasg20201', 1, 1, 'Fran Handika', '12Screenshot_1.png', '2020-06-08'),
+(5, 1, 4, 'mtksg202011591653600', 1, 1, 'Fran Handika', '15Screenshot_1.png', '2020-06-09'),
+(7, 3, 3, 'mtkpg202031591740000', 1, 1, 'Fran Handika', '3Screenshot_1.png', '2020-06-10'),
+(8, 1, 1, 'bcapg202011591740000', 1, 1, 'Fran Handika', '1Screenshot_1.png', '2020-06-10'),
+(9, 1, 3, 'mtkpg202011591740000', 2, 2, 'Fran Handika', '1mtkpg202011591740000.jpeg', '2020-06-10');
 
 -- --------------------------------------------------------
 
@@ -128,6 +134,7 @@ INSERT INTO `xx_pendaftaran` (`id_pendaftaran`, `id_user`, `id_kelas`, `nomor_pe
 CREATE TABLE `xx_profile` (
   `id_profile` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
+  `foto` varchar(250) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `no_hp` varchar(50) NOT NULL,
   `tempat_lahir` varchar(100) NOT NULL,
@@ -143,9 +150,9 @@ CREATE TABLE `xx_profile` (
 -- Dumping data for table `xx_profile`
 --
 
-INSERT INTO `xx_profile` (`id_profile`, `id_user`, `nama`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `umur`, `pendidikan`, `jenis_kelamin`, `alamat`, `created_at`) VALUES
-(1, 1, 'Yoga Anugrah Pratama', '08981001118', 'Palembang', '1996-06-06', 24, 'Kuliah', 'L', 'Jl. mencintaimu', '2020-06-10'),
-(2, 3, 'Tes', '0928278289', 'Palembang', '2003-07-16', 16, 'SD', 'L', 'Jl', '2020-06-10');
+INSERT INTO `xx_profile` (`id_profile`, `id_user`, `foto`, `nama`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `umur`, `pendidikan`, `jenis_kelamin`, `alamat`, `created_at`) VALUES
+(1, 1, '', 'Yoga Anugrah Pratama', '08981001118', 'Palembang', '1996-06-06', 24, 'Kuliah', 'L', 'Jl. mencintaimu', '2020-06-10'),
+(2, 3, '', 'Tesxxmnxcbjxzcb', '0928278289', 'Palembang', '2003-07-16', 16, 'SD', 'L', 'Jl', '2020-06-10');
 
 -- --------------------------------------------------------
 
@@ -168,9 +175,9 @@ CREATE TABLE `xx_users` (
 --
 
 INSERT INTO `xx_users` (`id_user`, `username`, `email`, `password`, `nama`, `is_active`, `created_at`) VALUES
-(1, 'yogaapsy', 'yogaanugrahpsy@gmail.com', '$2y$10$eNRfC6zip0E03dI6rWI10.uTmvYnlM2hApMbcqJpSSkEXgW03bEbW', 'Yoga Anugrah Pratama', 1, '2020-06-06'),
+(1, 'yogaapsy', 'yogaanugrahpsy@gmail.com', '$2y$10$9qpJg9s4l/U3hvOAmhAmEuds7JADHYjocpxo0lR8Tyo1P4vp1vx6e', 'Yoga Anugrah Pratama', 1, '2020-06-06'),
 (2, 'tes123', 'tes@gmail.com', '$2y$10$8Yot8UGRf1sRH1QKHMA6ZO2gX6ZZ4DJoxA6Iegc3zJZLb5V1MtRpy', 'Tes', 1, '2020-06-09'),
-(3, 'tes1234', 'te2s@gmail.com', '$2y$10$cXvbETV6chAc1h69ZFx9.uV5xoZUar7o5pI4./tzY0GKuZtDTSCcu', 'tes', 1, '2020-06-10');
+(3, 'tes1234', 'te2s@gmail.com', '$2y$10$0HHoz5V1hGR7WJyKuHb5MOEf1FR5uZWX5biqLoxA7nDqKNovAXMtm', 'Tesxxmnxcbjxzcb', 1, '2020-06-10');
 
 --
 -- Indexes for dumped tables
@@ -223,7 +230,7 @@ ALTER TABLE `xx_users`
 -- AUTO_INCREMENT for table `xx_admin`
 --
 ALTER TABLE `xx_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `xx_jenis_kelamin`
@@ -235,13 +242,13 @@ ALTER TABLE `xx_jenis_kelamin`
 -- AUTO_INCREMENT for table `xx_kelas`
 --
 ALTER TABLE `xx_kelas`
-  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `xx_pendaftaran`
 --
 ALTER TABLE `xx_pendaftaran`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `xx_profile`
