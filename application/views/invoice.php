@@ -84,45 +84,91 @@
 
 	<div class="isi" style="margin-top:20px;">
 		<p style="font-size:11px;">
-			<div class="col-6" style="text-align:left">Tanggal : 13-05-2020</div>
-			<div class="col-6" style="text-align:right">No. Pendaftaran : 23013012040124</div>
+			<div class="col-6" style="text-align:left">
+				<table style="border: 1px solid white;
+    border-collapse: collapse;">
+					<tr>
+						<td style="border:none">
+							Nama : <?= $invoice['nama'] ?>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: none;">
+							Kode Kelas : <?= $invoice['kode_kelas'] ?>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: none;">
+							Nama Kelas : <?= $invoice['judul_kelas'] ?>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: none;">
+							Jadwal : <?= $invoice['jadwal_kelas'] ?>
+						</td>
+					</tr>
+					<tr>
+						<td style="border: none;">
+							Jam : <?= $invoice['waktu_kelas'] ?>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-6" style="text-align:right">
+				<table style="border: 1px solid white;
+    border-collapse: collapse;">
+					<tr>
+						<td style="border:none">
+							No. Pendaftaran : <?= $invoice['nomor_pendaftaran'] ?>
+						</td>
+					</tr>
+					<tr>
+						<td style="border:none">
+							Tanggal Daftar : <?= $invoice['created_at'] ?>
+						</td>
+
+					</tr>
+
+				</table>
+			</div>
 		</p>
 		<div class="border">
 			<table class="border" style="margin-top:15px; width:100%">
 
 				<tr>
 					<th scope="col" style="border:1px solid; text-align:center;font-size:14px;">No.<br></th>
-					<th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Kode Kelas</th>
-					<th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Nama Kelas</th>
-					<th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Keterangan</th>
+					<!-- <th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Kode Kelas</th>
+					<th scope="col" style="border:1px solid;text-align:left;font-size:14px;">Nama Kelas</th> -->
+					<th scope="col" style="border:1px solid;text-align:center;font-size:14px;" colspan="3">Keterangan</th>
 					<th scope="col" style="border:1px solid;text-align:center;font-size:14px;">Biaya</th>
 				</tr>
 
 				<tr>
 					<td style="border:1px solid;text-align:center;font-size:12px;width:20px;">1</td>
-					<td style="border:1px solid;font-size:12px;">tes</td>
-					<td style="border:1px solid;font-size:12px;">tes1</td>
-					<td style="border:1px solid;font-size:12px;">Administrasi</td>
-					<td style="border:1px solid;font-size:12px;text-align:right">Rp. 150.000</td>
+					<!-- <td style="border:1px solid;font-size:12px;">tes</td>
+					<td style="border:1px solid;font-size:12px;">tes1</td> -->
+					<td style="border:1px solid;font-size:12px;" colspan="3">Biaya Pendaftaran</td>
+					<td style="border:1px solid;font-size:12px;text-align:center">Rp. <?= number_format($invoice['biaya_pendaftaran']) ?></td>
 				</tr>
 				<tr>
 					<td style="border:1px solid;text-align:center;font-size:11px;width:20px;">2</td>
-					<td style="border:1px solid;font-size:12px;">tes</td>
-					<td style="border:1px solid;font-size:12px;">tes1</td>
-					<td style="border:1px solid;font-size:12px;">Bulan Pertama</td>
-					<td style="border:1px solid;font-size:12px;text-align:right">Rp. 250.000</td>
+					<!-- <td style="border:1px solid;font-size:12px;">tes</td>
+					<td style="border:1px solid;font-size:12px;">tes1</td> -->
+					<td style="border:1px solid;font-size:12px;" colspan="3">Biaya Bulan Pertama</td>
+					<td style="border:1px solid;font-size:12px;text-align:center">Rp. <?= number_format($invoice['harga_kelas']) ?></td>
 				</tr>
+				<!-- <tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr> -->
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th style="border:1px solid;font-size:12px;text-align:center;" colspan="4">Jumlah</th>
+					<th style="border:1px solid;font-size:12px;text-align:center;" colspan="4">Total Pembayaran</th>
 
-					<td style="border:1px solid;font-size:12px;text-align:right">Rp. 400.000</d>
+					<?php $jumlah = $invoice['biaya_pendaftaran'] + $invoice['harga_kelas']; ?>
+					<td style="border:1px solid;font-size:12px;text-align:center">Rp. <?= number_format($jumlah) ?></d>
 				</tr>
 
 			</table>
@@ -131,7 +177,7 @@
 		<div class="pernyataan" style="margin-top:30px; margin-bottom:30px;">
 			<div class="row">
 				<div class="col-12" style="font-size:13px;">
-					Catatan :  <br>
+					Catatan : <br>
 					- Print bukti pembayaran ini lalu bawa ke bimbel B'Smart <br>
 					- Uang yang sudah di bayarkan tidak dapat diminta kembali
 				</div>
