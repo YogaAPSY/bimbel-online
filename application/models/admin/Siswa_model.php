@@ -32,33 +32,24 @@ class Siswa_model extends CI_Model
 	}
 
 
-	public function list_laporan()
+	public function list_laporan($start = null, $end = null)
 	{
-		$this->db->select('xx_pendaftaran.id_kelas, xx_pendaftaran.status ,xx_pendaftaran.created_at, xx_pendaftaran.status_pembayaran, xx_users.nama');
+		$this->db->select('xx_pendaftaran.id_kelas, xx_kelas.harga_kelas as total_kelas, xx_kelas.biaya_pendaftaran as total_biaya,xx_pendaftaran.status ,xx_pendaftaran.created_at, xx_pendaftaran.status_pembayaran, xx_users.nama');
 		$this->db->from('xx_pendaftaran');
 		$this->db->join('xx_users', 'xx_users.id_user = xx_pendaftaran.id_user');
 		$this->db->join('xx_profile', 'xx_profile.id_user = xx_users.id_user');
-		// $this->db->where('xx_pendaftaran.status', 1);
+		$this->db->join('xx_kelas', 'xx_pendaftaran.id_kelas = xx_kelas.id_kelas');
+		$this->db->where('xx_pendaftaran.status', 1);
+		if ($start != null && $end != null) {
+			$this->db->where('xx_pendaftaran.created_at >=', $start);
+			$this->db->where('xx_pendaftaran.created_at  <=', $end);
+		}
 		$this->db->order_by('xx_pendaftaran.created_at', 'desc');
 		$query = $this->db->get();
 		//echo $this->db->last_query();
 		return $query->result_array();
 	}
 
-	public function list_laporan_filter($start, $end)
-	{
-		$this->db->select('xx_pendaftaran.id_kelas, xx_pendaftaran.status ,xx_pendaftaran.created_at, xx_pendaftaran.status_pembayaran, xx_users.nama');
-		$this->db->from('xx_pendaftaran');
-		$this->db->join('xx_users', 'xx_users.id_user = xx_pendaftaran.id_user');
-		$this->db->join('xx_profile', 'xx_profile.id_user = xx_users.id_user');
-		// $this->db->where('xx_pendaftaran.status', 1);
-		$this->db->where('xx_pendaftaran.created_at >=', $start);
-		$this->db->where('xx_pendaftaran.created_at  <=', $end);
-		$this->db->order_by('xx_pendaftaran.created_at', 'desc');
-		$query = $this->db->get();
-		//echo $this->db->last_query();
-		return $query->result_array();
-	}
 
 	public function delete_pendaftaran($id)
 	{
@@ -98,6 +89,20 @@ class Siswa_model extends CI_Model
 	{
 		$this->db->where('id_pendaftaran', $id);
 		$this->db->update('xx_pendaftaran', array('status_pembayaran' => 1, 'status' => 1));
+		return true;
+	}
+
+	public function update_user($data, $id)
+	{
+		$this->db->where('id_user', $id);
+		$this->db->update('xx_users', $data);
+		return true;
+	}
+
+	public function update_profile($data, $id)
+	{
+		$this->db->where('id_profile', $id);
+		$this->db->update('xx_profile', $data);
 		return true;
 	}
 }

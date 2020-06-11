@@ -21,7 +21,7 @@
             					<div class="body">
             						<?php $attributes = array('method' => 'post'); ?>
 
-            						<?php echo form_open('admin/owner/add_user', $attributes); ?>
+            						<?php echo form_open('admin/owner/edit_user/' . $admin['id_admin'], $attributes); ?>
             						<form action="#" method="post" enctype="multipart/form-data">
             							<div class="row clearfix">
             								<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -30,7 +30,7 @@
             								<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
             									<div class="form-group">
             										<div class="form-line">
-            											<input type="text" class="form-control" placeholder="Ex : MTKPG2020" name="nama" required autocomplete="off" />
+            											<input type="text" value="<?= $detail['nama'] ?>" class="form-control" placeholder="Ex : MTKPG2020" name="nama" required autocomplete="off" />
             										</div>
             									</div>
             								</div>
@@ -44,7 +44,7 @@
             								<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
             									<div class="form-group">
             										<div class="form-line">
-            											<input type="text" class="form-control" placeholder="Ex: blablacrocxxx" name="username" required autocomplete="off" />
+            											<input type="text" value="<?= $detail['username'] ?>" class="form-control" placeholder="Ex: blablacrocxxx" name="username" required autocomplete="off" />
             										</div>
             									</div>
             								</div>
@@ -94,7 +94,7 @@
             							</div>
 
             							<div class="row clearfix">
-            								<input type="submit" class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 100px;" value="SIMPAN" name="add_user">
+            								<input type="submit" class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 100px;" value="SIMPAN" name="edit_user">
             								<!-- <button class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 100px;">SIMPAN</button> -->
             							</div>
             						</form>

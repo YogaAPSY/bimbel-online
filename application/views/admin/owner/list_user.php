@@ -33,7 +33,7 @@
     						<h2 style="font-size: 22px;color:#ad1455;font-weight: bold;">
     							<center>LIST USER ADMIN B'SMART</center>
     						</h2> <br><br>
-    						<a href="<?= base_url(); ?>admin/">
+    						<a href="<?= base_url(); ?>admin/owner/add_user/">
     							<button type="button" class="btn btn-info waves-effect">
     								<i class="material-icons">add</i>
     								<span>TAMBAH</span>
@@ -50,26 +50,30 @@
     										<th>Nama</th>
     										<th>Username</th>
     										<th>Status</th>
+    										<th>Create Date</th>
     										<th style="text-align: center;">ACTION</th>
     									</tr>
     								</thead>
 
     								<tbody>
 
-    									
+
+    									<?php $i = 1;
+										foreach ($list_admin as $admin) : ?>
     										<tr>
-    											<td></td>
-    											<td></td>
-    											<td></td>
-    											<td></td>
+    											<td><?= $i++; ?></td>
+    											<td><?= $admin['nama'] ?></td>
+    											<td><?= $admin['username'] ?></td>
+    											<td><?= ($admin['status'] == 1) ? 'admin' : 'owner'; ?></td>
+    											<td><?= $admin['created_at'] ?></td>
     											<td style="text-align: center;vertical-align: middle;">
     												<center>
-    													<a href="#" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;
-    													<a href="#" id="btn_posisi" title="Delete" data-id="" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a>
+    													<a href="<?= base_url('admin/owner/edit_user/' . $admin['id_admin']) ?>" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;
+    													<!-- <a href="#" id="btn_posisi" title="Delete" data-id="" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a> -->
     												</center>
     											</td>
     										</tr>
-    								
+    									<?php endforeach; ?>
 
     								</tbody>
     							</table>
@@ -85,7 +89,7 @@
     </section>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     	<div class="modal-dialog" role="document">
     		<div class="modal-content">
     			<div class="modal-header">
@@ -101,4 +105,4 @@
     			</div>
     		</div>
     	</div>
-    </div>
+    </div> -->

@@ -99,7 +99,7 @@
     								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
     							</div>
     							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['jenis_kelamin'] ?></label>
+    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= get_nama_jenis_kelamin($detail['jenis_kelamin']) ?></label>
     							</div>
     						</div>
     						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -134,7 +134,7 @@
     								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
     							</div>
     							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['id_kelas'] ?></label>
+    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= get_nama_kelas($detail['id_kelas']) ?></label>
     							</div>
     						</div>
 
@@ -146,7 +146,8 @@
     								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
     							</div>
     							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['status'] ?></label>
+    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?php
+																											echo ($detail['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></label>
     							</div>
     						</div>
 
@@ -158,7 +159,8 @@
     								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
     							</div>
     							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['status_pembayaran'] ?></label>
+    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?php
+																											echo ($detail['status_pembayaran'] == 1) ? 'Berhasil' : (($detail['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></label>
     							</div>
     						</div>
 

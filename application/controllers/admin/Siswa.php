@@ -35,6 +35,116 @@ class Siswa extends CI_Controller
 		$this->load->view('admin/layout_admin', $data);
 	}
 
+	public function edit_siswa($id)
+	{
+		if ($this->input->post('edit_siswa')) {
+
+
+			$this->form_validation->set_rules(
+				'nama',
+				'nama',
+				'trim|required',
+				array(
+					'required'   => '%s Harap diisi!',
+				)
+			);
+
+			$this->form_validation->set_rules(
+				'email',
+				'Email',
+				'trim|required',
+				array(
+					'required'    => '%s Harap diisi!',
+
+					'valid_email' => 'Masukkan email yang valid %s',
+					'min_length'  => '%s minimal 5 karakter!' //edited by wahid
+				)
+			);
+			$this->form_validation->set_rules(
+				'password',
+				'Password',
+				'trim|required',
+				array(
+					'required'   => '%s Harap diisi!',
+					'min_length' => '%s minimal 3 karakter!' //edited by wahid
+				)
+			);
+			$this->form_validation->set_rules(
+				'con_pass',
+				'Confirm Password',
+				'trim|required|matches[password]',
+				array(
+					'required'   => '%s Harap diisi!',
+					'matches'	 => '%s tidak sama!',
+					'min_length' => '%s minimal 3 karakter!' //edited by wahid
+				)
+			);
+
+			$this->form_validation->set_rules('no_hp', 'no_hp', 'trim|required|min_length[3]');
+			$this->form_validation->set_rules('tempat_lahir', 'tempat_lahir', 'trim|required');
+			$this->form_validation->set_rules('tanggal_lahir', 'tanggal_lahir', 'trim|required');
+			$this->form_validation->set_rules('umur', 'umur', 'trim|required');
+			$this->form_validation->set_rules('pendidikan', 'pendidikan', 'trim|required');
+			$this->form_validation->set_rules('jenis_kelamin', 'jenis kelamin', 'trim|required');
+			$this->form_validation->set_rules('alamat', 'alamat', 'trim|required');
+
+
+
+			if ($this->form_validation->run() == FALSE) {
+
+				$data['title'] = 'Edit User';
+				$data['layout'] = 'admin/siswa/edit_siswa/';
+
+				$this->load->view('admin/layout_admin', $data);
+			} else {
+				$data = array(
+
+					'nama' => $this->security->xss_clean($this->input->post('nama')),
+					'no_hp' => $this->security->xss_clean($this->input->post('no_hp')),
+					'tempat_lahir' => $this->security->xss_clean($this->input->post('tempat_lahir')),
+					'tanggal_lahir' => $this->security->xss_clean($this->input->post('tanggal_lahir')),
+					'umur' => $this->security->xss_clean($this->input->post('umur')),
+					'pendidikan' => $this->security->xss_clean($this->input->post('pendidikan')),
+					'jenis_kelamin' => $this->security->xss_clean($this->input->post('jenis_kelamin')),
+					'alamat' => $this->security->xss_clean($this->input->post('alamat')),
+
+				);
+
+				$data2 = array(
+
+					'nama' => $this->security->xss_clean($this->input->post('nama')),
+
+					'email' => $this->security->xss_clean($this->input->post('email')),
+
+					'password' => $this->security->xss_clean(password_hash($this->input->post('password'), PASSWORD_BCRYPT)),
+
+				);
+
+				// var_dump($data2);
+				// exit();
+
+				$result = $this->siswa_model->update_user($data2, $id);
+				$result2 = $this->siswa_model->update_profile($data, $id);
+				if ($result && $result2) {
+					$this->session->set_flashdata('message', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					redirect(base_url('admin/siswa'), 'refresh');
+				} else {
+					$this->session->set_flashdata('abort', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					redirect(base_url('admin/siswa/edit_siswa/' . $id), 'refresh');
+				}
+			}
+		} else {
+			// $data['jenis_kelas'] = get_kelas();
+			$data['jenis_kelamin'] = get_jenis_kelamin();
+			$data['detail'] = $this->siswa_model->detail_siswa($id);
+			// var_dump($data['detail']);
+			// exit();
+			$data['title'] = 'Edit Siswa';
+			$data['layout'] = 'admin/siswa/edit_siswa';
+			$this->load->view('admin/layout_admin', $data);
+		}
+	}
+
 	public function pendaftar()
 	{
 		$data['title'] = 'Siswa';
@@ -93,7 +203,7 @@ class Siswa extends CI_Controller
 			$start = $this->input->post('start');
 			$to = $this->input->post('end');
 
-			$data['list_laporan'] = $this->siswa_model->list_laporan_filter($start, $to);
+			$data['list_laporan'] = $this->siswa_model->list_laporan($start, $to);
 
 			$data['title'] = 'Laporan';
 

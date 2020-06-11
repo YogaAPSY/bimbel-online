@@ -70,7 +70,7 @@
 
 						<div class="table-responsive">
 
-							<table class="table table-bordered table-striped table-hover dataTable js-exportable">
+							<table class="table table-bordered table-striped table-hover" id="lapor">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -79,11 +79,14 @@
 										<th>Status Pembayaran</th>
 										<th>Status Siswa</th>
 										<th>Tanggal Aktif</th>
+										<th>Total Bayar</th>
 									</tr>
 								</thead>
 
 								<tbody>
 									<?php $i = 1;
+									$jumlah = 0;
+									$total = 0;
 									foreach ($list_laporan as $laporan) : ?>
 										<tr>
 											<td><?= $i; ?></td>
@@ -94,10 +97,27 @@
 											<td><?php
 												echo ($laporan['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
 											<td><?= $laporan['created_at'] ?></td>
+											<?php $jumlah = $laporan['total_kelas'] + $laporan['total_biaya'] ?>
+											<td>Rp. <?= number_format($jumlah) ?></td>
+
 										</tr>
 									<?php $i++;
+										$total = $jumlah + $total;
 									endforeach; ?>
 								</tbody>
+								<tfoot>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>Total Pendapatan</td>
+										<td></td>
+										<td></td>
+
+										<td>Rp. <?= number_format($total); ?></td>
+									</tr>
+
+								</tfoot>
 							</table>
 						</div>
 					</div>

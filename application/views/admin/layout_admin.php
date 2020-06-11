@@ -5,7 +5,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<title>Welcome To | B'Smart Admin</title>
+	<?php if ($this->uri->segment(3) == 'laporan') : ?>
+		<title>Laporan Pendaftaran Bimbel B'Smart</title>
+	<?php else : ?>
+		<title>Welcome To | B'Smart Admin</title>
+
+	<?php endif; ?>
 	<!-- Favicon-->
 	<link rel="icon" href="<?= base_url(); ?>assets/AdminBsb/favicon.ico" type="image/x-icon">
 

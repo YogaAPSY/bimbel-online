@@ -52,6 +52,30 @@
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
+<script>
+	$(document).ready(function() {
+		$('#lapor').DataTable({
+			dom: 'Bfrtip',
+			buttons: [{
+					extend: 'copyHtml5',
+					footer: true
+				},
+				{
+					extend: 'excelHtml5',
+					footer: true
+				},
+				{
+					extend: 'csvHtml5',
+					footer: true
+				},
+				{
+					extend: 'pdfHtml5',
+					footer: true
+				}
+			]
+		});
+	});
+</script>
 <!-- Bootstrap Datepicker Plugin Js -->
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
