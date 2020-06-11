@@ -11,8 +11,8 @@
     						<i class="material-icons">equalizer</i>
     					</div>
     					<div class="content">
-    						<div class="text">Total Kelas</div>
-    						<div class="number count-to" data-from="0" data-to="125" data-speed="15" data-fresh-interval="20"></div>
+    						<div class="text">TOTAL ADMIN</div>
+    						<div class="number count-to" data-from="0" data-to="<?= $total_kelas ?>" data-speed="15" data-fresh-interval="20"></div>
     					</div>
     				</div>
     			</div>
@@ -22,8 +22,8 @@
     						<i class="material-icons">face</i>
     					</div>
     					<div class="content">
-    						<div class="text">Total Siswa</div>
-    						<div class="number count-to" data-from="0" data-to="257" data-speed="1000" data-fresh-interval="20"></div>
+    						<div class="text">TOTAL SISWA</div>
+    						<div class="number count-to" data-from="0" data-to="<?= $total_user ?>" data-speed="1000" data-fresh-interval="20"></div>
     					</div>
     				</div>
     			</div>
@@ -33,8 +33,8 @@
     						<i class="material-icons">forum</i>
     					</div>
     					<div class="content">
-    						<div class="text">NEW COMMENTS</div>
-    						<div class="number count-to" data-from="0" data-to="243" data-speed="1000" data-fresh-interval="20"></div>
+    						<div class="text">TOTAL PENDAFTAR</div>
+    						<div class="number count-to" data-from="0" data-to="<?= $total_pendaftar ?>" data-speed="1000" data-fresh-interval="20"></div>
     					</div>
     				</div>
     			</div>
@@ -44,8 +44,8 @@
     						<i class="material-icons">person_add</i>
     					</div>
     					<div class="content">
-    						<div class="text">NEW VISITORS</div>
-    						<div class="number count-to" data-from="0" data-to="1225" data-speed="1000" data-fresh-interval="20"></div>
+    						<div class="text">TOTAL ADMIN</div>
+    						<div class="number count-to" data-from="0" data-to="<?= $total_admin ?>" data-speed="1000" data-fresh-interval="20"></div>
     					</div>
     				</div>
     			</div>

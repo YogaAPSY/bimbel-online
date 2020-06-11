@@ -6,7 +6,7 @@ class Dashboard extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		// $this->load->model('admin/auth_model', 'auth_model');
+		$this->load->model('admin/auth_model', 'auth_model');
 		// $this->load->library('mailer'); // load custom mailer library
 		if ($this->session->userdata('is_user_login') == TRUE) {
 			redirect('home');
@@ -20,6 +20,10 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Dashboard';
+		$data['total_user'] = $this->auth_model->total('xx_users');
+		$data['total_kelas'] = $this->auth_model->total('xx_kelas');
+		$data['total_pendaftar'] = $this->auth_model->total('xx_pendaftaran');
+		$data['total_admin'] = $this->auth_model->total('xx_admin');
 		$data['layout'] = 'admin/dashboard';
 		$this->load->view('admin/layout_admin', $data);
 	}

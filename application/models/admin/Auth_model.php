@@ -30,4 +30,12 @@ class Auth_model extends CI_Model
 			return $result = $query->row_array();
 		}
 	}
+
+	public function total($from)
+	{
+		$this->db->select('*');
+		$this->db->from($from);
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 }

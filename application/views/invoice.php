@@ -183,6 +183,16 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="pernyataan" style="margin-top:30px; margin-bottom:30px;">
+			<div class="row">
+				<div class="col-12" style="font-size:13px;">
+					Disetujui Oleh :
+					<?= $invoice['admin_acc'] ?> <br>
+
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>

@@ -67,11 +67,11 @@ class Siswa extends CI_Controller
 				}
 			}
 
-			if ($upload) {
-				$this->session->set_flashdata('mesasge', 'Upload Berhasil');
+			if (!empty($upload)) {
+				$this->session->set_flashdata('abort', 'Upload Gagal');
 				redirect(base_url('siswa/riwayat'));
 			} else {
-				$this->session->set_flashdata('abort', 'Upload Gagal');
+				$this->session->set_flashdata('message', 'Upload Berhasil');
 				redirect(base_url('siswa/riwayat'));
 			}
 		} else {
@@ -87,20 +87,19 @@ class Siswa extends CI_Controller
 	private function uploadFoto($directory, $files, $id)
 	{
 
-
 		$user_id = $this->session->userdata('id_user');
 
 		// $old_image = $data['user_info']['image'];
 		if (!empty($files['file']['name'])) {
-			$kode = get_kode_kelas($id);
+			$kode = get_nomor_pendaftaran($id);
 			$config = array(
 				'upload_path' => $directory,
-				'allowed_types' => "jpg|png|gif|JPG|Jpeg|PNG|GIF|JPEG",
+				'allowed_types' => "jpg|png|gif|jpeg|JPG|Jpeg|PNG|GIF|JPEG",
 				'overwrite' => TRUE,
 				'max_size' => "848000" // Can be set to particular file size , here it is 0.5 MB(548 Kb)
 			);
 
-			$new_name =  $user_id . $kode . $files['file']['name'];
+			$new_name =  $user_id . $kode . str_replace("image/", ".", $files['file']['type']);
 			$config['file_name'] = $new_name;
 
 			$this->load->library('upload', $config);

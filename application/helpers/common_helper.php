@@ -15,6 +15,13 @@ function get_kode_kelas($id)
 	return $CI->db->get_where('xx_kelas', array('id_kelas' => $id))->row_array()['kode_kelas'];
 }
 
+// Get industry name by id
+function get_nomor_pendaftaran($id)
+{
+	$CI = &get_instance();
+	return $CI->db->get_where('xx_pendaftaran', array('id_pendaftaran' => $id))->row_array()['nomor_pendaftaran'];
+}
+
 // -----------------------------------------------------------------------------
 // Get category name by id
 function get_total_siswa($id)

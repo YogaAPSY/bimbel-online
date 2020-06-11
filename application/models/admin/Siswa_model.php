@@ -88,7 +88,7 @@ class Siswa_model extends CI_Model
 	public function do_confirm($id)
 	{
 		$this->db->where('id_pendaftaran', $id);
-		$this->db->update('xx_pendaftaran', array('status_pembayaran' => 1, 'status' => 1));
+		$this->db->update('xx_pendaftaran', array('status_pembayaran' => 1, 'status' => 1, 'admin_acc' => $this->session->userdata('nama')));
 		return true;
 	}
 

@@ -71,7 +71,8 @@
 				{
 					extend: 'pdfHtml5',
 					footer: true
-				}
+				},
+
 			]
 		});
 	});
