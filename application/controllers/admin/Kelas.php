@@ -30,7 +30,7 @@ class Kelas extends CI_Controller
 		$data['title'] = 'Kelas';
 		$data['list_siswa'] = $this->kelas_model->list_siswa($id);
 		$data['nama_kelas'] = get_nama_kelas($id);
-		$data['layout'] = 'admin/siswa/list_siswa';
+		$data['layout'] = 'admin/siswa/list_pendaftar';
 		$this->load->view('admin/layout_admin', $data);
 	}
 

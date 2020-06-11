@@ -82,10 +82,33 @@
     							<a href="<?= base_url(); ?>admin/siswa">List Siswa</a>
     						</li>
     						<li>
+    							<a href="<?= base_url(); ?>admin/siswa/pendaftar">List Pendaftar</a>
+    						</li>
+    						<li>
     							<a href="<?= base_url(); ?>admin/siswa/laporan">Laporan Siswa</a>
     						</li>
     					</ul>
     				</li>
+
+    				<?php if ($this->session->userdata('status') == 2) : ?>
+    					<li>
+    						<a href="javascript:void(0);" class="menu-toggle">
+    							<i class="material-icons">face</i>
+    							<span>Siswa</span>
+    						</a>
+    						<ul class="ml-menu">
+    							<li>
+    								<a href="<?= base_url(); ?>admin/siswa">List Siswa</a>
+    							</li>
+    							<li>
+    								<a href="<?= base_url(); ?>admin/siswa/pendaftar">List Pendaftar</a>
+    							</li>
+    							<li>
+    								<a href="<?= base_url(); ?>admin/siswa/laporan">Laporan Siswa</a>
+    							</li>
+    						</ul>
+    					</li>
+    				<?php endif; ?>
 
     				<!-- <li>
     					<a href="#">

@@ -61,6 +61,7 @@
 									<th>Jam</th>
 									<th>Status</th>
 									<th>Bayaran</th>
+									<th>Harga</th>
 									<th>Bukti Pembayaran</th>
 									<th>Invoice</th>
 									<th>Action</th>
@@ -77,6 +78,7 @@
 										<td><?= $riw['waktu_kelas'] ?></td>
 										<td><?php
 											echo ($riw['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
+										<td>Rp. <?= number_format($riw['harga_kelas'] + $riw['biaya_pendaftaran']) ?></td>
 										<td><?php
 											echo ($riw['status_pembayaran'] == 1) ? 'Berhasil' : (($riw['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
 										<td><a href="#" data-toggle="modal" data-target="#myModalfoto<?= $riw['id_pendaftaran'] ?>"><img src="<?= base_url('assets/upload/bukti_pembayaran/') . $riw['bukti_pembayaran'] ?>" alt="" height="50px" width="50px"></a></td>
@@ -115,6 +117,7 @@
 												<?php echo form_open_multipart('siswa/riwayat/' . $riw['id_pendaftaran'], $attributes); ?>
 												<!-- Modal body -->
 												<div class="modal-body" style="padding-top: 20px;">
+
 													<input type="hidden" name="id_pendaftaran" value="<?= $riw['id_pendaftaran'] ?>">
 													<input type="file" name="file" class="form-control">
 												</div>

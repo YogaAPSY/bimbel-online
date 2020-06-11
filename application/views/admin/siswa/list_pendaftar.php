@@ -45,9 +45,9 @@
     										<th>No</th>
     										<th>Nama</th>
     										<th>Nomor HP</th>
-    										<th>Email</th>
-    										<th>Username</th>
-
+    										<th>Kelas</th>
+    										<th>Status</th>
+    										<th>Pembayaran</th>
     										<!-- <th>Bukti Pembayaran</th> -->
     										<th style="text-align: center;">Action</th>
     									</tr>
@@ -60,16 +60,21 @@
     											<td><?= $i; ?></td>
     											<td><?= $siswa['nama']; ?></td>
     											<td><?= $siswa['no_hp']; ?></td>
-    											<td><?= $siswa['email']; ?></td>
-    											<td><?= $siswa['username'] ?></td>
-
+    											<td><?= get_nama_kelas($siswa['id_kelas']); ?></td>
+    											<td><?php
+													echo ($siswa['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
+    											<td><?php
+													echo ($siswa['status_pembayaran'] == 1) ? 'Berhasil' : (($siswa['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
+    											<!-- <td>
+    												image/image.jpg
+    											</td> -->
     											<td style="text-align: center;vertical-align: middle;">
     												<center>
-    													<a href="<?= base_url('admin/siswa/detail_siswa/') . $siswa['id_user'] ?>" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
+    													<a href="<?= base_url('admin/siswa/detail/') . $siswa['id_pendaftaran'] ?>" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
 
-    													<!-- <a href="#" id="btn_posisi2" title="Delete" data-id="<?= $siswa['id_user'] ?>" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a> -->
+    													<a href="#" id="btn_posisi2" title="Delete" data-id="<?= $siswa['id_pendaftaran'] ?>" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a>
     												</center>
-    												<td />
+    											</td>
 
     										</tr>
     									<?php $i++;
@@ -88,7 +93,7 @@
     </section>
 
     <!-- Logout Modal-->
-    <!-- <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     	<div class="modal-dialog" role="document">
     		<div class="modal-content">
     			<div class="modal-header">
@@ -104,4 +109,4 @@
     			</div>
     		</div>
     	</div>
-    </div> -->
+    </div>

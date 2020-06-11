@@ -39,7 +39,7 @@ class Kelas_model extends CI_Model
 
 	public function list_siswa($id)
 	{
-		$this->db->select('xx_pendaftaran.id_kelas, xx_pendaftaran.status ,xx_pendaftaran.created_at, xx_users.nama,, xx_profile.no_hp, xx_pendaftaran.status_pembayaran');
+		$this->db->select('xx_pendaftaran.id_kelas, xx_pendaftaran.id_pendaftaran, xx_pendaftaran.status ,xx_pendaftaran.created_at, xx_users.nama,, xx_profile.no_hp, xx_pendaftaran.status_pembayaran');
 		$this->db->from('xx_pendaftaran');
 		$this->db->join('xx_users', 'xx_users.id_user = xx_pendaftaran.id_user');
 		$this->db->join('xx_profile', 'xx_profile.id_user = xx_users.id_user');

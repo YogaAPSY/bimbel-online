@@ -38,3 +38,9 @@ function get_jenis_kelamin()
 	$CI = &get_instance();
 	return $CI->db->get('xx_jenis_kelamin')->result_array();
 }
+
+function get_nama_jenis_kelamin($id)
+{
+	$CI = &get_instance();
+	return $CI->db->get_where('xx_jenis_kelamin', array('value' => $id))->row_array()['nama'];
+}

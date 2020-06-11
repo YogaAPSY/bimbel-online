@@ -18,10 +18,30 @@ class Siswa extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Siswa';
-		$data['list_siswa'] = $this->siswa_model->list_siswa();
+		$data['list_siswa'] = $this->siswa_model->siswa();
 		// var_dump($data['list_siswa']);
 		// exit();
 		$data['layout'] = 'admin/siswa/list_siswa';
+		$this->load->view('admin/layout_admin', $data);
+	}
+
+	public function detail_siswa($id)
+	{
+		$data['title'] = 'Siswa';
+		// $data['list_siswa'] = $this->siswa_model->list_siswa();
+		$data['detail'] = $this->siswa_model->detail_siswa($id);
+
+		$data['layout'] = 'admin/siswa/detail';
+		$this->load->view('admin/layout_admin', $data);
+	}
+
+	public function pendaftar()
+	{
+		$data['title'] = 'Siswa';
+		$data['list_siswa'] = $this->siswa_model->list_siswa();
+		// var_dump($data['list_siswa']);
+		// exit();
+		$data['layout'] = 'admin/siswa/list_pendaftar';
 		$this->load->view('admin/layout_admin', $data);
 	}
 
