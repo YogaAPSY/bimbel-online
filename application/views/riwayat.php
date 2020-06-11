@@ -47,9 +47,13 @@
 			<div class="col-md-12 d-flex">
 				<div class="bg-light align-self-stretch box p-4 text-center">
 					<div class="container table-responsive">
-						<div class="col-md-12 text-center heading-section ftco-animate">
+						<div class="col-md-12 heading-section ftco-animate">
 							<h2 class="mb-4"><span>Tabel</span> Histori</h2>
-							<p>Riwayat Kelas adalah tempat untuk melihat histori kelas yang telah dipilih oleh siswa <span style="color: rgb(231, 78, 78);"> jika telah membayar harap upload file bukti bayaran pada kolom bukti bayar sesuai dengan kelas yang telah dipilih</span></p>
+							<p style="text-align: left !important;"><span style="color: rgb(231, 78, 78);">“Total biaya pembayaran sudah termasuk biaya pendaftaran dan biaya bimbel pada bulan pertama” <br> “Tata cara pembayaran : <br>
+									1. Isi form lalu pilih kelas yang ingin didaftarkan. <br>
+									2. Transfer berdasarkan nominal tabel dibawah ke nomor rekening 09xxxxxx a.n admin. <br>
+									3. Upload bukti pembayaran dengan format jpg/png dengan maksimal ukuran 800kb ke kelas yang diambil pada tabel dibawah. <br>
+									4. Tunggu konfirmasi dari admin yang bersangkutan, apabila sudah di informasi oleh admin anda bisa mendownload bukti pembayaran(invoice) sebagai syarat untuk daftar ulang ke bimbel b’smart Palembang.”</span></p>
 						</div>
 						<table class="table table-dark table-striped">
 							<thead>
@@ -119,7 +123,7 @@
 												<div class="modal-body" style="padding-top: 20px;">
 
 													<input type="hidden" name="id_pendaftaran" value="<?= $riw['id_pendaftaran'] ?>">
-													<input type="file" name="file" class="form-control">
+													<input type="file" name="file" class="form-control" onchange="cekJpg(this)" accept="image/jpeg,image/png,image/jpg">
 												</div>
 
 												<!-- Modal footer -->

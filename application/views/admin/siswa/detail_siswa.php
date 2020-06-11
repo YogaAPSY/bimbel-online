@@ -19,6 +19,15 @@
     		});
     	</script>
     <?php endif; ?>
+    <style>
+    	@media screen and (max-width: 576px) {
+    		.hp {
+    			height: 250px !important;
+    			min-width: 290px !important;
+    			max-width: 290px !important;
+    		}
+    	}
+    </style>
     <section class="content">
     	<div class="container-fluid">
     		<div class="block-header">
@@ -172,7 +181,7 @@
     								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
     							</div>
     							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><img src="<?= isset($detail['bukti_pembayaran']) ? base_url('assets/upload/bukti_pembayaran/') . $detail['bukti_pembayaran'] : '#'; ?>" alt="" height="100px" width="100px"></label>
+    								<a href="#" data-toggle="modal" data-target="#myModalfoto"><label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><img src="<?= isset($detail['bukti_pembayaran']) ? base_url('assets/upload/bukti_pembayaran/') . $detail['bukti_pembayaran'] : '#'; ?>" alt="" height="100px" width="100px"></a></label>
     							</div>
     						</div>
     						<div class="row clearfix">
@@ -193,3 +202,18 @@
     	</div>
     	</div>
     </section>
+    <!-- The Modal Foto-->
+    <div class="modal fade" id="myModalfoto">
+    	<div class="modal-dialog modal-dialog-centered">
+    		<div class="modal-content" style="border: 0px solid rgba(0, 0, 0, 0.2);">
+
+    			<!-- Modal Header -->
+    			<div class="modal-header" style="background-color: #4f575f;">
+    				<center><img src="<?= isset($detail['bukti_pembayaran']) ? base_url('assets/upload/bukti_pembayaran/') . $detail['bukti_pembayaran'] : '#'; ?>" alt="" class="hp" style="min-width:500px;min-height:300px;max-width:500px;max-height:300px;"></center>
+    				<br>
+    			</div>
+
+    			</form>
+    		</div>
+    	</div>
+    </div>

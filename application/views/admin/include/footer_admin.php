@@ -5,7 +5,7 @@
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap/js/bootstrap.js"></script>
 
 <!-- Select Plugin Js -->
-<script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+<!-- <script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-select/js/bootstrap-select.js"></script> -->
 
 <!-- Slimscroll Plugin Js -->
 <script src="<?= base_url(); ?>assets/AdminBsb/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
@@ -111,4 +111,39 @@
 		$("#hapus_nyo").attr('href', url + id);
 
 	})
+</script>
+<script>
+	function cekJpg(file) {
+		var sFileName = file.files[0].name;
+		var sFileExtension = sFileName.split('.')[sFileName.split('.').length - 1].toLowerCase();
+		var iFileSize = file.size;
+		var iConvert = (file.files[0].size / 1048576).toFixed(2);
+		var FileSize = file.files[0].size / 1024 / 1024; // in MB
+
+		/// OR together the accepted extensions and NOT it. Then OR the size cond.
+		/// It's easier to see this way, but just a suggestion - no requirement.
+		if (!(sFileExtension === "JPG" ||
+				sFileExtension === "JPEG" ||
+				sFileExtension === "GIF" ||
+				sFileExtension === "PNG" ||
+				sFileExtension === "jpg" ||
+				sFileExtension === "jpeg" ||
+				sFileExtension === "gif" ||
+				sFileExtension === "png") || FileSize > 0.5) { /// 10 mb
+			txt = "Tipe File :   '" + sFileExtension + "'\n\n";
+			txt += "Size:  " + iConvert + " MB \n\n";
+			txt += "Tidak Diperbolehkan Karna Bukan Format File Yang Diperbolehkan JPG,JPEG,PNG dan tidak lebih dari 500 KB.\n\n" + sFileExtension + FileSize;
+			console.log(txt);
+			swal({
+				title: "ERROR !!!",
+				text: txt,
+				showConfirmButton: true,
+				type: 'error'
+			});
+			$(file).val('');
+			return false;
+		} else {
+			console.log('ini salah');
+		}
+	}
 </script>

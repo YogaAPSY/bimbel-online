@@ -1,5 +1,4 @@
-            <!-- Bootstrap Select Css -->
-            <link href="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
 
             <section class="content">
             	<div class="container-fluid">
@@ -128,5 +127,4 @@
             	</div>
             </section>
 
-            <!-- Select Plugin Js -->
-            <script src="<?= base_url(); ?>assets/AdminBsb/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+

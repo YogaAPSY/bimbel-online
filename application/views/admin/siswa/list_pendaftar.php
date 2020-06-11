@@ -61,13 +61,13 @@
     											<td><?= $siswa['nama']; ?></td>
     											<td><?= $siswa['no_hp']; ?></td>
     											<td><?= get_nama_kelas($siswa['id_kelas']); ?></td>
-    											<td><?php
-													if ($siswa['status'] == 1) : ?>
-    													<a href="<?= base_url('admin/siswa/make_inactive/' . $siswa['id_pendaftaran']) ?>" class="badge"><span class="badge badge-primary">Active</span></a>
+    											<td style="text-align: center;"><?php
+																				if ($siswa['status'] == 1) : ?>
+    													<a href="<?= base_url('admin/siswa/make_inactive/' . $siswa['id_pendaftaran']) ?>"><span class="btn btn-primary">Active</span></a>
     												<?php elseif ($siswa['status'] == 2 && $siswa['status_pembayaran'] == 1) : ?>
-    													<a href="<?= base_url('admin/siswa/make_active/' . $siswa['id_pendaftaran']) ?>" class="badge"><span class="badge badge-warning">Inactive</span></a>
+    													<a href="<?= base_url('admin/siswa/make_active/' . $siswa['id_pendaftaran']) ?>"><span class="btn btn-danger">Inactive</span></a>
     												<?php else : ?>
-    													<span class="badge badge-warning">Inactive</span>
+    													<span class="btn btn-danger">Inactive</span>
     												<?php endif; ?>
     											</td>
     											<td><?php

@@ -82,11 +82,11 @@
 
 				<div class="container-login100-form-btn">
 					<div class="wrap-login100-form-btn">
-						<div class="login100-form-bgbtn" style="background:linear-gradient(to right, rgba(2,0,36,1) 0%, rgba(45,45,148,1) 35%, rgba(0,212,255,1) 100%) !important;"></div>
+						<div class="login100-form-bgbtn"></div>
 						<!-- <button class="login100-form-btn" type="submit" name="login">
 							Login
 						</button> -->
-						<input type="submit" name="login" value="login" class="login100-form-btn">
+						<input type="submit" name="login" value="login" class="login100-form-btn" style="background:linear-gradient(to right, rgba(2,0,36,1) 0%, rgba(45,45,148,1) 35%, rgba(0,212,255,1) 100%) !important;">
 					</div>
 				</div>
 

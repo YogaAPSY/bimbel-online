@@ -66,7 +66,7 @@
 	<div class="margin-bottom" style="margin-top:10px;">
 		<div class="row">
 			<div class="col-2">
-				<img src="assets/img/admin/palembang.png" width="80px" style="float:left;display: inline-block; margin-left:10px;">
+				&nbsp;
 			</div>
 			<div class="col-8">
 				<div style="text-align:center; float:right;display: inline-block; position:relative;">
@@ -77,7 +77,7 @@
 				</div>
 			</div>
 			<div class="col-2">
-				<img src="assets/img/admin/bnpb.png" width="80px" style="float:left;display: inline-block; margin-left:50px;">
+				&nbsp;
 			</div>
 		</div>
 	</div>
@@ -187,7 +187,7 @@
 		<div class="pernyataan" style="margin-top:30px; margin-bottom:30px;">
 			<div class="row">
 				<div class="col-12" style="font-size:13px;">
-					Disetujui Oleh :
+					Disetujui Oleh : <br><br><br><br><br><br>
 					<?= $invoice['admin_acc'] ?> <br>
 
 				</div>
