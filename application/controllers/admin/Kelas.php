@@ -77,6 +77,7 @@ class Kelas extends CI_Controller
 				)
 			);
 
+			$this->form_validation->set_rules('biaya_pendaftaran', 'Jadwal Kelas', 'trim|required');
 			$this->form_validation->set_rules('jadwal_kelas', 'Jadwal Kelas', 'trim|required');
 			$this->form_validation->set_rules('waktu_kelas', 'Waktu Kelas', 'required');
 
@@ -91,6 +92,7 @@ class Kelas extends CI_Controller
 				$data = array(
 					'kode_kelas' => $this->security->xss_clean($this->input->post('kode_kelas')),
 					'harga_kelas' => $this->security->xss_clean($this->input->post('harga_kelas')),
+					'biaya_pendaftaran' => $this->security->xss_clean($this->input->post('biaya_pendaftaran')),
 					'jadwal_kelas' => $this->security->xss_clean($this->input->post('jadwal_kelas')),
 					'judul_kelas' => $this->security->xss_clean($this->input->post('judul_kelas')),
 					'deskripsi_kelas' => $this->security->xss_clean($this->input->post('deskripsi_kelas')),
@@ -162,6 +164,7 @@ class Kelas extends CI_Controller
 
 			$this->form_validation->set_rules('jadwal_kelas', 'Jadwal Kelas', 'trim|required');
 			$this->form_validation->set_rules('waktu_kelas', 'Waktu Kelas', 'required');
+			$this->form_validation->set_rules('biaya_pendaftaran', 'Biaya Pendaftaran', 'required');
 
 
 
@@ -175,6 +178,7 @@ class Kelas extends CI_Controller
 				$data = array(
 					'kode_kelas' => $this->security->xss_clean($this->input->post('kode_kelas')),
 					'harga_kelas' => $this->security->xss_clean($this->input->post('harga_kelas')),
+					'biaya_pendaftaran' => $this->security->xss_clean($this->input->post('biaya_pendaftaran')),
 					'jadwal_kelas' => $this->security->xss_clean($this->input->post('jadwal_kelas')),
 					'judul_kelas' => $this->security->xss_clean($this->input->post('judul_kelas')),
 					'deskripsi_kelas' => $this->security->xss_clean($this->input->post('deskripsi_kelas')),

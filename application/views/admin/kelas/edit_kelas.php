@@ -61,6 +61,18 @@
             								</div>
             							</div>
             						</div>
+            						<div class="row clearfix">
+            							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+            								<h4 style="font-size: 17.1px;">Biaya Pendaftaran</h4>
+            							</div>
+            							<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+            								<div class="form-group">
+            									<div class="form-line">
+            										<input type="text" value="<?= $kelas['biaya_pendaftaran'] ?>" class="form-control" placeholder="250000" name="biaya_pendaftaran" required autocomplete="off" />
+            									</div>
+            								</div>
+            							</div>
+            						</div>
 
             						<div class="row clearfix">
             							<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">

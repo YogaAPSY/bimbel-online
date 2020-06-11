@@ -101,7 +101,7 @@ class Siswa_model extends CI_Model
 
 	public function update_profile($data, $id)
 	{
-		$this->db->where('id_profile', $id);
+		$this->db->where('id_user', $id);
 		$this->db->update('xx_profile', $data);
 		return true;
 	}

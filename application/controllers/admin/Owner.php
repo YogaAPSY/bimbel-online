@@ -79,7 +79,7 @@ class Owner extends CI_Controller
 				$data = array(
 					'username' => $this->security->xss_clean($this->input->post('username')),
 
-					'status' => $this->security->xss_clean($this->input->post('nama')),
+					'status' => $this->security->xss_clean($this->input->post('status')),
 					'nama' => $this->security->xss_clean($this->input->post('nama')),
 
 					'password' => $this->security->xss_clean(password_hash($this->input->post('password'), PASSWORD_BCRYPT)),
@@ -160,7 +160,7 @@ class Owner extends CI_Controller
 				$data = array(
 					'username' => $this->security->xss_clean($this->input->post('username')),
 
-					'status' => $this->security->xss_clean($this->input->post('nama')),
+					'status' => $this->security->xss_clean($this->input->post('status')),
 					'nama' => $this->security->xss_clean($this->input->post('nama')),
 
 					'password' => $this->security->xss_clean(password_hash($this->input->post('password'), PASSWORD_BCRYPT)),

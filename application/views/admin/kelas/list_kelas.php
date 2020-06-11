@@ -50,7 +50,7 @@
     										<th>Kode</th>
     										<th>Judul</th>
     										<th>Jadwal</th>
-
+    										<th>Pendaftaran</th>
     										<th>Harga</th>
     										<th>Jumlah</th>
     										<th>Deskripsi</th>
@@ -67,9 +67,9 @@
     											<td><?= $kelas['kode_kelas'] ?></td>
     											<td><?= $kelas['judul_kelas'] ?></td>
     											<td><?= $kelas['jadwal_kelas'] ?></td>
-
-    											<td><?= $kelas['harga_kelas'] ?></td>
-    											<td><?= get_total_siswa($kelas['id_kelas']) ?></td>
+    											<td>Rp. <?= number_format($kelas['biaya_pendaftaran']) ?></td>
+    											<td>Rp. <?= number_format($kelas['harga_kelas']) ?></td>
+    											<td><?= get_total_siswa($kelas['id_kelas']) ?> Siswa</td>
     											<td><?= $kelas['deskripsi_kelas'] ?></td>
     											<td style="text-align: center;vertical-align: middle;">
     												<center>

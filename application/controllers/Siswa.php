@@ -16,8 +16,29 @@ class Siswa extends CI_Controller
 		$this->load->view('layout', $data);
 	}
 
+	public function profile()
+	{
+		if ($this->session->userdata('is_admin_login') == TRUE) {
+			redirect('admin/dashboard', 'refresh');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('auth/login');
+		}
+
+		$data['title'] = 'Siswa Profile';
+		$data['profile'] = $this->siswa_model->profile();
+
+		$data['layout'] = 'siswa';
+		$this->load->view('layout', $data);
+	}
+
 	public function invoice($id)
 	{
+		if ($this->session->userdata('is_admin_login') == TRUE) {
+			redirect('admin/dashboard', 'refresh');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('auth/login');
+		}
+
 		try {
 			$user_id = $this->session->userdata('id_user');
 			$data['invoice'] = $this->siswa_model->data_invoice($id);

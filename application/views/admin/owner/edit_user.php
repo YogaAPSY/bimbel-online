@@ -21,7 +21,7 @@
             					<div class="body">
             						<?php $attributes = array('method' => 'post'); ?>
 
-            						<?php echo form_open('admin/owner/edit_user/' . $admin['id_admin'], $attributes); ?>
+            						<?php echo form_open('admin/owner/edit_user/' . $detail['id_admin'], $attributes); ?>
             						<form action="#" method="post" enctype="multipart/form-data">
             							<div class="row clearfix">
             								<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
