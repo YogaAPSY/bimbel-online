@@ -24,11 +24,37 @@ class Siswa extends CI_Controller
 			redirect('auth/login');
 		}
 
-		$data['title'] = 'Siswa Profile';
-		$data['profile'] = $this->siswa_model->profile();
+		$upload = "";
+		if ($this->input->post('submit')) {
 
-		$data['layout'] = 'siswa';
-		$this->load->view('layout', $data);
+			if (isset($_FILES) && !empty($_FILES)) {
+				if ($this->security->xss_clean($_FILES, TRUE) === FALSE) {
+					// file failed the XSS test
+
+					$this->session->set_flashdata('abort', 'Upload error xss');
+
+					redirect(base_url('siswa/profile'));
+				} else {
+
+					$upload = $this->uploadFotoProfile('./assets/upload/foto/', $_FILES);
+				}
+			}
+
+			if (!empty($upload)) {
+				$this->session->set_flashdata('abort', 'Upload Gagal');
+				redirect(base_url('siswa/profile'));
+			} else {
+				$this->session->set_flashdata('message', 'Upload Berhasil');
+				redirect(base_url('siswa/profile'));
+			}
+		} else {
+
+			$data['title'] = 'Siswa Profile';
+			$data['profile'] = $this->siswa_model->profile();
+
+			$data['layout'] = 'profile';
+			$this->load->view('layout', $data);
+		}
 	}
 
 	public function invoice($id)
@@ -145,6 +171,51 @@ class Siswa extends CI_Controller
 				exit();
 				$this->session->set_flashdata('abort', 'Error! Please select a valid file formate');
 				redirect(base_url('siswa/riwayat'));
+			}
+		}
+		// end upload user image code		
+	}
+
+	private function uploadFotoProfile($directory, $files)
+	{
+
+		$user_id = $this->session->userdata('id_user');
+
+		// $old_image = $data['user_info']['image'];
+		if (!empty($files['file']['name'])) {
+			$kode = get_nomor_pendaftaran($id);
+			$config = array(
+				'upload_path' => $directory,
+				'allowed_types' => "jpg|png|gif|jpeg|JPG|Jpeg|PNG|GIF|JPEG",
+				'overwrite' => TRUE,
+				'max_size' => "848000" // Can be set to particular file size , here it is 0.5 MB(548 Kb)
+			);
+
+			$new_name =  $user_id . str_replace("image/", ".", $files['file']['type']);
+			$config['file_name'] = $new_name;
+
+			$this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if ($this->upload->do_upload('file')) {
+
+				$file_data = array('upload_data' => $this->upload->data());
+				$dataImage =  $file_data['upload_data']['file_name'];
+
+				// if ($old_image != 'uploads/profile/user/user.png' && $dataImage != $old_image) {
+
+				// 	unlink(FCPATH . $old_image);
+				// }
+
+				$this->db->where('id_user', $id);
+				$this->db->update('xx_profile', ['foto' => $dataImage]);
+			} else {
+				$data['file_error'] = array('error' => $this->upload->display_errors());
+
+				var_dump($data['file_error']);
+				exit();
+				$this->session->set_flashdata('abort', 'Error! Please select a valid file formate');
+				redirect(base_url('siswa/profile'));
 			}
 		}
 		// end upload user image code		

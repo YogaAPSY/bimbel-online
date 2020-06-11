@@ -47,7 +47,7 @@ class Auth extends CI_Controller
 				$verification = $this->auth_model->is_verify($data);
 
 				if ($verification == false) {
-					$this->session->set_flashdata('error_login', $data['username'] . ' sudah tidak aktif, hubungi admin untuk mengaktifkan kembali.');
+					$this->session->set_flashdata('abort', 'Pendaftaran anda gagal!');
 					redirect(base_url('auth/login', 'refresh'));
 				} else {
 					if ($result) {
@@ -139,7 +139,7 @@ class Auth extends CI_Controller
 			if ($this->form_validation->run() == FALSE) {
 
 				$data['title'] = 'Registration';
-
+				$this->session->set_flashdata('abort', '<p class="alert alert-success">Pendaftaran anda Gagal!</p>');
 				$this->load->view('register', $data);
 			} else {
 
@@ -157,10 +157,10 @@ class Auth extends CI_Controller
 				$result = $this->auth_model->insert_into_users($data);
 
 				if ($result) {
-					$this->session->set_flashdata('message', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('message', '<p class="alert alert-success">Pendaftaran anda berhasil!</p>');
 					redirect(base_url('auth/login'), 'refresh');
 				} else {
-					$this->session->set_flashdata('abort', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('abort', '<p class="alert alert-success">Pendaftaran anda Gagal!</p>');
 					redirect(base_url('auth/register'), 'refresh');
 				}
 			}

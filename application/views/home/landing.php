@@ -26,7 +26,14 @@
 				<div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
 					<div class="col-md-8 text-center ftco-animate">
 						<h1 class="mb-4">Anak-anak adalah yang terbaik <span> penjelajah di dunia</span></h1>
-						<p><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<?php if ($this->session->userdata('is_user_login') == true) : ?>
+							<p><a href="<?= base_url(); ?>home/form" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+							<p><a href="<?= base_url(); ?>admin/dashboard" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<?php else : ?>
+							<p><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<?php endif; ?>
+
 					</div>
 				</div>
 			</div>
@@ -37,8 +44,14 @@
 			<div class="container">
 				<div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
 					<div class="col-md-8 text-center ftco-animate">
-						<h1 class="mb-4">Belajar Semupurna <span> Untuk Anak Anda</span></h1>
-						<p><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<h1 class="mb-4">Belajar Sempurna <span> Untuk Anak Anda</span></h1>
+						<?php if ($this->session->userdata('is_user_login') == true) : ?>
+							<p><a href="<?= base_url(); ?>home/form" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
+							<p><a href="<?= base_url(); ?>admin/dashboard" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<?php else : ?>
+							<p><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3 mt-3">Daftar Sekarang</a></p>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -195,7 +208,7 @@
 					<?php if ($this->session->userdata('is_user_login') == true) : ?>
 						<p class="mb-0"><a href="<?= base_url(); ?>home/form" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
 					<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-						<p class="mb-0"><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
+						<p class="mb-0"><a href="<?= base_url(); ?>admin/dashboard" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
 					<?php else : ?>
 						<p class="mb-0"><a href="<?= base_url(); ?>auth/login" class="btn btn-secondary px-4 py-3">Ikuti Kursus</a></p>
 					<?php endif; ?>
@@ -228,7 +241,7 @@
 					<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/course-4.jpg);"></div>
 					<div class="text bg-light p-4">
 						<h3><a href="#">Cinta Matematika</a></h3>
-						<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+						<!-- <p class="subheading"><span>Class time:</span> 9:00am - 10am</p> -->
 						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
 							the necessary regelialia. It is a paradisematic country</p>
 					</div>
@@ -265,101 +278,14 @@
 							<?php if ($this->session->userdata('is_user_login') == true) : ?>
 								<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
 							<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-								<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+								<p class="button text-center"><a href="<?= base_url('admin/dashboard') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
 							<?php else : ?>
 								<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
 							<?php endif; ?>
 						</div>
 					</div>
 				<?php endforeach; ?>
-				<!-- <div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="pricing-entry bg-light pb-4 text-center">
-						<div>
-							<h3 class="mb-3">Cinta Matika Pagi</h3>
-							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
-							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
-						</div>
-						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_1.jpg);"></div>
-						<div class="px-4">
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-								there live the blind texts.</p>
-						</div>
-						<?php if ($this->session->userdata('is_user_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php else : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php endif; ?>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="pricing-entry bg-light pb-4 text-center">
-						<div>
-							<h3 class="mb-3">Cinta Matika Siang</h3>
-							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
-							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
-						</div>
-						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_2.jpg);"></div>
-						<div class="px-4">
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-								there live the blind texts.</p>
-						</div>
-						<?php if ($this->session->userdata('is_user_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php else : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php endif; ?>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="pricing-entry bg-light active pb-4 text-center">
-						<div>
-							<h3 class="mb-3">Cinta Baca Pagi</h3>
-							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
-							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
-						</div>
-						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_3.jpg);"></div>
-						<div class="px-4">
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-								there live the blind texts.</p>
-						</div>
-						<?php if ($this->session->userdata('is_user_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php else : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php endif; ?>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3 ftco-animate">
-					<div class="pricing-entry bg-light pb-4 text-center">
-						<div>
-							<h3 class="mb-3">Cinta Baca Siang</h3>
-							<p class="subheading"><span>Class day:</span> Senin, Rabu, Jumat</p>
-							<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
-							<p><span class="price">Rp. 250.000</span> <span class="per">/ 1 Bulan</span></p>
-						</div>
-						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_5.jpg);"></div>
-						<div class="px-4">
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-								there live the blind texts.</p>
-						</div>
-						<?php if ($this->session->userdata('is_user_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php else : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
-						<?php endif; ?>
-					</div>
-				</div> -->
+
 			</div>
 		</div>
 	</section>

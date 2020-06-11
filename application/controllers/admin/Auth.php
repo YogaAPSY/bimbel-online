@@ -57,7 +57,7 @@ class Auth extends CI_Controller
 					$this->session->set_userdata($login_data);
 
 					$user_id = $this->session->userdata('id_admin');
-
+					$this->session->set_flashdata('message', 'Anda telah berhasil Sign In!.');
 					redirect(base_url('admin/dashboard'), 'refresh');
 				} else {
 					$this->session->set_flashdata('abort', 'Username atau Password yang anda masukkan salah.');

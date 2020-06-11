@@ -51,8 +51,8 @@ class Home extends CI_Controller
 
 	public function riwayat()
 	{
-		if ($this->session->userdata('is_user_login') == TRUE) {
-			redirect('/', 'refresh');
+		if ($this->session->userdata('is_admin_login') == TRUE) {
+			redirect('admin/dashboard', 'refresh');
 		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
 			redirect('auth/login');
 		}
@@ -63,7 +63,11 @@ class Home extends CI_Controller
 
 	public function form()
 	{
-
+		if ($this->session->userdata('is_admin_login') == TRUE) {
+			redirect('admin/dashboard', 'refresh');
+		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
+			redirect('auth/login');
+		}
 
 		if ($this->input->post('submit')) {
 
@@ -117,6 +121,9 @@ class Home extends CI_Controller
 					if ($result && $result2) {
 						$this->session->set_flashdata('message', 'sukses daftar lanjutkan pembayaran');
 						redirect(base_url('siswa/riwayat'), 'refresh');
+					} else {
+						$this->session->set_flashdata('abort', 'Gagal daftar, ulangi pendaftaran atau hubungi admin.');
+						redirect(base_url('siswa/home/form'), 'refresh');
 					}
 				}
 			}

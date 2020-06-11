@@ -29,20 +29,17 @@ class Siswa extends CI_Controller
 	{
 		$result = $this->siswa_model->make_active($id);
 
-		if ($result) {
-			// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
-			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
-		}
+		// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
+		redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
 	}
 
 	public function make_inactive($id)
 	{
 		$result = $this->siswa_model->make_inactive($id);
 
-		if ($result) {
-			// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
-			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
-		}
+
+		// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
+		redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
 	}
 
 	public function detail_siswa($id)
