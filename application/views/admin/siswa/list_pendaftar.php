@@ -62,7 +62,14 @@
     											<td><?= $siswa['no_hp']; ?></td>
     											<td><?= get_nama_kelas($siswa['id_kelas']); ?></td>
     											<td><?php
-													echo ($siswa['status'] == 1) ? 'Aktif' : 'Tidak Aktif'; ?></td>
+													if ($siswa['status'] == 1) : ?>
+    													<a href="<?= base_url('admin/siswa/make_inactive/' . $siswa['id_pendaftaran']) ?>" class="badge"><span class="badge badge-primary">Active</span></a>
+    												<?php elseif ($siswa['status'] == 2 && $siswa['status_pembayaran'] == 1) : ?>
+    													<a href="<?= base_url('admin/siswa/make_active/' . $siswa['id_pendaftaran']) ?>" class="badge"><span class="badge badge-warning">Inactive</span></a>
+    												<?php else : ?>
+    													<span class="badge badge-warning">Inactive</span>
+    												<?php endif; ?>
+    											</td>
     											<td><?php
 													echo ($siswa['status_pembayaran'] == 1) ? 'Berhasil' : (($siswa['status_pembayaran'] == 2) ? 'Menunggu Persetujuan' : 'Belum Bayar'); ?></td>
     											<!-- <td>

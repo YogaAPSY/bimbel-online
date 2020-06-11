@@ -25,6 +25,26 @@ class Siswa extends CI_Controller
 		$this->load->view('admin/layout_admin', $data);
 	}
 
+	public function make_active($id)
+	{
+		$result = $this->siswa_model->make_active($id);
+
+		if ($result) {
+			// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
+			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
+		}
+	}
+
+	public function make_inactive($id)
+	{
+		$result = $this->siswa_model->make_inactive($id);
+
+		if ($result) {
+			// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
+			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
+		}
+	}
+
 	public function detail_siswa($id)
 	{
 		$data['title'] = 'Siswa';
@@ -175,14 +195,6 @@ class Siswa extends CI_Controller
 			$this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
 			redirect(base_url('admin/siswa/detail/' . $id), 'refresh');
 		}
-	}
-
-	public function make_active($id)
-	{
-	}
-
-	public function make_inactive($id)
-	{
 	}
 
 	public function laporan()

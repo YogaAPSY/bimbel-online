@@ -92,6 +92,20 @@ class Siswa_model extends CI_Model
 		return true;
 	}
 
+	public function make_active($id)
+	{
+		$this->db->where('id_pendaftaran', $id);
+		$this->db->update('xx_pendaftaran', array('status' => 1));
+		return true;
+	}
+
+	public function make_inactive($id)
+	{
+		$this->db->where('id_pendaftaran', $id);
+		$this->db->update('xx_pendaftaran', array('status' => 2));
+		return true;
+	}
+
 	public function update_user($data, $id)
 	{
 		$this->db->where('id_user', $id);
