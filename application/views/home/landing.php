@@ -68,8 +68,7 @@
 						</div>
 						<div class="media-body p-2 mt-3">
 							<h3 class="heading">Guru Bersertifikat</h3>
-							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-								unorthographic.</p>
+							<p>Semua Guru yang mengajar bersertifikat resmi</p>
 						</div>
 					</div>
 				</div>
@@ -80,8 +79,7 @@
 						</div>
 						<div class="media-body p-2 mt-3">
 							<h3 class="heading">Pendidikan khusus</h3>
-							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-								unorthographic.</p>
+							<p>Pendidikan khusus untuk anak dari 3-17 tahun</p>
 						</div>
 					</div>
 				</div>
@@ -92,8 +90,7 @@
 						</div>
 						<div class="media-body p-2 mt-3">
 							<h3 class="heading">Buku &amp; Perpustakaan</h3>
-							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-								unorthographic.</p>
+							<p>Dilengkapi perpustakaan yang telah disediakan untuk anak anak yang ingin menambah pengetahuan</p>
 						</div>
 					</div>
 				</div>
@@ -104,8 +101,7 @@
 						</div>
 						<div class="media-body p-2 mt-3">
 							<h3 class="heading">Sertifikasi</h3>
-							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-								unorthographic.</p>
+							<p>Stiap anak yang lulus akan mendapatkan sertifikat sesuai kelas yang dipilih</p>
 						</div>
 					</div>
 				</div>
@@ -119,27 +115,28 @@
 				<div class="col-md-5 order-md-last wrap-about py-5 wrap-about bg-light">
 					<div class="text px-4 ftco-animate">
 						<h2 class="mb-4">Selamat datang di B'Smart Palembang</h2>
-						<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it
-							would have been rewritten a thousand times and everything that was left from its origin
-							would be the word.</p>
-						<p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
-							ocean. A small river named Duden flows by their place and supplies it with the necessary
-							regelialia. And if she hasn’t been rewritten, then they are still using her.</p>
+						<p>B’Smart Rumah Belajar adalah sebuah lembaga pendidikan non formal yang berada di
+							bawah naungan Yayasan Prima Bintang Bunda. Berdiri pada bulan Desember tahun 2007 di
+							Surabaya.</p>
+						<p>Lembaga ini berkonsentrasi pada program-program belajar yang ditujukan untuk
+							mengembangkan serta mengoptimalkan potensi kecerdasan anak. Diharapkan
+							keberadaan B’Smart dapat menjadi mitra terbaik bagi orang tua dan sekolah dalam
+							program pengembangan kecerdasan anak.</p>
 						<p><a href="<?= base_url(); ?>Home/tentang" class="btn btn-secondary px-4 py-3">Read More</a></p>
 					</div>
 				</div>
 				<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
 					<h2 class="mb-4">Apa yang kita tawarkan</h2>
-					<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it
-						would have been rewritten a thousand times and everything that was left from its origin would be
-						the word.</p>
+					<p>Yayasan Prima Bintang Bunda telah membuat program belajar bagi anak usia 3-8 tahun
+						yang dirancang untuk mengasah ketrampilan berpikir tingkat tinggi (high order thinking skill)
+						tersebut. Khusus bagi anak-anak berusia 4-6 tahun.</p>
 					<div class="row mt-5">
 						<div class="col-lg-6">
 							<div class="services-2 d-flex">
 								<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-security"></span></div>
 								<div class="text">
 									<h3>Keselamatan</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>Point ini sangat lah kami jaga karna keselamatan adalah nomor satu dari bimble kami</p>
 								</div>
 							</div>
 						</div>
@@ -147,8 +144,9 @@
 							<div class="services-2 d-flex">
 								<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-reading"></span></div>
 								<div class="text">
-									<h3>Kelas Reguler</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<h3>Kategori Kelas</h3>
+									<p> Khusus bagi anak-anak berusia 4-6 tahun, tersedia program CintaBACA dan
+										CintaMATIKA.</p>
 								</div>
 							</div>
 						</div>
@@ -157,7 +155,7 @@
 								<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-diploma"></span></div>
 								<div class="text">
 									<h3>Guru Bersertifikat</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>Semua Guru yang mengajar bersertifikat resmi</p>
 								</div>
 							</div>
 						</div>
@@ -166,16 +164,7 @@
 								<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-education"></span></div>
 								<div class="text">
 									<h3>Ruang Kelas yang Cukup</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="services-2 d-flex">
-								<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-jigsaw"></span></div>
-								<div class="text">
-									<h3>Pelajaran Kreatif</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>Terdapat 8 ruang kelas</p>
 								</div>
 							</div>
 						</div>
@@ -184,7 +173,7 @@
 								<div class="icon mt-2 mr-3 d-flex justify-content-center align-items-center"><span class="flaticon-kids"></span></div>
 								<div class="text">
 									<h3>Fasilitas olahraga</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+									<p>Ada fasilitas olahraga berupa lapangan basket dan lapangan futsal</p>
 								</div>
 							</div>
 						</div>
@@ -200,9 +189,7 @@
 			<div class="row">
 				<div class="col-md-9">
 					<h2>Mengajari Anak Anda Beberapa Sikap Baik</h2>
-					<p class="mb-0">A small river named Duden flows by their place and supplies it with the necessary
-						regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
-						mouth.</p>
+					<p class="mb-0">belajar itu mudah dan menyenangkan!</p>
 				</div>
 				<div class="col-md-3 d-flex align-items-center">
 					<?php if ($this->session->userdata('is_user_login') == true) : ?>
@@ -223,8 +210,8 @@
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
 					<h2 class="mb-4"><span>Kursus</span> Kami</h2>
-					<p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-						necessary regelialia. It is a paradisematic country</p>
+					<p>Khusus bagi anak-anak berusia 4-6 tahun, tersedia program CintaBACA dan
+						CintaMATIKA.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -233,8 +220,7 @@
 					<div class="text bg-light p-4">
 						<h3><a href="#">Cinta Baca</a></h3>
 						<!-- <p class="subheading"><span>Class time:</span> 9:00am - 10am</p> -->
-						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
-							the necessary regelialia. It is a paradisematic country</p>
+						<p>Kelas ini mengajarkan anak untuk bisa membaca dengan cepat dan mudah</p>
 					</div>
 				</div>
 				<div class="col-md-6 course d-lg-flex ftco-animate">
@@ -242,8 +228,7 @@
 					<div class="text bg-light p-4">
 						<h3><a href="#">Cinta Matematika</a></h3>
 						<!-- <p class="subheading"><span>Class time:</span> 9:00am - 10am</p> -->
-						<p>Separated they live in. A small river named Duden flows by their place and supplies it with
-							the necessary regelialia. It is a paradisematic country</p>
+						<p>Kelas ini mengajarkan anak kita untuk bisa berhitung dan mengasah logika mereka</p>
 					</div>
 				</div>
 			</div>
@@ -255,8 +240,7 @@
 			<div class="row justify-content-center mb-5 pb-2">
 				<div class="col-md-8 text-center heading-section ftco-animate">
 					<h2 class="mb-4"><span>Daftar</span> Kelas</h2>
-					<p>Separated they live in. A small river named Duden flows by their place and supplies it with the
-						necessary regelialia. It is a paradisematic country</p>
+					<p>Seluruh daftar kelas yang ada di bimble b'smart kota palembang</p>
 				</div>
 			</div>
 			<div class="row">

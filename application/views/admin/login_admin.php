@@ -64,7 +64,7 @@
 					B'Smart Palembang
 				</span>
 				<span class="login100-form-title p-b-48">
-					<i class="zmdi zmdi-font"></i>
+					<img src="<?= base_url(); ?>assets/AdminBsb/login/images/logo.png" alt="">
 				</span>
 
 				<div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
