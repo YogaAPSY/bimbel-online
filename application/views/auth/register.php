@@ -57,32 +57,16 @@
 		</div>
 	</nav>
 	<!-- END nav -->
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
-	<?php if ($this->session->flashdata('message')) : ?>
-		<script type="text/javascript">
-			swal({
-				title: "BERHASIL !!!",
-				text: "<?php echo $this->session->flashdata('message'); ?>",
-				showConfirmButton: true,
-				type: 'success'
-			});
-		</script>
-	<?php endif; ?>
-	<?php if ($this->session->flashdata('abort')) : ?>
-		<script type="text/javascript">
-			swal({
-				title: "ERROR !!!",
-				text: "<?php echo $this->session->flashdata('abort'); ?>",
-				showConfirmButton: true,
-				type: 'error'
-			});
-		</script>
-	<?php endif; ?>
+
 	<div class="wrapper">
 		<div class="image-holder">
 			<img src="<?= base_url(); ?>assets/User/login/images/registration-form-8.jpg" alt="">
+			<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script> -->
+
 		</div>
+
 		<div class="form-inner">
+
 			<?php $attributes = array('id' => 'registration_form', 'method' => 'post'); ?>
 
 			<?php echo form_open('auth/registration', $attributes); ?>
@@ -90,6 +74,22 @@
 				<h3 style="color: white; font-size: 40px;font-family: ChelseaMarket-Regular;margin: 0;">Sign up</h3>
 				<img src="<?= base_url(); ?>assets/User/login/images/sign-up.png" alt="" class="sign-up-icon">
 			</div>
+
+
+			<?php if ($this->session->flashdata('abort')) : ?>
+				<div class="alert alert-primary">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+					<?= $this->session->flashdata('abort') ?>
+				</div>
+				<!-- <script type="text/javascript">
+					swal({
+						title: "ERROR !!!",
+						text: "<?php echo $this->session->flashdata('abort'); ?>",
+						showConfirmButton: true,
+						type: 'error'
+					});
+				</script> -->
+			<?php endif; ?>
 			<div class="form-group">
 				<label style="color: white;" for="">Username:</label>
 				<input type="text" name="username" class="form-controllogin" data-validation="length alphanumeric" data-validation-length="3-12">

@@ -40,7 +40,7 @@
 
     						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    								<center><img style="width:300px;height:250px;" src="<?= base_url(); ?>assets/User/images/bg_2.jpg"></center>
+    								<center><img style="width:300px;height:250px;" src="<?= base_url(); ?>assets/<?= !empty($detail['foto']) ? 'upload/foto/' . $detail['foto'] : 'User/images/bg_2.jpg' ?>"></center>
     							</div>
     						</div>
 

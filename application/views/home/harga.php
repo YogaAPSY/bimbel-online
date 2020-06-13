@@ -22,7 +22,7 @@
 							<h3 class="mb-3"><?= $kel['judul_kelas'] ?></h3>
 							<p class="subheading"><span>Class day:</span> <?= $kel['jadwal_kelas'] ?></p>
 							<p class="subheading"><span>Class time:</span> <?= $kel['waktu_kelas'] ?></p>
-							<p><span class="price">Rp. <?= $kel['harga_kelas'] ?></span> <span class="per">/ Bulan</span></p>
+							<p><span class="price">Rp. <?= number_format($kel['harga_kelas']) ?></span> <span class="per">/ Bulan</span></p>
 						</div>
 						<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_<?= $i++; ?>.jpg);"></div>
 						<div class="px-4">

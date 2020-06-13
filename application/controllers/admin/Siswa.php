@@ -37,9 +37,13 @@ class Siswa extends CI_Controller
 	{
 		$result = $this->siswa_model->make_inactive($id);
 
-
+		if ($this->uri->segment(3) == 'kelas_siswa') {
+			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
+		} else {
+			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
+		}
 		// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
-		redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
+
 	}
 
 	public function detail_siswa($id)
@@ -143,10 +147,10 @@ class Siswa extends CI_Controller
 				$result = $this->siswa_model->update_user($data2, $id);
 				$result2 = $this->siswa_model->update_profile($data, $id);
 				if ($result && $result2) {
-					$this->session->set_flashdata('message', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('message', 'Profile siswa sudah berhasil di edit');
 					redirect(base_url('admin/siswa'), 'refresh');
 				} else {
-					$this->session->set_flashdata('abort', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('abort', 'Profile siswa gagal di edit');
 					redirect(base_url('admin/siswa/edit_siswa/' . $id), 'refresh');
 				}
 			}

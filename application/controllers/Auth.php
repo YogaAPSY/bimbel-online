@@ -45,31 +45,31 @@ class Auth extends CI_Controller
 				$data_user = $this->auth_model->data_user($data['username']);
 
 				//echo json_encode($result);
-				$verification = $this->auth_model->is_verify($data);
+				// $verification = $this->auth_model->is_verify($data);
 
-				if ($verification == false) {
-					$this->session->set_flashdata('abort', 'Akun yang anda masukkan tidak terdaftar atau tidak aktif!');
-					redirect(base_url('auth/login', 'refresh'));
+				// if ($verification == false) {
+				// 	$this->session->set_flashdata('abort', 'Akun yang anda masukkan tidak terdaftar atau tidak aktif!');
+				// 	redirect(base_url('auth/login', 'refresh'));
+				// } else {
+				if ($result) {
+					$login_data = array(
+						'id_user' => $data_user['id_user'],
+						'email' => $data_user['email'],
+						'username' => $data_user['username'],
+						'nama' => $data_user['nama'],
+						'is_user_login' => TRUE
+					);
+
+					$this->session->set_userdata($login_data);
+
+					$user_id = $this->session->userdata('id_user');
+					$this->session->set_flashdata('message', 'Anda sudah berhasil login!');
+					redirect(base_url('home'), 'refresh');
 				} else {
-					if ($result) {
-						$login_data = array(
-							'id_user' => $data_user['id_user'],
-							'email' => $data_user['email'],
-							'username' => $data_user['username'],
-							'nama' => $data_user['nama'],
-							'is_user_login' => TRUE
-						);
-
-						$this->session->set_userdata($login_data);
-
-						$user_id = $this->session->userdata('id_user');
-						$this->session->set_flashdata('message', 'Anda sudah berhasil login!');
-						redirect(base_url('home'), 'refresh');
-					} else {
-						$this->session->set_flashdata('abort', 'Email atau Password yang anda masukkan salah.');
-						redirect(base_url('auth/login'), 'refresh');
-					}
+					$this->session->set_flashdata('abort', 'Email atau Password yang anda masukkan salah.');
+					redirect(base_url('auth/login'), 'refresh');
 				}
+				// }
 			}
 		} else {
 			$data['title'] = 'Login';
