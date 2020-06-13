@@ -92,10 +92,10 @@ class Owner extends CI_Controller
 				$result = $this->owner_model->insert_into_admin($data);
 
 				if ($result) {
-					$this->session->set_flashdata('message', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('message', 'you are successfully registerd! Please check your email to activated account');
 					redirect(base_url('admin/owner'), 'refresh');
 				} else {
-					$this->session->set_flashdata('abort', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('abort', 'you are successfully registerd! Please check your email to activated account');
 					redirect(base_url('admin/owner/add_kelas'), 'refresh');
 				}
 			}
@@ -173,10 +173,10 @@ class Owner extends CI_Controller
 				$result = $this->owner_model->edit_into_admin($data, $id);
 
 				if ($result) {
-					$this->session->set_flashdata('message', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('message', 'you are successfully registerd! Please check your email to activated account');
 					redirect(base_url('admin/owner'), 'refresh');
 				} else {
-					$this->session->set_flashdata('abort', '<p class="alert alert-success">you are successfully registerd! Please check your email to activated account</p>');
+					$this->session->set_flashdata('abort', 'you are successfully registerd! Please check your email to activated account');
 					redirect(base_url('admin/owner/edit_user/' . $id), 'refresh');
 				}
 			}

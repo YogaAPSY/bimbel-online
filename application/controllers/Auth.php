@@ -29,8 +29,7 @@ class Auth extends CI_Controller
 				$data = array(
 					'errors' => validation_errors()
 				);
-				var_dump($data['erros']);
-				exit();
+
 				$this->session->set_flashdata('abort', $data['errors']);
 				redirect(base_url('auth/login'), 'refresh');
 			} else {

@@ -37,11 +37,11 @@ class Siswa extends CI_Controller
 	{
 		$result = $this->siswa_model->make_inactive($id);
 
-		if ($this->uri->segment(3) == 'kelas_siswa') {
-			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
-		} else {
-			redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
-		}
+		// if ($this->uri->segment(3) == 'kelas_siswa') {
+		// 	redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
+		// } else {
+		redirect(base_url('admin/siswa/pendaftar/'), 'refresh');
+		// }
 		// $this->session->set_flashdata('message', 'Berhasil! Pembayaran berhasil di konfirmasi');
 
 	}
