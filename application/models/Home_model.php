@@ -47,4 +47,12 @@ class Home_model extends CI_Model
 		$query = $this->db->get();
 		return $query->row_array();
 	}
+
+	public function total($from)
+	{
+		$this->db->select('*');
+		$this->db->from($from);
+		$query = $this->db->get();
+		return $query->num_rows();
+	}
 }

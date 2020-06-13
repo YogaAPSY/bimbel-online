@@ -29,6 +29,8 @@
 	<link rel="stylesheet" href="<?= base_url(); ?>assets/User/css/style.css">
 
 
+
+
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
@@ -57,7 +59,27 @@
 		</div>
 	</nav>
 	<!-- END nav -->
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
+	<?php if ($this->session->flashdata('message')) : ?>
+		<script type="text/javascript">
+			swal({
+				title: "BERHASIL !!!",
+				text: "<?php echo $this->session->flashdata('message'); ?>",
+				showConfirmButton: true,
+				type: 'success'
+			});
+		</script>
+	<?php endif; ?>
+	<?php if ($this->session->flashdata('abort')) : ?>
+		<script type="text/javascript">
+			swal({
+				title: "ERROR !!!",
+				text: "<?php echo $this->session->flashdata('abort'); ?>",
+				showConfirmButton: true,
+				type: 'error'
+			});
+		</script>
+	<?php endif; ?>
 	<div class="wrapper">
 		<div class="image-holder">
 			<img src="<?= base_url(); ?>assets/User/login/images/registration-form-8.jpg" alt="">

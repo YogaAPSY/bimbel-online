@@ -29,8 +29,9 @@ class Auth extends CI_Controller
 				$data = array(
 					'errors' => validation_errors()
 				);
-
-				$this->session->set_flashdata('error_login', $data['errors']);
+				var_dump($data['erros']);
+				exit();
+				$this->session->set_flashdata('abort', $data['errors']);
 				redirect(base_url('auth/login'), 'refresh');
 			} else {
 				$data = array(
@@ -47,7 +48,7 @@ class Auth extends CI_Controller
 				$verification = $this->auth_model->is_verify($data);
 
 				if ($verification == false) {
-					$this->session->set_flashdata('abort', 'Pendaftaran anda gagal!');
+					$this->session->set_flashdata('abort', 'Akun yang anda masukkan tidak terdaftar atau tidak aktif!');
 					redirect(base_url('auth/login', 'refresh'));
 				} else {
 					if ($result) {
@@ -137,10 +138,12 @@ class Auth extends CI_Controller
 
 
 			if ($this->form_validation->run() == FALSE) {
+				$data = array(
+					'errors' => validation_errors()
+				);
 
-				$data['title'] = 'Registration';
-				$this->session->set_flashdata('abort', '<p class="alert alert-success">Pendaftaran anda Gagal!</p>');
-				$this->load->view('register', $data);
+				$this->session->set_flashdata('abort', $data['errors']);
+				redirect(base_url('auth/registration'), 'refresh');
 			} else {
 
 				$data = array(
@@ -157,11 +160,11 @@ class Auth extends CI_Controller
 				$result = $this->auth_model->insert_into_users($data);
 
 				if ($result) {
-					$this->session->set_flashdata('message', '<p class="alert alert-success">Pendaftaran anda berhasil!</p>');
+					$this->session->set_flashdata('message', 'Pendaftaran anda berhasil!');
 					redirect(base_url('auth/login'), 'refresh');
 				} else {
-					$this->session->set_flashdata('abort', '<p class="alert alert-success">Pendaftaran anda Gagal!</p>');
-					redirect(base_url('auth/register'), 'refresh');
+					$this->session->set_flashdata('abort', 'Pendaftaran anda Gagal!');
+					redirect(base_url('auth/registration'), 'refresh');
 				}
 			}
 		} else {

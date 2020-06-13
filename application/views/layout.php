@@ -26,7 +26,27 @@
 </head>
 
 <body>
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
+	<?php if ($this->session->flashdata('message')) : ?>
+		<script type="text/javascript">
+			swal({
+				title: "BERHASIL !!!",
+				text: "<?php echo $this->session->flashdata('message'); ?>",
+				showConfirmButton: true,
+				type: 'success'
+			});
+		</script>
+	<?php endif; ?>
+	<?php if ($this->session->flashdata('abort')) : ?>
+		<script type="text/javascript">
+			swal({
+				title: "ERROR !!!",
+				text: "<?php echo $this->session->flashdata('abort'); ?>",
+				showConfirmButton: true,
+				type: 'error'
+			});
+		</script>
+	<?php endif; ?>
 	<!-- Navbar File-->
 	<?php include('include/navbar.php'); ?>
 	<!--main content start-->

@@ -95,7 +95,7 @@
 	<div class="container">
 		<div class="row justify-content-center mb-5 pb-2">
 			<div class="col-md-8 text-center heading-section heading-section-black ftco-animate">
-				<h2 class="mb-4"><span>20 Years of</span> Experience</h2>
+				<h2 class="mb-4"><span>13 Years of</span> Experience</h2>
 				<p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
 			</div>
 		</div>
@@ -106,8 +106,8 @@
 						<div class="block-18">
 							<div class="icon"><span class="flaticon-doctor"></span></div>
 							<div class="text">
-								<strong class="number" data-number="18">0</strong>
-								<span>Certified Teachers</span>
+								<strong class="number" data-number="<?= $total_admin; ?>">0</strong>
+								<span>Total Admin</span>
 							</div>
 						</div>
 					</div>
@@ -115,8 +115,8 @@
 						<div class="block-18">
 							<div class="icon"><span class="flaticon-doctor"></span></div>
 							<div class="text">
-								<strong class="number" data-number="351">0</strong>
-								<span>Successful Kids</span>
+								<strong class="number" data-number="<?= $total_pendaftar; ?>">0</strong>
+								<span>Total Pendaftar</span>
 							</div>
 						</div>
 					</div>
@@ -124,8 +124,8 @@
 						<div class="block-18">
 							<div class="icon"><span class="flaticon-doctor"></span></div>
 							<div class="text">
-								<strong class="number" data-number="564">0</strong>
-								<span>Happy Parents</span>
+								<strong class="number" data-number="<?= $total_user; ?>">0</strong>
+								<span>Total Siswa</span>
 							</div>
 						</div>
 					</div>
@@ -133,8 +133,8 @@
 						<div class="block-18">
 							<div class="icon"><span class="flaticon-doctor"></span></div>
 							<div class="text">
-								<strong class="number" data-number="300">0</strong>
-								<span>Awards Won</span>
+								<strong class="number" data-number="<?= $total_kelas; ?>">0</strong>
+								<span>Total Kelas</span>
 							</div>
 						</div>
 					</div>

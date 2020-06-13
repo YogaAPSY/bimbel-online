@@ -22,6 +22,11 @@ class Home extends CI_Controller
 
 	public function tentang()
 	{
+		$data['total_user'] = $this->home_model->total('xx_users');
+
+		$data['total_kelas'] = $this->home_model->total('xx_kelas');
+		$data['total_pendaftar'] = $this->home_model->total('xx_pendaftaran');
+		$data['total_admin'] = $this->home_model->total('xx_admin');
 		$data['title'] = 'tentang';
 		$data['layout'] = 'home/tentang';
 		$this->load->view('layout', $data);

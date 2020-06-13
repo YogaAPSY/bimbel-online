@@ -41,4 +41,20 @@ class Siswa_model extends CI_Model
 		//echo $this->db->last_query();
 		return $query->row_array();
 	}
+
+	public function insert_profile($data, $id)
+	{
+
+		$query = $this->db->get_where('xx_profile', array('id_user' => $id));
+		$result = $query->row_array();
+
+		if ($result == null) {
+			$this->db->insert('xx_profile', $data);
+			return true;
+		} else {
+			$this->db->where('id_user', $data['id_user']);
+			$this->db->update('xx_profile', $data);
+			return true;
+		}
+	}
 }
