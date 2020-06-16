@@ -64,7 +64,7 @@
 							<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
 								<div class="form-group">
 									<div class="form-line">
-										<input type="text" value="<?= $detail['username'] ?>" class="form-control" placeholder="Ex: blablacrocxxx" required autocomplete="off" disabled />
+										<input type="text" value="<?= $detail['username'] ?>" class="form-control" placeholder="Ex: blablacrocxxx" required autocomplete="off" readonly />
 									</div>
 								</div>
 							</div>

@@ -25,7 +25,7 @@
 				</div>
 				<div class="text bg-light p-4">
 					<h3><a href="#">Cinta Baca</a></h3>
-					<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+					<!-- <p class="subheading"><span>Class time:</span> 9:00am - 10am</p> -->
 					<p>Separated they live in. A small river named Duden flows by their place and supplies it with
 						the necessary regelialia. It is a paradisematic country</p>
 				</div>
@@ -35,7 +35,7 @@
 				</div>
 				<div class="text bg-light p-4">
 					<h3><a href="#">Cinta Matematika</a></h3>
-					<p class="subheading"><span>Class time:</span> 9:00am - 10am</p>
+					<!-- <p class="subheading"><span>Class time:</span> 9:00am - 10am</p> -->
 					<p>Separated they live in. A small river named Duden flows by their place and supplies it with
 						the necessary regelialia. It is a paradisematic country</p>
 				</div>

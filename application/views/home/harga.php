@@ -29,11 +29,11 @@
 							<p><?= $kel['deskripsi_kelas'] ?></p>
 						</div>
 						<?php if ($this->session->userdata('is_user_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+							<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Ambil Kelas</a></p>
 						<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Ambil Kelas</a></p>
 						<?php else : ?>
-							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+							<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Ambil Kelas</a></p>
 						<?php endif; ?>
 					</div>
 				</div>

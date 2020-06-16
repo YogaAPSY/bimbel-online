@@ -128,16 +128,7 @@ class Owner extends CI_Controller
 	{
 		if ($this->input->post('edit_user')) {
 
-			$this->form_validation->set_rules(
-				'username',
-				'username',
-				'trim|required|min_length[3]|is_unique[xx_users.username]',
-				array(
-					'required'    => '%s harus diisi!',
-					'is_unique'	=> '%s ini sudah terdaftar!',
-					'min_length'  => '%s minimal 3 karakter!',
-				)
-			);
+
 			$this->form_validation->set_rules(
 				'password',
 				'password',

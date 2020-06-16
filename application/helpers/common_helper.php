@@ -27,7 +27,7 @@ function get_nomor_pendaftaran($id)
 function get_total_siswa($id)
 {
 	$CI = &get_instance();
-	return $CI->db->get_where('xx_pendaftaran', array('id_kelas' => $id))->num_rows();
+	return $CI->db->get_where('xx_pendaftaran', array('id_kelas' => $id, 'status' => 1))->num_rows();
 }
 
 // -----------------------------------------------------------------------------
