@@ -115,9 +115,10 @@ class Owner extends CI_Controller
 			$this->form_validation->set_rules(
 				'username',
 				'username',
-				'trim|required|min_length[3]',
+				'trim|required|min_length[3]|is_unique[xx_users.username]',
 				array(
 					'required'    => '%s harus diisi!',
+					'is_unique'	=> '%s ini sudah terdaftar!',
 					'min_length'  => '%s minimal 3 karakter!',
 				)
 			);
@@ -128,6 +129,16 @@ class Owner extends CI_Controller
 				array(
 					'required'    => '%s harus diisi!',
 					'min_length'  => '%s minimal 3 karakter!',
+				)
+			);
+			$this->form_validation->set_rules(
+				'con_pass',
+				'Confirm Password',
+				'trim|required|min_length[3]|matches[password]',
+				array(
+					'required'   => '%s Harap diisi!',
+					'matches'	 => '%s tidak sama!',
+					'min_length' => '%s minimal 3 karakter!' //edited by wahid
 				)
 			);
 			$this->form_validation->set_rules(
@@ -151,7 +162,11 @@ class Owner extends CI_Controller
 
 			if ($this->form_validation->run() == FALSE) {
 
+				$data = array(
+					'errors' => validation_errors()
+				);
 
+				$this->session->set_flashdata('abort', $data['errors']);
 				$data['title'] = 'Add User';
 				$data['layout'] = 'admin/owner/edit_user';
 
