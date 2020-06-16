@@ -44,7 +44,7 @@
     									<tr>
     										<th>No</th>
     										<th>Nama</th>
-    										<th>Nomor HP</th>
+    										<!-- <th>Nomor HP</th> -->
     										<th>Email</th>
     										<th>Username</th>
 
@@ -59,7 +59,7 @@
     										<tr>
     											<td><?= $i; ?></td>
     											<td><?= $siswa['nama']; ?></td>
-    											<td><?= $siswa['no_hp']; ?></td>
+    											<!-- <td><?= $siswa['no_hp']; ?></td> -->
     											<td><?= $siswa['email']; ?></td>
     											<td><?= $siswa['username'] ?></td>
 

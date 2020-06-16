@@ -37,110 +37,122 @@
     					</div>
     					<div class="body">
 
-
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    						<?php if (isset($detail)) : ?>
     							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    								<center><img style="width:300px;height:250px;" src="<?= base_url(); ?>assets/<?= !empty($detail['foto']) ? 'upload/foto/' . $detail['foto'] : 'User/images/bg_2.jpg' ?>"></center>
+    								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    									<center><img style="width:300px;height:250px;" src="<?= base_url(); ?>assets/<?= !empty($detail['foto']) ? 'upload/foto/' . $detail['foto'] : 'User/images/bg_2.jpg' ?>"></center>
+    								</div>
     							</div>
-    						</div>
 
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Nama</label>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Nama</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['nama'] ?></label>
+    								</div>
     							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
-    							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['nama'] ?></label>
-    							</div>
-    						</div>
 
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Nomor HP</label>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Nomor HP</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['no_hp'] ?></label>
+    								</div>
     							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Tempat / Tanggal Lahir</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['tempat_lahir'] . "/" . $detail['tanggal_lahir'] ?></label>
+    								</div>
     							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['no_hp'] ?></label>
-    							</div>
-    						</div>
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Tempat / Tanggal Lahir</label>
-    							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
-    							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['tempat_lahir'] . "/" . $detail['tanggal_lahir'] ?></label>
-    							</div>
-    						</div>
 
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Umur</label>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Umur</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['umur'] ?></label>
+    								</div>
     							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
-    							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['umur'] ?></label>
-    							</div>
-    						</div>
 
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Jenis Kelamin</label>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Jenis Kelamin</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= get_nama_jenis_kelamin($detail['jenis_kelamin']) ?></label>
+    								</div>
     							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Pendidikan</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['pendidikan'] ?></label>
+    								</div>
     							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= get_nama_jenis_kelamin($detail['jenis_kelamin']) ?></label>
-    							</div>
-    						</div>
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Pendidikan</label>
-    							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
-    							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['pendidikan'] ?></label>
-    							</div>
-    						</div>
 
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Alamat</label>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Alamat</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['alamat'] ?></label>
+    								</div>
     							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
-    							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['alamat'] ?></label>
-    							</div>
-    						</div>
-
-
-
-    						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    							<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
-    								<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Aktif</label>
-    							</div>
-    							<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-    								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
-    							</div>
-    							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['aktif'] ?></label>
-    							</div>
-    						</div>
 
 
+
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Aktif</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><?= $detail['aktif'] ?></label>
+    								</div>
+    							</div>
+    						<?php else : ?>
+    							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    								<div class="col-xs-5 col-sm-5 col-md-2 col-lg-2">
+    									<label style="font-size: 18px;font-weight: normal; padding-left: 0px;">Keterangan</label>
+    								</div>
+    								<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+    									<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
+    								</div>
+    								<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
+    									<label style="font-size: 18px;font-weight: normal;padding-left: 0px;">Siswa ini belum melengkapi Profile</label>
+    								</div>
+    							</div>
+
+    						<?php endif; ?>
 
     						<div class="row clearfix">
 

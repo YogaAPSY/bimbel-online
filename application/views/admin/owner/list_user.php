@@ -60,20 +60,22 @@
 
     									<?php $i = 1;
 										foreach ($list_admin as $admin) : ?>
-    										<tr>
-    											<td><?= $i++; ?></td>
-    											<td><?= $admin['nama'] ?></td>
-    											<td><?= $admin['username'] ?></td>
-    											<td><?= ($admin['status'] == 1) ? 'admin' : 'owner'; ?></td>
-    											<td><?= $admin['created_at'] ?></td>
-    											<td style="text-align: center;vertical-align: middle;">
-    												<center>
-    													<a href="<?= base_url('admin/owner/edit_user/' . $admin['id_admin']) ?>" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;
-    													<!-- <a href="#" id="btn_posisi" title="Delete" data-id="" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a> -->
-    												</center>
-    											</td>
-    										</tr>
-    									<?php endforeach; ?>
+    										<?php if ($admin['id_admin'] != 1) : ?>
+    											<tr>
+    												<td><?= $i++; ?></td>
+    												<td><?= $admin['nama'] ?></td>
+    												<td><?= $admin['username'] ?></td>
+    												<td><?= ($admin['status'] == 1) ? 'admin' : 'owner'; ?></td>
+    												<td><?= $admin['created_at'] ?></td>
+    												<td style="text-align: center;vertical-align: middle;">
+    													<center>
+    														<a href="<?= base_url('admin/owner/edit_user/' . $admin['id_admin']) ?>" data-toggle="tooltip" data-placement="top" title="Edit"><i style="color:#00b0e4;" class="material-icons">description</i></a>&nbsp;
+    														<!-- <a href="#" id="btn_posisi" title="Delete" data-id="" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a> -->
+    													</center>
+    												</td>
+    											</tr>
+    									<?php endif;
+										endforeach; ?>
 
     								</tbody>
     							</table>

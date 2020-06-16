@@ -19,7 +19,7 @@ class Dashboard extends CI_Controller
 	// login functionality
 	public function index()
 	{
-		$data['title'] = 'Dashboard';
+		$data['title'] = 'dashboard';
 		$data['total_user'] = $this->auth_model->total('xx_users');
 		$data['total_kelas'] = $this->auth_model->total('xx_kelas');
 		$data['total_pendaftar'] = $this->auth_model->total('xx_pendaftaran');

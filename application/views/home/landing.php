@@ -253,18 +253,18 @@
 								<h3 class="mb-3"><?= $kel['judul_kelas'] ?></h3>
 								<p class="subheading"><span>Class day:</span> <?= $kel['jadwal_kelas'] ?></p>
 								<p class="subheading"><span>Class time:</span> <?= $kel['waktu_kelas'] ?></p>
-								<p><span class="price">Rp. <?= $kel['harga_kelas'] ?></span> <span class="per">/ Bulan</span></p>
+								<p><span class="price">Rp. <?= number_format($kel['harga_kelas'])	 ?></span> <span class="per">/ Bulan</span></p>
 							</div>
 							<div class="img" style="background-image: url(<?= base_url(); ?>assets/User/images/bg_<?= $i++; ?>.jpg);"></div>
 							<div class="px-4">
 								<p><?= $kel['deskripsi_kelas'] ?></p>
 							</div>
 							<?php if ($this->session->userdata('is_user_login') == true) : ?>
-								<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+								<p class="button text-center"><a href="<?= base_url('home/form') ?>" class="btn btn-primary px-4 py-3">Ambil Kursus</a></p>
 							<?php elseif ($this->session->userdata('is_admin_login') == true) : ?>
-								<p class="button text-center"><a href="<?= base_url('admin/dashboard') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+								<p class="button text-center"><a href="<?= base_url('admin/dashboard') ?>" class="btn btn-primary px-4 py-3">Ambil Kursus</a></p>
 							<?php else : ?>
-								<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Take A Course</a></p>
+								<p class="button text-center"><a href="<?= base_url('auth/login') ?>" class="btn btn-primary px-4 py-3">Ambil Kursus</a></p>
 							<?php endif; ?>
 						</div>
 					</div>

@@ -43,13 +43,7 @@ class Auth extends CI_Controller
 				//over data user ke session
 				$data_user = $this->auth_model->data_user($data['username']);
 
-				//echo json_encode($result);
-				// $verification = $this->auth_model->is_verify($data);
 
-				// if ($verification == false) {
-				// 	$this->session->set_flashdata('abort', 'Akun yang anda masukkan tidak terdaftar atau tidak aktif!');
-				// 	redirect(base_url('auth/login', 'refresh'));
-				// } else {
 				if ($result) {
 					$login_data = array(
 						'id_user' => $data_user['id_user'],

@@ -17,7 +17,8 @@ class Siswa extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Siswa';
+		$data['title'] = 'siswa';
+		$data['title2'] = 'siswa list';
 		$data['list_siswa'] = $this->siswa_model->siswa();
 		// var_dump($data['list_siswa']);
 		// exit();
@@ -48,7 +49,8 @@ class Siswa extends CI_Controller
 
 	public function detail_siswa($id)
 	{
-		$data['title'] = 'Siswa';
+		$data['title'] = 'siswa';
+		$data['title2'] = 'siswa list';
 		// $data['list_siswa'] = $this->siswa_model->list_siswa();
 		$data['detail'] = $this->siswa_model->detail_siswa($id);
 
@@ -113,7 +115,8 @@ class Siswa extends CI_Controller
 
 			if ($this->form_validation->run() == FALSE) {
 
-				$data['title'] = 'Edit User';
+				$data['title'] = 'siswa';
+				$data['title2'] = 'siswa list';
 				$data['layout'] = 'admin/siswa/edit_siswa/';
 
 				$this->load->view('admin/layout_admin', $data);
@@ -160,7 +163,8 @@ class Siswa extends CI_Controller
 			$data['detail'] = $this->siswa_model->detail_siswa($id);
 			// var_dump($data['detail']);
 			// exit();
-			$data['title'] = 'Edit Siswa';
+			$data['title'] = 'siswa';
+			$data['title2'] = 'siswa list';
 			$data['layout'] = 'admin/siswa/edit_siswa';
 			$this->load->view('admin/layout_admin', $data);
 		}
@@ -168,7 +172,8 @@ class Siswa extends CI_Controller
 
 	public function pendaftar()
 	{
-		$data['title'] = 'Siswa';
+		$data['title'] = 'siswa';
+		$data['title2'] = 'siswa pendaftar';
 		$data['list_siswa'] = $this->siswa_model->list_siswa();
 		// var_dump($data['list_siswa']);
 		// exit();
@@ -179,7 +184,8 @@ class Siswa extends CI_Controller
 
 	public function detail($id)
 	{
-		$data['title'] = 'Siswa';
+		$data['title'] = 'siswa';
+		$data['title2'] = 'siswa pendaftar';
 		// $data['list_siswa'] = $this->siswa_model->list_siswa();
 		$data['detail'] = $this->siswa_model->detail($id);
 
@@ -201,7 +207,8 @@ class Siswa extends CI_Controller
 	public function laporan()
 	{
 
-		$data['title'] = 'Laporan';
+		$data['title'] = 'siswa';
+		$data['title2'] = 'siswa laporan';
 		$data['list_laporan'] = $this->siswa_model->list_laporan();
 
 		$data['layout'] = 'admin/siswa/laporan_siswa';
@@ -218,7 +225,9 @@ class Siswa extends CI_Controller
 
 			$data['list_laporan'] = $this->siswa_model->list_laporan($start, $to);
 
-			$data['title'] = 'Laporan';
+			$data['title'] = 'siswa';
+
+			$data['title2'] = 'siswa laporan';
 
 			$data['layout'] = 'admin/siswa/laporan_siswa';
 			$this->load->view('admin/layout_admin', $data);

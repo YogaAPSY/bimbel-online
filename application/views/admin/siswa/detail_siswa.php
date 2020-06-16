@@ -181,15 +181,26 @@
     								<label class="pull-right" style="font-size: 18px;font-weight: normal; padding-left: 0px;">:</label>
     							</div>
     							<div class="col-xs-5 col-sm-5 col-md-9 col-lg-9">
-    								<a href="#" data-toggle="modal" data-target="#myModalfoto"><label style="font-size: 18px;font-weight: normal;padding-left: 0px;"><img src="<?= isset($detail['bukti_pembayaran']) ? base_url('assets/upload/bukti_pembayaran/') . $detail['bukti_pembayaran'] : '#'; ?>" alt="" height="100px" width="100px"></a></label>
+    								<label style="font-size: 18px;font-weight: normal;padding-left: 0px;">
+    									<?php if (($detail['bukti_pembayaran']) != '') : ?>
+    										<a href="#" data-toggle="modal" data-target="#myModalfoto"><label style="font-size: 18px;font-weight: normal;padding-left: 0px;">
+
+    												<img src="<?= isset($detail['bukti_pembayaran']) ? base_url('assets/upload/bukti_pembayaran/') . $detail['bukti_pembayaran'] : '#'; ?>" alt="" height="100px" width="100px">
+
+    										</a>
+    									<?php else : ?>
+    										<span style="color: red;">Pendaftar belum mengupload bukti pendaftaran</span>
+    									<?php endif; ?></label>
     							</div>
     						</div>
     						<div class="row clearfix">
     							<?php if ($detail['status_pembayaran'] == '2') : ?>
     								<a class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 200px;" href="<?= base_url('admin/siswa/konfirmasi/' . $detail['id_pendaftaran']); ?>">Konfirmasi Pembayaran</a>
-    							<?php else : ?>
+    							<?php elseif ($detail['status_pembayaran'] == '1') : ?>
     								<!-- <input type="submit" name="tambah" class="btn btn-primary pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 200px;" value="Konfirmasi Pembayaran"> -->
     								<button type="submit" name="tambah" class="btn btn-danger pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 300px;" disabled>Pembayaran Sudah di Konfirmasi</button>
+    							<?php else : ?>
+    								<button type="submit" name="tambah" class="btn btn-warning pull-right" style="margin-right: 20px;font-size: 16px;height: 40px;width: 300px;" disabled>Menunggu upload bukti transfer</button>
     							<?php endif; ?>
     						</div>
     						</form>

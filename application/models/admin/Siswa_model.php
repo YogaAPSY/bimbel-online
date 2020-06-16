@@ -20,10 +20,10 @@ class Siswa_model extends CI_Model
 
 	public function siswa()
 	{
-		$this->db->select('xx_users.nama, xx_users.email, xx_users.username, xx_users.id_user, xx_profile.*');
+		$this->db->select('xx_users.nama, xx_users.email, xx_users.username, xx_users.id_user');
 		$this->db->from('xx_users');
 
-		$this->db->join('xx_profile', 'xx_profile.id_user = xx_users.id_user');
+		// $this->db->join('xx_profile', 'xx_profile.id_user = xx_users.id_user');
 		// $this->db->where('xx_pendaftaran.status', 1);
 		$this->db->order_by('xx_users.created_at', 'desc');
 		$query = $this->db->get();

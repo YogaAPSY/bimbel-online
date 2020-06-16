@@ -60,33 +60,33 @@
     		<div class="menu">
     			<ul class="list">
     				<li class="header">MAIN NAVIGATION</li>
-    				<li class="active">
+    				<li class="<?php echo ($title == 'dashboard') ? 'active' : ''; ?>">
     					<a href="<?= base_url(); ?>admin/dashboard">
     						<i class="material-icons">home</i>
     						<span>Home</span>
     					</a>
     				</li>
     				<?php if ($this->session->userdata('status') == 1) : ?>
-    					<li>
+    					<li class="<?php echo ($title == 'kelas') ? 'active' : ''; ?>">
     						<a href="<?= base_url(); ?>admin/kelas">
     							<i class="material-icons">local_library</i>
     							<span>Kelas</span>
     						</a>
     					</li>
     				<?php endif; ?>
-    				<li>
+    				<li class="<?php echo ($title == 'siswa') ? 'active' : ''; ?>">
     					<a href="javascript:void(0);" class="menu-toggle">
     						<i class="material-icons">face</i>
     						<span>Siswa</span>
     					</a>
     					<ul class="ml-menu">
-    						<li>
+    						<li class="<?php echo (isset($title2)) ? (($title2 == 'siswa list') ? 'active' : '') : ''; ?>">
     							<a href="<?= base_url(); ?>admin/siswa">List Siswa</a>
     						</li>
-    						<li>
+    						<li class="<?php echo (isset($title2)) ? (($title2 == 'siswa pendaftar') ? 'active' : '') : ''; ?>">
     							<a href="<?= base_url(); ?>admin/siswa/pendaftar">List Pendaftar</a>
     						</li>
-    						<li>
+    						<li class="<?php echo (isset($title2)) ? (($title2 == 'siswa laporan') ? 'active' : '') : ''; ?>">
     							<a href="<?= base_url(); ?>admin/siswa/laporan">Laporan Siswa</a>
     						</li>
     					</ul>
@@ -94,7 +94,7 @@
 
     				<?php if ($this->session->userdata('status') == 2) : ?>
 
-    					<li>
+    					<li class="<?php echo ($title == 'admin') ? 'active' : ''; ?>">
     						<a href="<?= base_url(); ?>admin/owner">
     							<i class="material-icons">local_library</i>
     							<span>Admin</span>
@@ -114,7 +114,7 @@
     		<!-- Footer -->
     		<div class="legal">
     			<div class="copyright">
-    				&copy; 2020 <a href="javascript:void(0);">Created By Geraldine</a>.
+    				&copy; 2020 <a href="javascript:void(0);">Created By Giraldin</a>.
     			</div>
     			<div class="version">
     				<b>Version: </b> 1.0

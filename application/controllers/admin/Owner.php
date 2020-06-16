@@ -20,7 +20,8 @@ class Owner extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Owner';
+		$data['title'] = 'admin';
+
 		$data['list_admin'] = $this->owner_model->list_admin();
 
 		$data['layout'] = 'admin/owner/list_user';
@@ -34,9 +35,10 @@ class Owner extends CI_Controller
 			$this->form_validation->set_rules(
 				'username',
 				'username',
-				'trim|required|min_length[3]',
+				'trim|required|min_length[3]|is_unique[xx_users.username]',
 				array(
 					'required'    => '%s harus diisi!',
+					'is_unique'	=> '%s ini sudah terdaftar!',
 					'min_length'  => '%s minimal 3 karakter!',
 				)
 			);
@@ -47,6 +49,16 @@ class Owner extends CI_Controller
 				array(
 					'required'    => '%s harus diisi!',
 					'min_length'  => '%s minimal 3 karakter!',
+				)
+			);
+			$this->form_validation->set_rules(
+				'con_pass',
+				'Confirm Password',
+				'trim|required|min_length[3]|matches[password]',
+				array(
+					'required'   => '%s Harap diisi!',
+					'matches'	 => '%s tidak sama!',
+					'min_length' => '%s minimal 3 karakter!' //edited by wahid
 				)
 			);
 			$this->form_validation->set_rules(
@@ -70,8 +82,12 @@ class Owner extends CI_Controller
 
 			if ($this->form_validation->run() == FALSE) {
 
+				$data = array(
+					'errors' => validation_errors()
+				);
 
-				$data['title'] = 'Add User';
+				$this->session->set_flashdata('abort', $data['errors']);
+				$data['title'] = 'admin';
 				$data['layout'] = 'admin/owner/add_user';
 
 				$this->load->view('admin/layout_admin', $data);
@@ -81,7 +97,7 @@ class Owner extends CI_Controller
 
 					'status' => $this->security->xss_clean($this->input->post('status')),
 					'nama' => $this->security->xss_clean($this->input->post('nama')),
-
+					'created_by' => $this->session->userdata('nama'),
 					'password' => $this->security->xss_clean(password_hash($this->input->post('password'), PASSWORD_BCRYPT)),
 					'created_at' => date('Y-m-d : h:m:s')
 
@@ -92,17 +108,17 @@ class Owner extends CI_Controller
 				$result = $this->owner_model->insert_into_admin($data);
 
 				if ($result) {
-					$this->session->set_flashdata('message', 'you are successfully registerd! Please check your email to activated account');
+					$this->session->set_flashdata('message', 'Akun berhasil dibuat!');
 					redirect(base_url('admin/owner'), 'refresh');
 				} else {
-					$this->session->set_flashdata('abort', 'you are successfully registerd! Please check your email to activated account');
-					redirect(base_url('admin/owner/add_kelas'), 'refresh');
+					$this->session->set_flashdata('abort', 'Akun gagal dibuat!');
+					redirect(base_url('admin/owner/add_user'), 'refresh');
 				}
 			}
 		} else {
 			// $data['jenis_kelas'] = get_kelas();
 
-			$data['title'] = 'Add User';
+			$data['title'] = 'admin';
 			$data['layout'] = 'admin/owner/add_user';
 			$this->load->view('admin/layout_admin', $data);
 		}
@@ -167,7 +183,7 @@ class Owner extends CI_Controller
 				);
 
 				$this->session->set_flashdata('abort', $data['errors']);
-				$data['title'] = 'Add User';
+				$data['title'] = 'admin';
 				$data['layout'] = 'admin/owner/edit_user';
 
 				$this->load->view('admin/layout_admin', $data);
@@ -177,7 +193,7 @@ class Owner extends CI_Controller
 
 					'status' => $this->security->xss_clean($this->input->post('status')),
 					'nama' => $this->security->xss_clean($this->input->post('nama')),
-
+					'created_by' => $this->session->userdata('nama'),
 					'password' => $this->security->xss_clean(password_hash($this->input->post('password'), PASSWORD_BCRYPT)),
 					'created_at' => date('Y-m-d : h:m:s')
 
@@ -198,7 +214,7 @@ class Owner extends CI_Controller
 		} else {
 			// $data['jenis_kelas'] = get_kelas();
 			$data['detail'] = $this->owner_model->detail_admin($id);
-			$data['title'] = 'Add User';
+			$data['title'] = 'admin';
 			$data['layout'] = 'admin/owner/edit_user';
 			$this->load->view('admin/layout_admin', $data);
 		}

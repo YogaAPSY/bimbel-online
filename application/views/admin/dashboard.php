@@ -11,7 +11,7 @@
     						<i class="material-icons">equalizer</i>
     					</div>
     					<div class="content">
-    						<div class="text">TOTAL ADMIN</div>
+    						<div class="text">TOTAL KELAS</div>
     						<div class="number count-to" data-from="0" data-to="<?= $total_kelas ?>" data-speed="15" data-fresh-interval="20"></div>
     					</div>
     				</div>

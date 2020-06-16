@@ -61,7 +61,6 @@
 	<div class="wrapper">
 		<div class="image-holder">
 			<img src="<?= base_url(); ?>assets/User/login/images/registration-form-8.jpg" alt="">
-			<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script> -->
 
 		</div>
 
@@ -75,20 +74,21 @@
 				<img src="<?= base_url(); ?>assets/User/login/images/sign-up.png" alt="" class="sign-up-icon">
 			</div>
 
+			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
 
 			<?php if ($this->session->flashdata('abort')) : ?>
-				<div class="alert alert-primary">
+				<div class="alert alert-danger">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
 					<?= $this->session->flashdata('abort') ?>
 				</div>
-				<!-- <script type="text/javascript">
+				<script type="text/javascript">
 					swal({
 						title: "ERROR !!!",
 						text: "<?php echo $this->session->flashdata('abort'); ?>",
 						showConfirmButton: true,
 						type: 'error'
 					});
-				</script> -->
+				</script>
 			<?php endif; ?>
 			<div class="form-group">
 				<label style="color: white;" for="">Username:</label>
