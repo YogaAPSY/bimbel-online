@@ -33,7 +33,7 @@
     					<div class="header">
     						<h2 style="font-size: 22px;color:#ad1455;font-weight: bold;">
 
-    							<center>LIST <?= (isset($nama_kelas)) ? "SISWA" . $nama_kelas : "PENDAFTAR"; ?></center>
+    							<center>LIST <?= (isset($nama_kelas)) ? " SISWA " . $nama_kelas : "PENDAFTAR"; ?></center>
     						</h2> <br><br>
     					</div>
 
