@@ -120,7 +120,7 @@ class Auth extends CI_Controller
 			);
 			$this->form_validation->set_rules(
 				'confirmpassword',
-				'Confirm Password',
+				'Konfirmasi Password',
 				'trim|required|min_length[3]|matches[password]',
 				array(
 					'required'   => '%s Harap diisi!',
@@ -136,7 +136,7 @@ class Auth extends CI_Controller
 				);
 
 				$this->session->set_flashdata('abort', $data['errors']);
-				redirect(base_url('auth/registration'), 'refresh');
+				redirect(base_url('auth/registration'));
 			} else {
 
 				$data = array(

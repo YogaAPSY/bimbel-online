@@ -77,7 +77,7 @@
 			<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.4/dist/sweetalert2.all.min.js"></script>
 
 			<?php if ($this->session->flashdata('abort')) : ?>
-				<div class="alert alert-danger">
+				<div class="alert alert-secondary">
 					<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
 					<?= $this->session->flashdata('abort') ?>
 				</div>
@@ -146,9 +146,9 @@
 	<script src="<?= base_url(); ?>assets/User/js/google-map.js"></script>
 	<script src="<?= base_url(); ?>assets/User/js/main.js"></script>
 
+
 	<script src="<?= base_url(); ?>assets/User/login/js/jquery.form-validator.min.js"></script>
 	<script src="<?= base_url(); ?>assets/User/login/js/main.js"></script>
-
 </body>
 
 </html>

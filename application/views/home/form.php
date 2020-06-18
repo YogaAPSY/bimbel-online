@@ -123,7 +123,7 @@
  						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
  							<div class="form-group" style="margin-bottom: 1.8rem;">
  								<div class="form-line">
- 									<input type="number" id="umur" class="form-control" placeholder="Umur" value="<?= (isset($profile['umur']))  ? $profile['umur'] : ""; ?>" name="umur" required autocomplete="off" />
+ 									<input type="number" id="umur" class="form-control" placeholder="Umur" value="<?= (isset($profile['umur']))  ? $profile['umur'] : ""; ?>" name="umur" required autocomplete="off" readonly />
  								</div>
  							</div>
  						</div>

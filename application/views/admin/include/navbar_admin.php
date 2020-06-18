@@ -66,14 +66,14 @@
     						<span>Home</span>
     					</a>
     				</li>
-    				<?php if ($this->session->userdata('status') == 1) : ?>
-    					<li class="<?php echo ($title == 'kelas') ? 'active' : ''; ?>">
-    						<a href="<?= base_url(); ?>admin/kelas">
-    							<i class="material-icons">local_library</i>
-    							<span>Kelas</span>
-    						</a>
-    					</li>
-    				<?php endif; ?>
+
+    				<li class="<?php echo ($title == 'kelas') ? 'active' : ''; ?>">
+    					<a href="<?= base_url(); ?>admin/kelas">
+    						<i class="material-icons">local_library</i>
+    						<span>Kelas</span>
+    					</a>
+    				</li>
+
     				<li class="<?php echo ($title == 'siswa') ? 'active' : ''; ?>">
     					<a href="javascript:void(0);" class="menu-toggle">
     						<i class="material-icons">face</i>
