@@ -49,7 +49,9 @@
     										<th>Status</th>
     										<th>Pembayaran</th>
     										<!-- <th>Bukti Pembayaran</th> -->
-    										<th style="text-align: center;">Action</th>
+    										<?php if ($this->session->userdata('status') == 1) : ?>
+    											<th style="text-align: center;">Action</th>
+    										<?php endif; ?>
     									</tr>
     								</thead>
 
@@ -61,13 +63,21 @@
     											<td><?= $siswa['nama']; ?></td>
     											<td><?= $siswa['no_hp']; ?></td>
     											<td><?= get_nama_kelas($siswa['id_kelas']); ?></td>
-    											<td style="text-align: center;"><?php
-																				if ($siswa['status'] == 1) : ?>
-    													<a href="<?= base_url('admin/siswa/make_inactive/' . $siswa['id_pendaftaran']) ?>"><span class="btn btn-primary">Active</span></a>
-    												<?php elseif ($siswa['status'] == 2 && $siswa['status_pembayaran'] == 1) : ?>
-    													<a href="<?= base_url('admin/siswa/make_active/' . $siswa['id_pendaftaran']) ?>"><span class="btn btn-danger">Inactive</span></a>
+    											<td style="text-align: center;">
+    												<?php if ($this->session->userdata('status') == 1) : ?>
+    													<?php if ($siswa['status'] == 1) : ?>
+    														<a href="<?= base_url('admin/siswa/make_inactive/' . $siswa['id_pendaftaran']) ?>"><span class="btn btn-primary">Active</span></a>
+    													<?php elseif ($siswa['status'] == 2 && $siswa['status_pembayaran'] == 1) : ?>
+    														<a href="<?= base_url('admin/siswa/make_active/' . $siswa['id_pendaftaran']) ?>"><span class="btn btn-danger">Inactive</span></a>
+    													<?php else : ?>
+    														<span class="btn btn-danger">Inactive</span>
+    													<?php endif; ?>
     												<?php else : ?>
-    													<span class="btn btn-danger">Inactive</span>
+    													<?php if ($siswa['status'] == 1) : ?>
+    														<span class="btn btn-primary">Active</span>
+    													<?php else : ?>
+    														<span class="btn btn-danger">Inactive</span>
+    													<?php endif; ?>
     												<?php endif; ?>
     											</td>
     											<td><?php
@@ -75,14 +85,15 @@
     											<!-- <td>
     												image/image.jpg
     											</td> -->
-    											<td style="text-align: center;vertical-align: middle;">
-    												<center>
-    													<a href="<?= base_url('admin/siswa/detail/') . $siswa['id_pendaftaran'] ?>" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
+    											<?php if ($this->session->userdata('status') == 1) : ?>
+    												<td style="text-align: center;vertical-align: middle;">
+    													<center>
+    														<a href="<?= base_url('admin/siswa/detail/') . $siswa['id_pendaftaran'] ?>" data-toggle="tooltip" data-placement="top" title="View"><i style="color:#00b0e4;" class="material-icons">visibility</i></a>&nbsp;
 
-    													<a href="#" id="btn_posisi2" title="Delete" data-id="<?= $siswa['id_pendaftaran'] ?>" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a>
-    												</center>
-    											</td>
-
+    														<a href="#" id="btn_posisi2" title="Delete" data-id="<?= $siswa['id_pendaftaran'] ?>" data-toggle="modal" data-target="#deleteModal"><i style="color:red;" class="material-icons">delete</i></a>
+    													</center>
+    												</td>
+    											<?php endif; ?>
     										</tr>
     									<?php $i++;
 										endforeach; ?>

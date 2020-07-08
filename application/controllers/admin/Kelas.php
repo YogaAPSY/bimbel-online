@@ -12,6 +12,8 @@ class Kelas extends CI_Controller
 			redirect('home');
 		} elseif (!$this->session->userdata('is_admin_login') && !$this->session->userdata('is_user_login')) {
 			redirect('admin/auth/login');
+		} elseif ($this->session->userdata('is_admin_login') == TRUE && $this->session->userdata('status') != 1) {
+			redirect('admin/dashboard');
 		}
 	}
 
