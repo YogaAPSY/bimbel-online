@@ -1,7 +1,7 @@
 # tentang aplikasi
 Bimbel B'smart adalah sistem informasi sederhana untuk pendaftaran siswa bimbel menggunakan Codeigniter 3 dan template adminBSB.
 
-![alt text](https://raw.githubusercontent.com/YogaAPSY/bimble-online/master/Screenshot_78.png)
+![alt text](https://raw.githubusercontent.com/YogaAPSY/bimbel-online/master/Screenshot_78.png)
 
 # cara install
 download atau clone file
