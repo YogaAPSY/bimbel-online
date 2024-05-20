@@ -153,7 +153,7 @@ class Siswa extends CI_Controller
 			// $data['ak1_status'] = $this->profile_model->get_ak1_status_by_id($user_id);
 			// var_dump($data['invoice']);
 			// exit();
-			require_once $_SERVER['DOCUMENT_ROOT'] . '/bimbel-bsmart/vendor/autoload.php';
+			require_once $_SERVER['DOCUMENT_ROOT'] . '/bimbel-online/vendor/autoload.php';
 
 			$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
 

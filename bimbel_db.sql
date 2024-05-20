@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2020 at 06:00 PM
+-- Generation Time: May 20, 2024 at 02:58 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -122,7 +122,9 @@ CREATE TABLE `xx_pendaftaran` (
 
 INSERT INTO `xx_pendaftaran` (`id_pendaftaran`, `id_user`, `id_kelas`, `nomor_pendaftaran`, `status_pembayaran`, `status`, `admin_acc`, `bukti_pembayaran`, `created_at`) VALUES
 (1, 1, 4, 'mtksg202011592258400', 3, 2, '', '', '2020-06-16'),
-(2, 1, 14, 'TESKELAS11592258400', 1, 1, 'Bu Eka', '1TESKELAS11592258400.png', '2020-06-16');
+(2, 1, 14, 'TESKELAS11592258400', 1, 1, 'Bu Eka', '1TESKELAS11592258400.png', '2020-06-16'),
+(3, 1, 1, 'bcapg2020111160198000', 3, 2, '', '', '2023-08-28'),
+(4, 1, 1, 'bcapg2020114338940400', 3, 2, '', '', '2024-05-20');
 
 -- --------------------------------------------------------
 
@@ -150,7 +152,7 @@ CREATE TABLE `xx_profile` (
 --
 
 INSERT INTO `xx_profile` (`id_profile`, `id_user`, `foto`, `nama`, `no_hp`, `tempat_lahir`, `tanggal_lahir`, `umur`, `pendidikan`, `jenis_kelamin`, `alamat`, `created_at`) VALUES
-(1, 1, '1.jpeg', 'Yoga Anugrah Pratama.SY', '08981001119', 'Palembang', '2006-06-06', 14, 'SD', 'L', 'Jl. Ade Irma Nasution No.123, Sungai Pangeran, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan 30127.', '2020-06-16');
+(1, 1, '1.jpeg', 'Yoga Anugrah Pratama.SY', '08981001119', 'Palembang', '2006-06-06', 14, 'SD', 'L', 'Jl. Ade Irma Nasution No.123, Sungai Pangeran, Kec. Ilir Tim. I, Kota Palembang, Sumatera Selatan 30127.', '2024-05-20');
 
 -- --------------------------------------------------------
 
@@ -244,7 +246,7 @@ ALTER TABLE `xx_kelas`
 -- AUTO_INCREMENT for table `xx_pendaftaran`
 --
 ALTER TABLE `xx_pendaftaran`
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `xx_profile`
